@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+    <!--顶部信息-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/colorPrimaryDark"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:src="@mipmap/ic_title_back_arrow"
+            android:id="@+id/usehelp_queryRecord_return"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginRight="40dp"
+            android:gravity="center"
+            android:text="关于查询"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp" />
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textColor="@color/fontcolor"
+            android:textSize="14sp"
+            android:padding="10dp"
+            android:text="查询有查询记录（入场记录，出场记录，收费记录）和查询在场车辆，查询记录又分为按时间查询和输入车牌查询，时间查询是选择一个时间段，输入车牌则是精准查询记录。点击主页上方的放大镜按钮进入查询，或者在主页选项当中选择查询记录或者查询在场车辆。按时间查询点击上方时间会出现时间选择器选择时间，按车牌查询在记录页面点击上方的放大镜进入输入车牌查询记录。查询在场车辆，输入至少三位车牌号查询车牌号。"/>
+    </ScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1.5"
+        android:orientation="horizontal"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="15dp">
+        <View
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"/>
+        <com.youth.banner.Banner
+            android:id="@+id/usehelp_queryRecord_banner"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2.3">
+
+        </com.youth.banner.Banner>
+        <View
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"/>
+    </LinearLayout>
+</LinearLayout>

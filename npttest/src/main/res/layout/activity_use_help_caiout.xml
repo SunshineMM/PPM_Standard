@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+    <!--顶部信息-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/colorPrimaryDark"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:src="@mipmap/ic_title_back_arrow"
+            android:id="@+id/usehelp_carout_return"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginRight="40dp"
+            android:gravity="center"
+            android:text="关于车辆出场"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp" />
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textColor="@color/fontcolor"
+            android:textSize="14sp"
+            android:padding="10dp"
+            android:text="车辆出场操作和入场操作大同小异，除了上诉提到的车牌识别出入场和手动输入车牌出入场车辆出场还多了一种方式，在主页点击在场车辆进入在场车辆列表页面。在场车辆列表每个列表都有一个修改和出场的按钮，修改则是修改校对车牌号码，出场就是执行出场操作了。点击出场都会进入到车辆收费的界面，车辆收费显示收费信息和金额。收费提供了三种收费方式，现金支付、微信支付、支付宝支付。点击确定收费按钮显示收费的方式，微信支付和支付宝会显示出二维码，支付完成后，自动跳转到出场成功的页面。\n\n【注意】出场收费如显示禁止通行，请查看禁止通行的原由，是否频繁操作重复进出，如为通道闸禁止通行，请检查平台是否设置费率。微信支付和支付宝支付出现了异常，车主已经支付，但软件因某种异常（如网络故障）无法收到通知信息，请检查在场车辆列表中该车辆是否出场。"/>
+    </ScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1.5"
+        android:orientation="horizontal"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="15dp">
+        <View
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"/>
+        <com.youth.banner.Banner
+            android:id="@+id/usehelp_carout_banner"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2.3">
+
+        </com.youth.banner.Banner>
+        <View
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"/>
+    </LinearLayout>
+</LinearLayout>

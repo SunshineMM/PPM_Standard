@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tl="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#eee">
+    <android.support.design.widget.TabLayout
+        android:id="@+id/fg2_tabs"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+    <com.example.npttest.viewpager.My_Viewpager
+        android:id="@+id/fg2_vp"
+        android:layout_width="match_parent"
+        android:layout_height="0px"
+        android:layout_weight="1"
+        android:background="@android:color/white" />
+</LinearLayout>

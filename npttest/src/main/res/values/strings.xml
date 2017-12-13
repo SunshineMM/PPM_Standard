@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">掌上停车管理</string>
+    <!-- 授权验证失败 -->
+    <string name="failed_file_timeout">授权文件已过期，请重新申请授权文件！</string>
+    <string name="failed_noFile_find">没有找到相应的本地授权许可数据文件,请检查程序是否已经激活！</string>
+    <string name="failed_noAuth">程序未激活</string>
+    <string name="failed_init_error">初始化失败，请检查是否已经激活软件</string>
+    <string name="failed_File_error">模型文件操作失败！</string>
+    <string name="plate_number">车牌号码</string>
+    <string name="plate_color">车牌颜色</string>
+    <string name="plate_color_code">车牌颜色代码</string>
+    <string name="plate_type_code">车牌类型代码</string>
+    <string name="plate_reliability">整牌可信度</string>
+    <string name="plate_leftupper_pointX">车牌左上点横坐标</string>
+    <string name="plate_leftupper_pointY">车牌左上点纵坐标</string>
+    <string name="plate_rightdown_pointX">车牌右下点横坐标</string>
+    <string name="plate_rightdown_pointY">车牌右下点纵坐标</string>
+    <string name="plate_car_color">车的颜色</string>
+</resources>
