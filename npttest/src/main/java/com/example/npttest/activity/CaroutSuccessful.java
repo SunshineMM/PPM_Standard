@@ -345,6 +345,7 @@ public class CaroutSuccessful extends Activity implements CompoundButton.OnCheck
             App.chaRefresh=false;
             if (pvrefresh) {
                 App.pvRefresh = false;
+                App.zcRefresh=true;
             } else {
                 startActivity(new Intent(CaroutSuccessful.this, IndexActivity.class));
             }

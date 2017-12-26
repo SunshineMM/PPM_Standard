@@ -24,6 +24,8 @@ public class App extends Application {
     public static boolean outRefresh = true;
     public static boolean chaRefresh = true;
     public static boolean pvRefresh = true;
+    public static boolean zcRefresh=false;
+    public static boolean mdRefresh=false;
     public static double wmon;
     @Override
     public void onCreate() {

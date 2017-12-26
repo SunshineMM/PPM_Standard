@@ -78,6 +78,7 @@ public class ModifyCarnum extends Activity {
     private EditText edits[];
     private String carnum,cartype,pztype,sid,carnumedit;
     private int intcartype,intpztype;
+    public static int midefyposition;
     private boolean pvRefresh;
     private OptionsPickerView pickerView, cardpickview;
     private List<String> cartypes = new ArrayList<>();
@@ -94,6 +95,7 @@ public class ModifyCarnum extends Activity {
         intpztype=intent.getIntExtra("pztype",0);
         pvRefresh=intent.getBooleanExtra("pvrefresh",false);
         sid=intent.getStringExtra("sid");
+        midefyposition=intent.getIntExtra("position",0);
         //设置每个edit的值
         char[] carnumber = carnum.toCharArray();
         if (carnumber.length == 7) {
@@ -315,6 +317,8 @@ public class ModifyCarnum extends Activity {
                     if (mrs==1){
                         Toasty.success(ModifyCarnum.this,"修改成功",Toast.LENGTH_SHORT,true).show();
                         App.pvRefresh=false;
+                        App.mdRefresh=true;
+                        App.zcRefresh=true;
                         finish();
                     }else {
                         Toasty.error(ModifyCarnum.this,"修改失败",Toast.LENGTH_SHORT,true).show();
