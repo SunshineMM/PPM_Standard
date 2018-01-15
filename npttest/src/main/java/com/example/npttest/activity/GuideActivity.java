@@ -164,8 +164,7 @@ public class GuideActivity extends BaseActivity implements MPermissionHelper.Per
             //new AlertDialog.Builder(SpalshActivity.this).setMessage("授权成功!").show();
             Toasty.success(this, "相机授权成功!", Toast.LENGTH_SHORT,true).show();
             //Toast.makeText(this, "授权成功!", Toast.LENGTH_SHORT).show();
-            startActivity(new Intent(GuideActivity.this, SpalshActivity.class));
-            finish();
+
         } else if (code == 1795) {
             //new AlertDialog.Builder(SpalshActivity.this).setMessage("程序激活失败，激活的机器数量已达上限，授权码不能再更多的机器上使用").show();
             Toast.makeText(this, "激活的机器数量已达上限，授权码不能再更多的机器上使用", Toast.LENGTH_SHORT).show();
@@ -177,11 +176,13 @@ public class GuideActivity extends BaseActivity implements MPermissionHelper.Per
             Toast.makeText(this, "没有找到相应的本地授权许可数据文件", Toast.LENGTH_SHORT).show();
         } else if (code == 284) {
             //new AlertDialog.Builder(SpalshActivity.this).setMessage("授权码输入错误").show();
-            Toast.makeText(this, "授权码输入错误", Toast.LENGTH_SHORT).show();
+            //Toast.makeText(this, "授权码输入错误", Toast.LENGTH_SHORT).show();
         } else {
             //new AlertDialog.Builder(SpalshActivity.this).setMessage("错误码：" + code).show();
             Toast.makeText(this, "错误码：" + code, Toast.LENGTH_SHORT).show();
         }
+        startActivity(new Intent(GuideActivity.this, SpalshActivity.class));
+        finish();
     }
 
     public Bitmap CreateCode(String str, BarcodeFormat type, int bmpWidth, int bmpHeight) throws WriterException {

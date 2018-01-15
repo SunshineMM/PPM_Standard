@@ -60,6 +60,7 @@ public class Constant {
     public static int logintype;
     public static String pvcar;
 
+    public static int enfree; //是否设置免费放行的权限
 
     public static String testusername="testuser";
     public static String testuserpwd="123456";

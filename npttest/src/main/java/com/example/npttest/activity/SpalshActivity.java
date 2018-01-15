@@ -186,6 +186,7 @@ public class SpalshActivity extends AppCompatActivity implements OnProgressBarLi
                             //获取oss
                             String ossjs = "{\"cmd\":\"162\",\"type\":\"" + Constant.TYPE + "\",\"code\":\"" + Constant.CODE + "\"," +
                                     "\"dsv\":\"" + Constant.DSV + "\",\"sign\":\"abcd\"}";
+                            Log.e("TAG", "请求oss参数：" + ossjs);
                             Response ossResponse = OkHttpUtils.postString().url(surl)
                                     .content(ossjs)
                                     .mediaType(MediaType.parse("application/json; charset=utf-8"))
@@ -196,9 +197,9 @@ public class SpalshActivity extends AppCompatActivity implements OnProgressBarLi
                                 JSONObject ossrejsonObject = new JSONObject(ossres);
                                 int osscode = ossrejsonObject.getInt("code");
                                 JSONObject resultjson = ossrejsonObject.getJSONObject("result");
-                                JSONObject datajson = resultjson.getJSONObject("data");
-                                int qrs = datajson.getInt("qrs");
                                 if (osscode == 100) {
+                                    JSONObject datajson = resultjson.getJSONObject("data");
+                                    int qrs = datajson.getInt("qrs");
                                     if (qrs == 1) {
                                         AccessKeyId = datajson.getString("accessKeyId");
                                         AccessKeySecret = datajson.getString("accessKeySecret");
@@ -218,8 +219,7 @@ public class SpalshActivity extends AppCompatActivity implements OnProgressBarLi
                                                 .build().connTimeOut(5000).execute();
                                         if (loginResponse.isSuccessful()) {
                                             String loginres = loginResponse.body().string();
-                                            Log.e("TAG" +
-                                                    "","获取登录用户返回的结果：" + loginres);
+                                            Log.e("TAG","获取登录用户返回的结果：" + loginres);
                                             JSONObject loginreJsonObject = new JSONObject(loginres);
                                             int logincode = loginreJsonObject.getInt("code");
                                             if (logincode == 100) {
@@ -230,6 +230,9 @@ public class SpalshActivity extends AppCompatActivity implements OnProgressBarLi
                                         } else {
                                             return -3;
                                         }
+                                    }else {
+                                        Log.e("TAG","获取Oss 失败");
+                                        return -4;
                                     }
                                 } else {
                                     return osscode;
@@ -318,7 +321,9 @@ public class SpalshActivity extends AppCompatActivity implements OnProgressBarLi
                 } else if (succ.intValue() == -3) {
                     spalshTv.setText("获取登录用户失败");
                     spalshRefresh.setVisibility(View.VISIBLE);
-                } else {
+                } else if (succ.intValue() == -4) {
+                    startActivity(new Intent(SpalshActivity.this, LoginActivity.class));
+                }else {
                     spalshTv.setText("服务器连接出错" + succ.intValue());
                     spalshRefresh.setVisibility(View.VISIBLE);
                 }
@@ -333,6 +338,7 @@ public class SpalshActivity extends AppCompatActivity implements OnProgressBarLi
                     //username=datajson.getString("nname");
                     App.wmon = logindatajson.getDouble("wmon");
                     Constant.wtime = logindatajson.getLong("wtime");
+                    Constant.enfree=logindatajson.getInt("enFree");
                     if (lrs == 1) {
                         username = logindatajson.getString("rname");
                         uname = logindatajson.getString("uname");
