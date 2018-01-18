@@ -1,6 +1,5 @@
 package com.example.npttest.activity;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -21,7 +20,7 @@ import butterknife.OnClick;
  * Created by liuji on 2017/9/8.
  */
 
-public class PresenceVehicleInfo extends Activity {
+public class PresenceVehicleInfo extends NoStatusbarActivity {
 
     @Bind(R.id.carinfo_return)
     ImageView carinfoReturn;

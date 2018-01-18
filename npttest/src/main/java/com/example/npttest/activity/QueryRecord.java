@@ -1,6 +1,5 @@
 package com.example.npttest.activity;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -19,7 +18,7 @@ import butterknife.OnClick;
  * Created by liuji on 2017/10/20.
  */
 
-public class QueryRecord extends Activity {
+public class QueryRecord extends NoStatusbarActivity {
 
 
     @Bind(R.id.query_record_return)

@@ -1,6 +1,5 @@
 package com.example.npttest.activity;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -41,7 +40,7 @@ import okhttp3.MediaType;
  * Created by liuji on 2017/9/25.
  */
 
-public class CarinChargeActivity extends Activity {
+public class CarinChargeActivity extends NoStatusbarActivity {
 
 
     @Bind(R.id.carin_charge_return)

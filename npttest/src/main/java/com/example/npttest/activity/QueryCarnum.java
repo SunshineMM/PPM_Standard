@@ -1,6 +1,5 @@
 package com.example.npttest.activity;
 
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Intent;
 import android.content.IntentFilter;
@@ -40,6 +39,10 @@ import com.example.npttest.constant.Constant;
 import com.example.npttest.entity.Querynum;
 import com.example.npttest.util.LicenseKeyboardUtil_input;
 import com.example.npttest.util.SPUtils;
+import com.iflytek.cloud.SpeechConstant;
+import com.iflytek.cloud.SpeechError;
+import com.iflytek.cloud.SpeechSynthesizer;
+import com.iflytek.cloud.SynthesizerListener;
 import com.kyleduo.switchbutton.SwitchButton;
 import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.callback.StringCallback;
@@ -66,7 +69,7 @@ import static com.example.npttest.util.LicenseKeyboardUtil_input.currentEditText
  * Created by liuji on 2017/8/12.
  */
 
-public class QueryCarnum extends Activity implements CompoundButton.OnCheckedChangeListener, SwipeRefreshLayout.OnRefreshListener, BaseQuickAdapter.RequestLoadMoreListener {
+public class QueryCarnum extends NoStatusbarActivity implements CompoundButton.OnCheckedChangeListener, SwipeRefreshLayout.OnRefreshListener, BaseQuickAdapter.RequestLoadMoreListener {
 
 
     public static final String INPUT_LICENSE_COMPLETE = "me.kevingo.licensekeyboard.input.comp";
@@ -125,6 +128,8 @@ public class QueryCarnum extends Activity implements CompoundButton.OnCheckedCha
     private boolean mLoadMoreEndGone = false;
     private QuerynumAdapter querynumAdapter;
     private List<Querynum> list = new ArrayList<>();
+    private int mdposition,coutposition;
+    SynthesizerListener mSynListener;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -165,11 +170,14 @@ public class QueryCarnum extends Activity implements CompoundButton.OnCheckedCha
                         modiftintent.putExtra("pvrefresh", true);
                         modiftintent.putExtra("sid", querynumAdapter.getData().get(position).getSid());
                         startActivity(modiftintent);
+                        mdposition=position;
                         break;
                     case R.id.prece_outcar:
                         carnum = querynumAdapter.getData().get(position).getPnum();
                         ctype = querynumAdapter.getData().get(position).getCtype();
+                        //cartype=querynumAdapter.getData().get(position).getCtype();
                         carout(App.serverurl);
+                        coutposition=position;
                         break;
                     case R.id.prece_img:
                         final AlertDialog dialog = new AlertDialog.Builder(QueryCarnum.this).create();
@@ -231,6 +239,16 @@ public class QueryCarnum extends Activity implements CompoundButton.OnCheckedCha
             LicenseKeyboardUtil_input.etsize = 6;
         }
 
+    }
+
+    @Override
+    protected void onStart() {
+        if (!App.pvRefresh) {
+            Log.e("TAG", "onstart 刷新");
+            onRefresh();
+            App.pvRefresh = true;
+        }
+        super.onStart();
     }
 
     private void initcolor1() {
@@ -477,9 +495,10 @@ public class QueryCarnum extends Activity implements CompoundButton.OnCheckedCha
                 .show();
         //{"cmd":"140","type":"2","code":"17083B3DE","dsv":"110","ptype":"0","io":"0",
         // "num":"京B1FL39","ctype":"2","spare":"0","sign":"abcd"}
-        String intocar_jS = "{\"cmd\":\"140\",\"type\":\"" + Constant.TYPE + "\",\"code\":\"" + Constant.CODE + "\"," +
-                "\"dsv\":\"" + Constant.DSV + "\",\"ptype\":\"0\",\"io\":\"1\",\"num\":\"" + carnum + "\"," +
-                "\"ctype\":\"" + ctype + "\",\"spare\":\"0\",\"sign\":\"abcd\"}";
+
+        String intocar_jS ="{\"cmd\":\"140\",\"type\":\""+ Constant.TYPE+"\",\"code\":\""+ Constant.CODE+"\",\"dsv\":\""
+                + Constant.DSV+"\",\"ptype\":\"0\",\"io\":\"1\",\"num\":\""+carnum+"\",\"ctype\":\""+ctype+
+                "\",\"muna\":\"1\",\"spare\":\"0\",\"sign\":\"abcd\"}";
         Log.e("TAG", intocar_jS);
         OkHttpUtils.postString().url(url)
                 .content(intocar_jS)
@@ -516,6 +535,7 @@ public class QueryCarnum extends Activity implements CompoundButton.OnCheckedCha
                     //判断
                     jfjudge();
                     if (rstat == 0) {
+                        carout_start_voice();
                         //自动放行
                         Intent zdintent = new Intent(QueryCarnum.this, CaroutSuccessful.class);
                         zdintent.putExtra("carnum", carnum);
@@ -577,6 +597,68 @@ public class QueryCarnum extends Activity implements CompoundButton.OnCheckedCha
         });
     }
 
+    private void carout_start_voice() {
+        //1.创建SpeechSynthesizer对象, 第二个参数：本地合成时传InitListener
+        SpeechSynthesizer mTts = SpeechSynthesizer.createSynthesizer(this, null);
+        //2.合成参数设置，详见《科大讯飞MSC API手册(Android)》SpeechSynthesizer 类
+        mTts.setParameter(SpeechConstant.VOICE_NAME, "xiaoyan");//设置发音人
+        mTts.setParameter(SpeechConstant.SPEED, "60");//设置语速
+        mTts.setParameter(SpeechConstant.VOLUME, "100");//设置音量，范围0~100
+        //mTts.setParameter(SpeechConstant.PITCH, "50");// 设置音调
+        mTts.setParameter(SpeechConstant.ENGINE_TYPE, SpeechConstant.TYPE_CLOUD); //设置云端
+
+        //设置合成音频保存位置（可自定义保存位置），保存在“./sdcard/iflytek.pcm”
+        //保存在SD卡需要在AndroidManifest.xml添加写SD卡权限
+        //如果不需要保存合成音频，注释该行代码
+        // mTts.setParameter(SpeechConstant.TTS_AUDIO_PATH, "./sdcard/iflytek.pcm");
+
+        //3.开始合成
+        // mTts.startSpeaking(carnum+"出场成功！", mSynListener);
+        char[] carnumber = carnum.toCharArray();
+        if (carnumber.length == 7) {
+            mTts.startSpeaking(String.valueOf(carnumber[0]) + " " + String.valueOf(carnumber[1]) + " " + String.valueOf(carnumber[2])
+                    + " " + String.valueOf(carnumber[3]) + " " + String.valueOf(carnumber[4]) + " " + String.valueOf(carnumber[5]) + " " + String.valueOf(carnumber[6]) + "，" + "出场成功。", mSynListener);
+        } else if (carnumber.length == 8) {
+            mTts.startSpeaking(String.valueOf(carnumber[0]) + " " + String.valueOf(carnumber[1]) + " " + String.valueOf(carnumber[2])
+                    + " " + String.valueOf(carnumber[3]) + " " + String.valueOf(carnumber[4]) + " " + String.valueOf(carnumber[5]) + " " + String.valueOf(carnumber[6]) + " " + String.valueOf(carnumber[7]) + "，" + "出场成功。", mSynListener);
+        }
+
+        //合成监听器
+        mSynListener = new SynthesizerListener() {
+            //会话结束回调接口，没有错误时，error为null
+            public void onCompleted(SpeechError error) {
+                System.out.println("error--------" + error);
+            }
+
+            //缓冲进度回调
+            //percent为缓冲进度0~100，beginPos为缓冲音频在文本中开始位置，endPos表示缓冲音频在文本中结束位置，info为附加信息。
+            public void onBufferProgress(int percent, int beginPos, int endPos, String info) {
+            }
+
+            //开始播放
+            public void onSpeakBegin() {
+                System.out.println("开始播放");
+            }
+
+            //暂停播放
+            public void onSpeakPaused() {
+            }
+
+            //播放进度回调
+            //percent为播放进度0~100,beginPos为播放音频在文本中开始位置，endPos表示播放音频在文本中结束位置.
+            public void onSpeakProgress(int percent, int beginPos, int endPos) {
+            }
+
+            //恢复播放回调接口
+            public void onSpeakResumed() {
+            }
+
+            //会话事件回调接口
+            public void onEvent(int arg0, int arg1, int arg2, Bundle arg3) {
+            }
+
+        };
+    }
     private void prohibitjudge() {
         switch (preson) {
             case 0:
@@ -745,9 +827,22 @@ public class QueryCarnum extends Activity implements CompoundButton.OnCheckedCha
                 //list.clear();
                 //getPreVeh(App.serverurl);
                 //vehicleAdapter.setNewData(list);
-                querynumAdapter.notifyDataSetChanged();
+                /*querynumAdapter.notifyDataSetChanged();
                 isErr = false;
-                mCurrentCounter = PAGE_SIZE;
+                mCurrentCounter = PAGE_SIZE;*/
+                if (App.mdRefresh){
+                    Log.e("TAG","修改车牌刷新***item+"+mdposition+"修改后的车牌"+ModifyCarnum.mdcarnum);
+                    App.mdRefresh=false;
+                    querynumAdapter.getData().get(mdposition).setPnum(ModifyCarnum.mdcarnum);
+                    querynumAdapter.notifyDataSetChanged();
+                    App.zcRefresh=false;
+                }else {
+                    Log.e("TAG","出场自动刷新***item+"+coutposition);
+                    App.zcRefresh=false;
+                    list.remove(coutposition);
+                    querynumAdapter.notifyItemRemoved(coutposition);
+                    //vehicleAdapter.notifyDataSetChanged();
+                }
                 if (querySwipeLayout != null) {
                     querySwipeLayout.setRefreshing(false);
                 }

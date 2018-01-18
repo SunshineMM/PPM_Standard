@@ -31,6 +31,7 @@ import com.example.npttest.adapter.CarintoAdapter;
 import com.example.npttest.constant.Constant;
 import com.example.npttest.entity.Carinto;
 import com.example.npttest.manager.LinearLayoutManagerWrapper;
+import com.example.npttest.view.CustomLoadMoreView1;
 import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.callback.StringCallback;
 
@@ -203,6 +204,7 @@ public class Fg2_Fragment1 extends Fragment implements SwipeRefreshLayout.OnRefr
         carintoAdapter.setOnLoadMoreListener(this, rvListFg1);
         carintoAdapter.openLoadAnimation(BaseQuickAdapter.SLIDEIN_LEFT);
         carintoAdapter.isFirstOnly(false);
+        carintoAdapter.setLoadMoreView(new CustomLoadMoreView1());
         rvListFg1.setAdapter(carintoAdapter);
         mCurrentCounter = carintoAdapter.getData().size();
 

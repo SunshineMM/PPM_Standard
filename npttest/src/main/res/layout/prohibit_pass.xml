@@ -71,15 +71,15 @@
             android:layout_margin="10dp"
             android:orientation="horizontal">
             <TextView
-                android:layout_width="0dp"
-                android:layout_weight="1"
+                android:layout_width="wrap_content"
                 android:textSize="16sp"
                 android:textColor="@color/fontcolor"
                 android:layout_height="wrap_content"
                 android:text="禁止原由："/>
             <TextView
                 android:id="@+id/prohibit_yy"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
+                android:layout_weight="1"
                 android:layout_height="wrap_content"
                 android:textSize="16sp"
                 android:text="测车位已满"/>

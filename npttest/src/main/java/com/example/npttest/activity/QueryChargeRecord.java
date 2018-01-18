@@ -1,6 +1,5 @@
 package com.example.npttest.activity;
 
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Intent;
 import android.graphics.Color;
@@ -64,7 +63,7 @@ import static com.example.npttest.util.LicenseKeyboardUtil_input.currentEditText
  * Created by liuji on 2017/10/21.
  */
 
-public class QueryChargeRecord extends Activity implements SwipeRefreshLayout.OnRefreshListener, BaseQuickAdapter.RequestLoadMoreListener, CompoundButton.OnCheckedChangeListener {
+public class QueryChargeRecord extends NoStatusbarActivity implements SwipeRefreshLayout.OnRefreshListener, BaseQuickAdapter.RequestLoadMoreListener, CompoundButton.OnCheckedChangeListener {
 
 
     @Bind(R.id.query_charge_return)

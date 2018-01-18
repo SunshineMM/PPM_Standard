@@ -9,8 +9,6 @@ import android.graphics.Bitmap;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.AppCompatActivity;
 import android.telephony.TelephonyManager;
 import android.util.Log;
 import android.view.View;
@@ -65,7 +63,7 @@ import static com.example.npttest.constant.Constant.ppmBucket;
  * Created by Administrator on 2017/7/21.
  */
 
-public class SpalshActivity extends AppCompatActivity implements OnProgressBarListener {
+public class SpalshActivity extends NoStatusbarActivity implements OnProgressBarListener {
     @Bind(R.id.spalsh_refresh)
     ImageView spalshRefresh;
     @Bind(R.id.spalsh_tv)
@@ -92,12 +90,12 @@ public class SpalshActivity extends AppCompatActivity implements OnProgressBarLi
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_spalsh);
         ButterKnife.bind(this);
-        //隐藏顶部状态栏
+        /*//隐藏顶部状态栏
         View decorView = getWindow().getDecorView();
         int option = View.SYSTEM_UI_FLAG_FULLSCREEN;
         decorView.setSystemUiVisibility(option);
         ActionBar actionBar = getSupportActionBar();
-        actionBar.hide();
+        actionBar.hide();*/
         domelogin = (boolean) SPUtils.get(this, "domeloginboo", false);
         if (domelogin) {
             Constant.CODE = "ppm_test_parkos";

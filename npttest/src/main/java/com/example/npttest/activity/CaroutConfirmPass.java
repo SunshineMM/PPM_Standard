@@ -1,6 +1,5 @@
 package com.example.npttest.activity;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -40,7 +39,7 @@ import okhttp3.MediaType;
  * Created by liuji on 2017/9/25.
  */
 
-public class CaroutConfirmPass extends Activity {
+public class CaroutConfirmPass extends NoStatusbarActivity {
 
     @Bind(R.id.co_conf_pass_return)
     ImageView coConfPassReturn;
@@ -89,11 +88,11 @@ public class CaroutConfirmPass extends Activity {
         pvrefresh = intent.getBooleanExtra("pvrefresh", false);
         pktime = TimeDifferTools.getDistanceTime(itime * 1000, ctime * 1000);
         judge();
-        coConfPassPtime.setText(pktime);
+        //coConfPassPtime.setText(pktime);
         coConfPassCarnum.setText(carnum);
         coConfPassCartype.setText(cartype);
         coConfPassPztype.setText(jfType);
-        coConfPassItime.setText(DateTools.getDate(itime * 1000) + "");
+       // coConfPassItime.setText(DateTools.getDate(itime * 1000) + "");
         coConfPassCtime.setText(DateTools.getDate(ctime * 1000) + "");
         coConfPassYy.setText(comfirmYy);
     }

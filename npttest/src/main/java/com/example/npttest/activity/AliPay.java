@@ -38,7 +38,7 @@ import okhttp3.Call;
  * Created by liuji on 2017/11/3.
  */
 
-public class AliPay extends Activity {
+public class AliPay extends NoStatusbarActivity {
     public static Context alipaycontext;
     public static Activity alipayactivity;
     @Bind(R.id.alipay_return)

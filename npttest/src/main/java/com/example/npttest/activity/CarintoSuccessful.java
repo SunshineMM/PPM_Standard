@@ -1,6 +1,5 @@
 package com.example.npttest.activity;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -21,7 +20,7 @@ import butterknife.OnClick;
  * Created by liuji on 2017/8/31.
  */
 
-public class CarintoSuccessful extends Activity {
+public class CarintoSuccessful extends NoStatusbarActivity {
 
 
     @Bind(R.id.carin_suful_carnum)

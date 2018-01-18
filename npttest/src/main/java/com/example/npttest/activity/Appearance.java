@@ -80,7 +80,7 @@ import static com.example.npttest.util.FileUtils.SDPATH;
  * Created by liuji on 2017/8/1.
  */
 
-public class Appearance extends Activity {
+public class Appearance extends NoStatusbarActivity {
 
     @Bind(R.id.appearance_return)
     ImageView appearanceReturn;
@@ -178,13 +178,13 @@ public class Appearance extends Activity {
             }*//*
             Bitmap bitmap1 = ImageCrop(bitmap, 125, 300, true);
             appearanceImg.setImageBitmap(bitmap1);*/
+            bitmap = BitmapFactory.decodeFile(bitmapPath);
+            Bitmap bitmap1 = ImageCrop(bitmap, 125, 300, true);
+            appearanceImg.setImageBitmap(bitmap1);
             Bitmap newbitmap = PictureUtil.getSmallBitmap(bitmapPath, 480, 800);
             FileUtils.saveBitmap(newbitmap, pictureName());
             putbitmappath = SDPATH + pictureName() + ".JPEG";
             Log.e("TAG", putbitmappath);
-            bitmap = BitmapFactory.decodeFile(putbitmappath);
-            Bitmap bitmap1 = ImageCrop(bitmap, 125, 300, true);
-            appearanceImg.setImageBitmap(bitmap1);
         }
         char[] carnumber = s.toCharArray();
         if (carnumber.length == 7) {

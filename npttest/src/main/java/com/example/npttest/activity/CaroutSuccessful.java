@@ -1,6 +1,5 @@
 package com.example.npttest.activity;
 
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
@@ -49,7 +48,7 @@ import es.dmoral.toasty.Toasty;
  * Created by liuji on 2017/9/19.
  */
 
-public class CaroutSuccessful extends Activity implements CompoundButton.OnCheckedChangeListener {
+public class CaroutSuccessful extends NoStatusbarActivity implements CompoundButton.OnCheckedChangeListener {
 
 
     @Bind(R.id.carout_suful_carnum)

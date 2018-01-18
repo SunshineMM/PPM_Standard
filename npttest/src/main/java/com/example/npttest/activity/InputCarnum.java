@@ -1,7 +1,6 @@
 package com.example.npttest.activity;
 
 import android.Manifest;
-import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -80,7 +79,7 @@ import static com.example.npttest.util.LicenseKeyboardUtil_input.currentEditText
  * Created by liuji on 2017/8/22.
  */
 
-public class InputCarnum extends Activity implements CompoundButton.OnCheckedChangeListener {
+public class InputCarnum extends NoStatusbarActivity implements CompoundButton.OnCheckedChangeListener {
 
     @Bind(R.id.inputcar_return)
     ImageView inputcarReturn;

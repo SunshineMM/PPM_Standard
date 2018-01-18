@@ -1,6 +1,5 @@
 package com.example.npttest.activity;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -21,7 +20,7 @@ import butterknife.OnClick;
  * Created by liuji on 2017/10/10.
  */
 
-public class QueryPvInfo extends Activity {
+public class QueryPvInfo extends NoStatusbarActivity {
 
 
     @Bind(R.id.query_pv_info_return)

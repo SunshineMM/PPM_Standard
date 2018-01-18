@@ -2,7 +2,6 @@ package com.example.npttest.camera;
 
 import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
-import android.app.Activity;
 import android.app.Service;
 import android.content.ComponentName;
 import android.content.Intent;
@@ -38,6 +37,7 @@ import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.example.npttest.R;
+import com.example.npttest.activity.NoStatusbarActivity;
 import com.example.npttest.util.CameraUtils;
 import com.example.npttest.view.ViewfinderView;
 import com.ice.entity.PlateRecognitionParameter;
@@ -51,7 +51,7 @@ import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class CameraActivity extends Activity implements SurfaceHolder.Callback,
+public class CameraActivity extends NoStatusbarActivity implements SurfaceHolder.Callback,
 		Camera.PreviewCallback, AnimationListener {
 	private Camera camera;
 	private SurfaceView surfaceView;

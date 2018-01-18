@@ -1,6 +1,5 @@
 package com.example.npttest.activity;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.inputmethodservice.KeyboardView;
@@ -42,7 +41,7 @@ import okhttp3.MediaType;
  * Created by liuji on 2017/9/2.
  */
 
-public class ModifyCarnum extends Activity {
+public class ModifyCarnum extends NoStatusbarActivity {
 
     @Bind(R.id.modify_return)
     ImageView modifyReturn;

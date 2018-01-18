@@ -1,6 +1,5 @@
 package com.example.npttest.activity;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.widget.ImageView;
 
@@ -16,7 +15,7 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class UseHelpUserlogin extends Activity {
+public class UseHelpUserlogin extends NoStatusbarActivity {
 
     @Bind(R.id.user_login_banner)
     Banner userLoginBanner;

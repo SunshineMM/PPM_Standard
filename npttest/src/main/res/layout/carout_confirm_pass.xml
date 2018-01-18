@@ -177,6 +177,7 @@
                 android:layout_marginTop="10dp"
                 android:background="#ccc"></View>
             <LinearLayout
+                android:visibility="gone"
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
                 android:background="#FFF"
@@ -202,10 +203,12 @@
                     android:textSize="17sp" />
             </LinearLayout>
             <View
+                android:visibility="gone"
                 android:layout_width="match_parent"
                 android:layout_height="0.1dp"
                 android:background="#ccc"></View>
             <LinearLayout
+                android:visibility="gone"
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
                 android:background="#FFF"

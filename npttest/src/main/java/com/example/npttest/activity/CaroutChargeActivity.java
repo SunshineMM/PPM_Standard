@@ -64,7 +64,7 @@ import razerdp.basepopup.BasePopupWindow;
  * Created by liuji on 2017/8/1.
  */
 
-public class CaroutChargeActivity extends Activity {
+public class CaroutChargeActivity extends NoStatusbarActivity {
 
     @Bind(R.id.carout_charge_return)
     ImageView caroutChargeReturn;

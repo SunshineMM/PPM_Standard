@@ -1,6 +1,5 @@
 package com.example.npttest.activity;
 
-import android.app.Activity;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -30,7 +29,7 @@ import butterknife.OnClick;
  * Created by liuji on 2017/9/11.
  */
 
-public class SetCommonCity extends Activity implements CompoundButton.OnCheckedChangeListener {
+public class SetCommonCity extends NoStatusbarActivity implements CompoundButton.OnCheckedChangeListener {
 
 
     @Bind(R.id.setCity_return)

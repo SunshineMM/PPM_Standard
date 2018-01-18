@@ -1,84 +1,93 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@mipmap/bg_get_start">
+    android:background="@mipmap/bg_get_start"
+    android:orientation="vertical">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:text="设备登记"
-        android:textSize="20sp"
-        android:textColor="#FFFFFF"
         android:gravity="center"
-        />
+        android:text="设备登记"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp" />
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="30dp"
         android:gravity="center|left"
-        android:layout_marginTop="30dp"
         android:paddingLeft="10dp"
-        android:textSize="16sp"
+        android:text="此二维码用于设备登记"
         android:textColor="#FFFFFF"
-        android:text="此二维码用于设备登记"/>
+        android:textSize="16sp" />
 
     <ImageView
         android:id="@+id/guide_img"
         android:layout_width="256dp"
         android:layout_height="256dp"
         android:layout_gravity="center"
-        android:background="#20ffffff"
-        />
+        android:layout_marginTop="15dp"
+        android:background="#20ffffff" />
+
     <TextView
         android:id="@+id/guide_tv"
         android:layout_width="match_parent"
         android:layout_height="30dp"
         android:gravity="center"
-        android:textSize="17sp"
         android:textColor="#FFFFFF"
-        />
+        android:textSize="17sp" />
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="30dp"
         android:gravity="center|left"
         android:paddingLeft="10dp"
-        android:textSize="16sp"
+        android:text="请输入授权码对相机授权"
         android:textColor="#FFFFFF"
-        android:text="请输入授权码对相机授权"/>
+        android:textSize="16sp" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="40dp"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
         android:orientation="horizontal">
+
         <EditText
             android:id="@+id/guide_et"
             android:layout_width="0dp"
-            android:layout_weight="1"
             android:layout_height="match_parent"
+            android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
+            android:layout_weight="1"
+            android:background="#20FFFFFF"
+            android:hint="请输入授权码"
+            android:inputType="textVisiblePassword"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
-            android:layout_marginLeft="20dp"
             android:textColor="#FFFFFF"
-            android:hint="请输入授权码"
             android:textColorHint="#80FFFFFF"
-            android:textSize="15sp"
-            android:inputType="textVisiblePassword"
-            android:background="#20FFFFFF"/>
+            android:textSize="15sp" />
     </LinearLayout>
+
     <View
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"></View>
+        android:layout_weight="1" />
+
     <Button
         android:id="@+id/guide_btn"
         android:layout_width="match_parent"
         android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="15dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:background="@drawable/ripple_button_style"
         android:text="完  成"
         android:textColor="#fff"
-        android:layout_marginBottom="15dp"
         android:textSize="20sp" />
-
 </LinearLayout>
+

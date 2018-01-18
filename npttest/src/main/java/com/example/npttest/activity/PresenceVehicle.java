@@ -1,6 +1,5 @@
 package com.example.npttest.activity;
 
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Intent;
 import android.graphics.Color;
@@ -52,7 +51,7 @@ import butterknife.OnClick;
 import okhttp3.Call;
 import okhttp3.MediaType;
 
-public class PresenceVehicle extends Activity implements SwipeRefreshLayout.OnRefreshListener {
+public class PresenceVehicle extends NoStatusbarActivity implements SwipeRefreshLayout.OnRefreshListener {
     private static final int PAGE_SIZE = 6;
     private static final int TOTAL_COUNTER = 100;
     private String carnum;

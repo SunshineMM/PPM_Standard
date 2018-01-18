@@ -1,6 +1,5 @@
 package com.example.npttest.activity;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -19,7 +18,7 @@ import butterknife.OnClick;
  * Created by liuji on 2017/9/20.
  */
 
-public class CarinDetailedInfo extends Activity {
+public class CarinDetailedInfo extends NoStatusbarActivity {
 
     @Bind(R.id.carin_record_return)
     ImageView carinRecordReturn;

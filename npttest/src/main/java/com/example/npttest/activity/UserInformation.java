@@ -1,6 +1,5 @@
 package com.example.npttest.activity;
 
-import android.app.Activity;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -24,7 +23,7 @@ import butterknife.OnClick;
  * Created by liuji on 2017/9/5.
  */
 
-public class UserInformation extends Activity {
+public class UserInformation extends NoStatusbarActivity {
 
 
     @Bind(R.id.user_return)

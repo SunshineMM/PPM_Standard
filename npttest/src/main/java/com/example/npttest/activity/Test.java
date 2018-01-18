@@ -1,7 +1,6 @@
 package com.example.npttest.activity;
 
 import android.Manifest;
-import android.app.Activity;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -24,7 +23,7 @@ import butterknife.OnClick;
  * Created by liuji on 2017/7/31.
  */
 
-public class Test extends Activity implements MPermissionHelper.PermissionCallBack {
+public class Test extends NoStatusbarActivity implements MPermissionHelper.PermissionCallBack {
 
 
     @Bind(R.id.img_1)

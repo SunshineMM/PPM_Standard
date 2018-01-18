@@ -1,6 +1,5 @@
 package com.example.npttest.activity;
 
-import android.app.Activity;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.content.BroadcastReceiver;
@@ -33,7 +32,7 @@ import butterknife.OnClick;
  * Created by liuji on 2017/9/16.
  */
 
-public class AddBlueTooth extends Activity {
+public class AddBlueTooth extends NoStatusbarActivity {
     @Bind(R.id.blt_return)
     ImageView bltReturn;
     @Bind(R.id.blt_tv)

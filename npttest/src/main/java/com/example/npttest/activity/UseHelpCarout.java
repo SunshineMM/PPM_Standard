@@ -1,6 +1,5 @@
 package com.example.npttest.activity;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.widget.ImageView;
 
@@ -16,7 +15,7 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class UseHelpCarout extends Activity {
+public class UseHelpCarout extends NoStatusbarActivity {
 
     @Bind(R.id.usehelp_carout_return)
     ImageView usehelpCaroutReturn;

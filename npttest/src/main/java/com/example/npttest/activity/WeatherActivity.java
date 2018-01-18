@@ -1,6 +1,5 @@
 package com.example.npttest.activity;
 
-import android.app.Activity;
 import android.content.DialogInterface;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -48,7 +47,7 @@ import okhttp3.Call;
  * Created by liuji on 2017/10/25.
  */
 
-public class WeatherActivity extends Activity {
+public class WeatherActivity extends NoStatusbarActivity {
 
     @Bind(R.id.wth_return)
     ImageView wthReturn;

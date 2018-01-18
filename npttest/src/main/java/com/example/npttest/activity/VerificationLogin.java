@@ -8,8 +8,6 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.annotation.Nullable;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
@@ -49,7 +47,7 @@ import okhttp3.MediaType;
  * Created by liuji on 2017/8/16.
  */
 
-public class VerificationLogin extends AppCompatActivity {
+public class VerificationLogin extends NoStatusbarActivity {
 
     @Bind(R.id.verlogin_return)
     ImageView verloginReturn;
@@ -80,8 +78,8 @@ public class VerificationLogin extends AppCompatActivity {
         /*View decorView = getWindow().getDecorView();
         int option = View.SYSTEM_UI_FLAG_FULLSCREEN;
         decorView.setSystemUiVisibility(option);*/
-        ActionBar actionBar = getSupportActionBar();
-        actionBar.hide();
+        /*ActionBar actionBar = getSupportActionBar();
+        actionBar.hide();*/
         ButterKnife.bind(this);
         mContext = this;
         ActivityManager.getInstance().addActivity(this);

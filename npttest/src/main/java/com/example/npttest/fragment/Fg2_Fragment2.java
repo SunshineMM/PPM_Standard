@@ -31,6 +31,7 @@ import com.example.npttest.adapter.CaroutAdapter;
 import com.example.npttest.constant.Constant;
 import com.example.npttest.entity.Carout;
 import com.example.npttest.manager.LinearLayoutManagerWrapper;
+import com.example.npttest.view.CustomLoadMoreView1;
 import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.callback.StringCallback;
 
@@ -189,6 +190,7 @@ public class Fg2_Fragment2 extends Fragment implements BaseQuickAdapter.RequestL
         caroutAdapter.setOnLoadMoreListener(this, rvListFg2);
         caroutAdapter.openLoadAnimation(BaseQuickAdapter.SCALEIN);
         caroutAdapter.isFirstOnly(false);
+        caroutAdapter.setLoadMoreView(new CustomLoadMoreView1());
         rvListFg2.setAdapter(caroutAdapter);
         mCurrentCounter = caroutAdapter.getData().size();
 

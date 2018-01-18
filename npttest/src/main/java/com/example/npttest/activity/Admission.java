@@ -1,6 +1,5 @@
 package com.example.npttest.activity;
 
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -78,7 +77,7 @@ import static com.example.npttest.util.FileUtils.SDPATH;
 /**
  * Created by liuji on 2017/7/31.
  */
-public class Admission extends Activity {
+public class Admission extends NoStatusbarActivity {
 
     @Bind(R.id.admission_return)
     ImageView admissionReturn;
@@ -176,14 +175,13 @@ public class Admission extends Activity {
             }*//*
             Bitmap bitmap1 = ImageCrop(bitmap, 125, 300, true);
             admissionImg.setImageBitmap(bitmap1);*/
-
+            bitmap = BitmapFactory.decodeFile(bitmapPath);
+            Bitmap bitmap1 = ImageCrop(bitmap, 125, 300, true);
+            admissionImg.setImageBitmap(bitmap1);
             Bitmap newbitmap = PictureUtil.getSmallBitmap(bitmapPath, 480, 800);
             FileUtils.saveBitmap(newbitmap, pictureName());
             putbitmappath = SDPATH + pictureName() + ".JPEG";
             Log.e("TAG", "压缩后的图片路径："+putbitmappath);
-            bitmap = BitmapFactory.decodeFile(putbitmappath);
-            Bitmap bitmap1 = ImageCrop(bitmap, 125, 300, true);
-            admissionImg.setImageBitmap(bitmap1);
         }
         //设置每个edit的值
         char[] carnumber = cameraS.toCharArray();

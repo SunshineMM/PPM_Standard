@@ -31,6 +31,7 @@ import com.example.npttest.adapter.ChargeAdapter;
 import com.example.npttest.constant.Constant;
 import com.example.npttest.entity.Charge;
 import com.example.npttest.manager.LinearLayoutManagerWrapper;
+import com.example.npttest.view.CustomLoadMoreView1;
 import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.callback.StringCallback;
 
@@ -192,6 +193,7 @@ public class Fg2_Fragment3 extends Fragment implements SwipeRefreshLayout.OnRefr
         chargeAdapter.setOnLoadMoreListener(this, rvListFg3);
         chargeAdapter.openLoadAnimation(BaseQuickAdapter.SLIDEIN_RIGHT);
         chargeAdapter.isFirstOnly(false);
+        chargeAdapter.setLoadMoreView(new CustomLoadMoreView1());
         rvListFg3.setAdapter(chargeAdapter);
         mCurrentCounter = chargeAdapter.getData().size();
 

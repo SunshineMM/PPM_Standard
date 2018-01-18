@@ -1,7 +1,6 @@
 package com.example.npttest.activity;
 
 import android.Manifest;
-import android.app.Activity;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.os.Bundle;
@@ -28,7 +27,7 @@ import butterknife.OnClick;
  * Created by liuji on 2017/10/17.
  */
 
-public class QrCodeActivity extends Activity {
+public class QrCodeActivity extends NoStatusbarActivity {
 
     @Bind(R.id.qr_return)
     ImageView qrReturn;
@@ -54,7 +53,7 @@ public class QrCodeActivity extends Activity {
             return;
         }
         String szImei = TelephonyMgr.getDeviceId();
-        qrTv.setText("ppm" + szImei);
+        qrTv.setText("PPM" + szImei);
         try {
             Bitmap bitmap = CreateCode("ppm" + szImei, BarcodeFormat.QR_CODE, 256, 256);
             qrImg.setImageBitmap(bitmap);

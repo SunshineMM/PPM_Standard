@@ -1,6 +1,5 @@
 package com.example.npttest.activity;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -13,7 +12,7 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class UseHelp extends Activity {
+public class UseHelp extends NoStatusbarActivity {
 
     @Bind(R.id.UseHelp_return)
     ImageView UseHelpReturn;

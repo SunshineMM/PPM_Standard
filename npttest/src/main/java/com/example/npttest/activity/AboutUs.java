@@ -1,6 +1,5 @@
 package com.example.npttest.activity;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -25,7 +24,7 @@ import okhttp3.Call;
 import okhttp3.MediaType;
 import util.UpdateAppUtils;
 
-public class AboutUs extends Activity {
+public class AboutUs extends NoStatusbarActivity {
 
     @Bind(R.id.aboutUs_return)
     ImageView aboutUsReturn;

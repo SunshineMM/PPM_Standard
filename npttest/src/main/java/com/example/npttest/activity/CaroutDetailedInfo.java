@@ -1,6 +1,5 @@
 package com.example.npttest.activity;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -18,7 +17,7 @@ import butterknife.OnClick;
  * Created by liuji on 2017/9/20.
  */
 
-public class CaroutDetailedInfo extends Activity {
+public class CaroutDetailedInfo extends NoStatusbarActivity {
 
 
     @Bind(R.id.carout_record_return)

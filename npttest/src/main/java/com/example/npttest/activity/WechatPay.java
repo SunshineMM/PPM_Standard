@@ -38,7 +38,7 @@ import okhttp3.Call;
  * Created by liuji on 2017/11/3.
  */
 
-public class WechatPay extends Activity {
+public class WechatPay extends NoStatusbarActivity {
     @Bind(R.id.wechatpay_return)
     ImageView wechatpayReturn;
     @Bind(R.id.wechatpay_qr)

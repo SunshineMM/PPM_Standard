@@ -1,6 +1,5 @@
 package com.example.npttest.activity;
 
-import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -79,7 +78,7 @@ import static com.example.npttest.constant.Constant.TABLE_USER;
  * Created by liuji on 2017/9/12.
  */
 
-public class ReleaseRemarks extends Activity implements OnItemDragListener, OnItemSwipeListener {
+public class ReleaseRemarks extends NoStatusbarActivity implements OnItemDragListener, OnItemSwipeListener {
 
 
     @Bind(R.id.release_return)

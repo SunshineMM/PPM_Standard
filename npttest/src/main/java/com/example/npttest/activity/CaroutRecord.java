@@ -1,6 +1,5 @@
 package com.example.npttest.activity;
 
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Intent;
 import android.graphics.Color;
@@ -60,7 +59,7 @@ import okhttp3.MediaType;
  * Created by liuji on 2017/10/20.
  */
 
-public class CaroutRecord extends Activity implements SwipeRefreshLayout.OnRefreshListener, BaseQuickAdapter.RequestLoadMoreListener {
+public class CaroutRecord extends NoStatusbarActivity implements SwipeRefreshLayout.OnRefreshListener, BaseQuickAdapter.RequestLoadMoreListener {
 
     @Bind(R.id.record_carout_return)
     ImageView recordCaroutReturn;

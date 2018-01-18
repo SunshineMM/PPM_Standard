@@ -1,6 +1,5 @@
 package com.example.npttest.activity;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.View;
@@ -21,7 +20,7 @@ import butterknife.OnClick;
  * Created by liuji on 2017/8/31.
  */
 
-public class ShiftFirst extends Activity {
+public class ShiftFirst extends NoStatusbarActivity {
 
 
     @Bind(R.id.shift_return)

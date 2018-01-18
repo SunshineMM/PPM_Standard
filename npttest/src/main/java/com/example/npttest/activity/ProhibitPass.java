@@ -1,6 +1,5 @@
 package com.example.npttest.activity;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -17,7 +16,7 @@ import butterknife.OnClick;
  * Created by liuji on 2017/9/25.
  */
 
-public class ProhibitPass extends Activity {
+public class ProhibitPass extends NoStatusbarActivity {
 
     @Bind(R.id.prohibit_carnum)
     TextView prohibitCarnum;
