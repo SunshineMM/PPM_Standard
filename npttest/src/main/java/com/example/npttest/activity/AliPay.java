@@ -59,7 +59,10 @@ public class AliPay extends NoStatusbarActivity {
         ButterKnife.bind(this);
         alipayactivity = this;
         alipaycontext = this;
-        getqr();
+        Log.e("TAG","支付宝地址："+Constant.aliUrl);
+        if (Constant.aliUrl!=null&&!Constant.aliUrl.equals("")){
+            getqr();
+        }
         alipayRmon.setText("本次支付金额："+ Constant.srmon);
     }
 

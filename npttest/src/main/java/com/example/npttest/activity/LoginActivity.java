@@ -125,13 +125,14 @@ public class LoginActivity extends NoStatusbarActivity implements View.OnClickLi
         super.onWindowFocusChanged(hasFocus);
         Log.e("TAG","onWindowFocusChanged");
        while (!init_flag){
+           Log.e("TAG","*********");
            initView();
            initPopuWindow();
             init_flag = true;
         }
     }
 
-    //执行sql语句
+    //执行sql语句(查询)
     private void getdata(String sql_user) {
         list.clear();
         // String sql_user="select * from "+ Constant.TABLE_USER;
@@ -143,14 +144,13 @@ public class LoginActivity extends NoStatusbarActivity implements View.OnClickLi
                 Log.e("TAG", s);
                 list.add(s);
             }
-            recyclerView.setAdapter(popAdapter);
             cursor.close();
             sdb.close();
         }
     }
 
 
-    //执行sql语句
+    //执行sql语句（插入）
     private void getdata_insert(String sql_user) {
         //list.clear();
         // String sql_user="select * from "+ Constant.TABLE_USER;
@@ -192,8 +192,7 @@ public class LoginActivity extends NoStatusbarActivity implements View.OnClickLi
      */
     public void initPopuWindow() {
         // 浮动窗口的布局
-        View loginwindow = getLayoutInflater().inflate(
-                R.layout.popup_window, null);
+        View loginwindow = getLayoutInflater().inflate(R.layout.popup_window, null);
         SwipeRefreshLayout swipeRefreshLayout= loginwindow.findViewById(R.id.pop_sweipeLayout);
         recyclerView= loginwindow.findViewById(R.id.pop_RecyclerView);
         swipeRefreshLayout.setEnabled(false);
@@ -206,8 +205,8 @@ public class LoginActivity extends NoStatusbarActivity implements View.OnClickLi
                 //Toast.makeText(LoginActivity.this, ""+position, Toast.LENGTH_SHORT).show();
                 //popupWindow.isShowing();
                 //init_flag=true;
-                loginEdtId.setText(list.get(position));
-
+                //loginEdtId.setText(list.get(position));
+                loginEdtId.setText(popAdapter.getData().get(position));
                 String sql_update1="update "+ Constant.TABLE_UNAME+" set "+ Constant.UNAME+"='"
                         +loginEdtId.getText().toString().trim()+"',"+ Constant.UTIME+"="
                         +gettime()+" where "+ Constant.UNAME+"="+"'"+loginEdtId.getText().toString().trim()+"'";
@@ -215,6 +214,10 @@ public class LoginActivity extends NoStatusbarActivity implements View.OnClickLi
                 SQLiteDatabase db=App.dbHelper.getWritableDatabase();
                 db.execSQL(sql_update1);
                 db.close();
+                //query_DB();
+                //popAdapter.notifyDataSetChanged();
+                //init_flag=false;
+                //popupWindow.dismiss();
                 //Toasty.success(LoginActivity.this,"修改成功",Toast.LENGTH_SHORT,true).show();
             }
 
@@ -235,6 +238,7 @@ public class LoginActivity extends NoStatusbarActivity implements View.OnClickLi
         });
         // 初始化适配器
         popAdapter=new PopAdapter(list);
+        recyclerView.setAdapter(popAdapter);
         //recyclerView.setAdapter(popAdapter);
         ItemDragAndSwipeCallback swipeCallback = new ItemDragAndSwipeCallback(popAdapter);
         ItemTouchHelper touchHelper = new ItemTouchHelper(swipeCallback);
@@ -252,18 +256,21 @@ public class LoginActivity extends NoStatusbarActivity implements View.OnClickLi
         popupWindow.setOnDismissListener(new PopupWindow.OnDismissListener() {
             @Override
             public void onDismiss() {
+                Log.e("TAG","onDismisspopwindow");
                 popDown.setBackgroundResource(R.mipmap.ic_down);
                 lin_pwd.setVisibility(View.VISIBLE);
                 lin_ver.setVisibility(View.VISIBLE);
                 loginBtnLogin.setVisibility(View.VISIBLE);
+                query_DB();
             }
         });
         // 初始化适配器
         //popAdapter=new PopAdapter(list);
         query_DB();
-        if (list.size()!=0){
+        /*if (list.size()!=0){
             loginEdtId.setText(list.get(0));
-        }
+        }*/
+        loginEdtId.setText(popAdapter.getData().get(0));
     }
 
     @Override
@@ -315,14 +322,14 @@ public class LoginActivity extends NoStatusbarActivity implements View.OnClickLi
 
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                popupWindow.dismiss();
+                //popupWindow.dismiss();
                // Toast.makeText(LoginActivity.this, "内容改变了onTextChanged", Toast.LENGTH_SHORT).show();
             }
 
             @Override
             public void afterTextChanged(Editable editable) {
                 //Toast.makeText(LoginActivity.this, "内容改变了afterTextChanged", Toast.LENGTH_SHORT).show();
-                popupWindow.dismiss();
+                //popupWindow.dismiss();
                 if (loginEdtId.getSelectionEnd()>0){
                     loginBtnClean1.setVisibility(View.VISIBLE);
                 }else {
