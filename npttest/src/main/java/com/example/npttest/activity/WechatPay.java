@@ -58,7 +58,7 @@ public class WechatPay extends NoStatusbarActivity {
         StatusBarUtil.setColor(WechatPay.this, Color.parseColor("#429056"));
         ButterKnife.bind(this);
         Wechatactivity = this;
-        if (Constant.wxUrl!=null&&!Constant.wxUrl.equals("")){
+        if (Constant.wxUrl!=null&&!Constant.wxUrl.equals("null")&&!Constant.wxUrl.equals("")){
             getqr();
         }
         setwechatcontext(this);
@@ -77,7 +77,7 @@ public class WechatPay extends NoStatusbarActivity {
     //获取二维码
     private void getqr() {
         money=getIntent().getIntExtra("money",0);
-       // money = 1;
+        //money = 1;
         Log.e("TAG",  "微信收款金额："+money );
         if (!isFinishing()) {
             dialog = new ZLoadingDialog(WechatPay.this);

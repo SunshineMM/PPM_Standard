@@ -153,8 +153,6 @@ public class IndexActivity extends BaseActivity {
         Log.e("TAG", "主页服务器地址"+App.serverurl+"设备code:"+Constant.CODE);
         car_depot(App.serverurl);
         //get_quantity(App.serverurl);
-
-
         indexVp.setOffscreenPageLimit(2);
         /*String jindu = "113.944539";
         String weidu = "22.59016";*/

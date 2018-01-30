@@ -267,10 +267,12 @@ public class LoginActivity extends NoStatusbarActivity implements View.OnClickLi
         // 初始化适配器
         //popAdapter=new PopAdapter(list);
         query_DB();
-        /*if (list.size()!=0){
+        if (list.size()!=0){
             loginEdtId.setText(list.get(0));
+        }
+       /* if (popAdapter.getData().get(0)!=null){
+            loginEdtId.setText(popAdapter.getData().get(0));
         }*/
-        loginEdtId.setText(popAdapter.getData().get(0));
     }
 
     @Override

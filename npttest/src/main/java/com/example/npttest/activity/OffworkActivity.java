@@ -142,10 +142,11 @@ public class OffworkActivity extends NoStatusbarActivity {
                     offworkPassword.setError("请输入密码");
                 } else {
                     if (Constant.logintype==0){
+                        int wmon= (int) App.wmon;
                         //账号
                         String jsons = "{\"cmd\":\"150\",\"type\":\"" + Constant.TYPE + "\",\"code\":\"" + Constant.CODE + "\",\"dsv\":\"" + Constant.DSV + "\"," +
                                 "\"ltype\":\"0\",\"user\":\"" + user + "\",\"pass\":\"" + MD5Utils.encode(offworkPassword.getText().toString().trim()) + "\"," +
-                                "\"emon\":\"0\",\"sign\":\"abcd\"}";
+                                "\"emon\":\""+wmon+"\",\"sign\":\"abcd\"}";
                         if (App.serverurl!=null){
                             offWork(App.serverurl,jsons);
                         }

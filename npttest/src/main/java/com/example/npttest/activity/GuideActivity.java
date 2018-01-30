@@ -106,7 +106,7 @@ public class GuideActivity extends BaseActivity implements MPermissionHelper.Per
         SPUtils.put(GuideActivity.this, "code", scode);
         //Content.CODE= (String) SPUtils.get(GuideActivity.this,"code","");
         try {
-            Bitmap bitmap = CreateCode("ppm" + szImei, BarcodeFormat.QR_CODE, 256, 256);
+            Bitmap bitmap = CreateCode("PPM" + szImei, BarcodeFormat.QR_CODE, 256, 256);
             guideImg.setImageBitmap(bitmap);
         } catch (WriterException e) {
             e.printStackTrace();

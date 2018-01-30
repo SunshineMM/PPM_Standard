@@ -184,11 +184,11 @@ public class SpalshActivity extends NoStatusbarActivity implements OnProgressBar
                             //获取oss
                             String ossjs = "{\"cmd\":\"162\",\"type\":\"" + Constant.TYPE + "\",\"code\":\"" + Constant.CODE + "\"," +
                                     "\"dsv\":\"" + Constant.DSV + "\",\"sign\":\"abcd\"}";
-                            Log.e("TAG", "请求oss参数：" + ossjs);
                             Response ossResponse = OkHttpUtils.postString().url(surl)
                                     .content(ossjs)
                                     .mediaType(MediaType.parse("application/json; charset=utf-8"))
                                     .build().connTimeOut(5000).execute();
+                            Log.e("TAG", "请求oss参数：" + ossjs);
                             if (ossResponse.isSuccessful()) {
                                 String ossres = ossResponse.body().string();
                                 Log.e("TAG", "oss返回的结果：" + ossres);
@@ -284,6 +284,8 @@ public class SpalshActivity extends NoStatusbarActivity implements OnProgressBar
                 Log.e("TAG", succ + "我是返回的值");
                 if (succ.intValue() == 0) {
                     // finish();
+                    spalshTv.setText("服务器连接异常");
+                    spalshRefresh.setVisibility(View.VISIBLE);
                     Log.e("TAG","其他异常");
                 } else if (succ.intValue() == 501) {
                     spalshQrLin.setVisibility(View.VISIBLE);

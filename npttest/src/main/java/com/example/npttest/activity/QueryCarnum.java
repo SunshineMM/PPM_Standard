@@ -659,6 +659,8 @@ public class QueryCarnum extends NoStatusbarActivity implements CompoundButton.O
 
         };
     }
+
+
     private void prohibitjudge() {
         switch (preson) {
             case 0:

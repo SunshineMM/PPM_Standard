@@ -60,7 +60,7 @@ public class AliPay extends NoStatusbarActivity {
         alipayactivity = this;
         alipaycontext = this;
         Log.e("TAG","支付宝地址："+Constant.aliUrl);
-        if (Constant.aliUrl!=null&&!Constant.aliUrl.equals("")){
+        if (Constant.aliUrl!=null&&!Constant.aliUrl.equals("null")&&!Constant.aliUrl.equals("")){
             getqr();
         }
         alipayRmon.setText("本次支付金额："+ Constant.srmon);
