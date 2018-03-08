@@ -31,6 +31,7 @@ public class App extends Application {
     public void onCreate() {
         super.onCreate();
         Log.e("TAG","Appcreate");
+        //初始化数据库
         dbHelper=new DBHelper(this);
         initCloudChannel(this);
     }
