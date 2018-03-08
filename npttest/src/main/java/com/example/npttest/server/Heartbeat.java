@@ -81,7 +81,7 @@ public class Heartbeat extends Service {
 
         AlarmManager manager = (AlarmManager) getSystemService(ALARM_SERVICE);
 
-        int anHour = 60 * 1000; // 这是一小时的毫秒数
+        int anHour = 60 * 1000; // 这是一分钟的毫秒数
 
         long triggerAtTime = SystemClock.elapsedRealtime() + anHour;
 

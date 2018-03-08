@@ -5,7 +5,7 @@ android {
     compileSdkVersion 26
     buildToolsVersion '26.0.2'
     aaptOptions.cruncherEnabled = false
-    aaptOptions.useNewCruncher = false
+    aaptOptions.useNewCruncher = false //用来关闭Android Studio的PNG合法性检查的，直接不让它检查
     defaultConfig {
         applicationId "com.nptpark.push"
         minSdkVersion 15

@@ -29,7 +29,6 @@ import com.example.npttest.fragment.Fragment2;
 import com.example.npttest.fragment.Fragment3;
 import com.example.npttest.manager.ActivityManager;
 import com.example.npttest.manager.DataCleanManager;
-import com.example.npttest.server.Heartbeat;
 import com.example.npttest.util.FileSizeUtil;
 import com.example.npttest.util.MD5Utils;
 import com.example.npttest.util.SPUtils;
@@ -200,15 +199,15 @@ public class IndexActivity extends BaseActivity {
         homeTv.setTextColor(Color.parseColor("#55BEB7"));
         homeTv.setTextSize(TypedValue.COMPLEX_UNIT_SP, 13);
         indexVp.setCurrentItem(0, false);
-        intent = new Intent(IndexActivity.this, Heartbeat.class);
-        startService(intent);
+        /*intent = new Intent(IndexActivity.this, Heartbeat.class);
+        startService(intent);*/
         ActivityManager.getInstance().addActivity(this);
     }
 
     //获取天气
     private void getweather(String jindu, String weidu) {
 
-        Log.e("TAG","正在获取天气正在获取天气正在获取天气");
+        Log.e("TAG","正在获取天气");
         String url = "http://jisutianqi.market.alicloudapi.com/weather/query";
         String appcode = "1d737752e21e44598c9eb8acf7ae2165";
         OkHttpUtils.get().url(url)
@@ -217,11 +216,12 @@ public class IndexActivity extends BaseActivity {
                 .build().execute(new StringCallback() {
             @Override
             public void onError(Call call, Exception e, int id) {
-
+                Log.e("TAG","获取天气异常"+e);
             }
 
             @Override
             public void onResponse(String response, int id) {
+                Log.e("TAG","获取天气返回结果："+response);
                 try {
                     JSONObject rjsonObject = new JSONObject(response);
                     String msg = rjsonObject.getString("msg");
@@ -246,7 +246,7 @@ public class IndexActivity extends BaseActivity {
                     indexWeatherCity.setText(city);
                 } catch (JSONException e) {
                     e.printStackTrace();
-                    Log.e("TAG","天气异常："+e);
+                    Log.e("TAG","获取天气抛出异常"+e);
                 }
 
             }
@@ -415,7 +415,7 @@ public class IndexActivity extends BaseActivity {
                 .setHintTextColor(Color.GRAY)  // 设置字体颜色
                 .show();
 
-        Log.e("TAG", jsons);
+        Log.e("TAG", "主页下班命令"+jsons);
         OkHttpUtils.postString().url(url)
                 .content(jsons)
                 .mediaType(MediaType.parse("application/json; charset=utf-8"))
@@ -428,7 +428,7 @@ public class IndexActivity extends BaseActivity {
             @Override
             public void onResponse(String response, int id) {
                 dialog.dismiss();
-                Log.e("TAG", response);
+                Log.e("TAG", "主页下班返回结果："+response);
                 JSONObject rpjson = null;
                 try {
                     rpjson = new JSONObject(response);
@@ -473,7 +473,7 @@ public class IndexActivity extends BaseActivity {
     //获取停车场信息
     private void car_depot(String url) {
         String jsons = "{\"cmd\":\"153\",\"type\":\"" + Constant.TYPE + "\",\"code\":\"" + Constant.CODE + "\",\"dsv\":\"" + Constant.DSV + "\",\"spare\":\"\",\"sign\":\"abcd\"}";
-        Log.e("TAG", "获取停车场信息："+jsons);
+        Log.e("TAG", "获取停车场信息命令："+jsons);
         OkHttpUtils.postString().url(url)
                 .content(jsons)
                 .mediaType(MediaType.parse("application/json; charset=utf-8"))
@@ -487,13 +487,13 @@ public class IndexActivity extends BaseActivity {
             @Override
             public void onResponse(String response, int id) {
                 //Toasty.success(SpalshActivity.this, "操作失败", Toast.LENGTH_SHORT, true).show();
-                Log.e("TAG", response);
+                Log.e("TAG", "获取停车场信息返回数据："+response);
                 try {
                     JSONObject rpjson = new JSONObject(response);
                     String reasonjson = rpjson.getString("reason");
                     JSONObject resultjson = rpjson.getJSONObject("result");
                     JSONObject datajson = resultjson.getJSONObject("data");
-                    Log.e("TAG", datajson.toString());
+                    Log.e("TAG", "获取停车场信息返回数据data："+datajson.toString());
                     if (reasonjson.equals("操作成功")) {
                         Log.e("TAG", "获取停车场信息成功");
                         pname = datajson.getString("pname");
@@ -513,7 +513,7 @@ public class IndexActivity extends BaseActivity {
 
                         getweather(Constant.lng, Constant.lat);
                     } else {
-                        Log.e("TAG", "获取失败");
+                        Log.e("TAG", "获取停车场信息失败");
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();

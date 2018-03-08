@@ -531,7 +531,7 @@ public class LoginActivity extends NoStatusbarActivity implements View.OnClickLi
                 if (dialog!=null){
                     dialog.dismiss();
                 }
-                Log.e("TAG",response);
+                Log.e("TAG","登录返回参数"+response);
                 JSONObject rpjson = null;
                 try {
                     rpjson = new JSONObject(response);
@@ -546,6 +546,7 @@ public class LoginActivity extends NoStatusbarActivity implements View.OnClickLi
                         Constant.enfree=datajson.getInt("enFree");
                         Log.e("TAG","免费放行的权限***"+Constant.enfree);
                         if (lrs==0){
+                            Log.e("TAG","当前登录的code："+Constant.CODE);
                             bindAccount();
                             if (!Constant.domeLoginBoo){
                                 String sql_user="select * from "+ TABLE_UNAME +" where "+ Constant.UNAME+" = "+"'"+loginEdtId.getText().toString().trim()+"'" ;
@@ -553,6 +554,7 @@ public class LoginActivity extends NoStatusbarActivity implements View.OnClickLi
                                 getdata_insert(sql_user);
                             }
                             Constant.logintype=0;
+                            SPUtils.put(LoginActivity.this, Constant.LOGINTYPE,0);
                             SPUtils.put(LoginActivity.this, Constant.ID,loginEdtId.getText().toString().trim());
                             SPUtils.put(LoginActivity.this, Constant.PASS,MD5Utils.encode(loginEdtPwd.getText().toString().trim()));
                             SPUtils.put(LoginActivity.this, Constant.USERNAME,username);

@@ -50,13 +50,13 @@ public class App extends Application {
         pushService.register(applicationContext, new CommonCallback() {
             @Override
             public void onSuccess(String response) {
-                Log.e("TAG", "init cloudchannel success");
+                Log.e("TAG", "初始化推送通道成功");
                 //setConsoleText("init cloudchannel success");
             }
 
             @Override
             public void onFailed(String errorCode, String errorMessage) {
-                Log.e("TAG", "init cloudchannel failed -- errorcode:" + errorCode + " -- errorMessage:" + errorMessage);
+                Log.e("TAG", "初始化推送通道失败 -- errorcode:" + errorCode + " -- errorMessage:" + errorMessage);
                 //setConsoleText("init cloudchannel failed -- errorcode:" + errorCode + " -- errorMessage:" + errorMessage);
             }
         });

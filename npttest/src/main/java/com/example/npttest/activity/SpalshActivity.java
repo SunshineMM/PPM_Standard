@@ -26,6 +26,7 @@ import com.example.npttest.App;
 import com.example.npttest.R;
 import com.example.npttest.constant.Constant;
 import com.example.npttest.manager.ActivityManager;
+import com.example.npttest.server.Heartbeat;
 import com.example.npttest.util.LogUtils;
 import com.example.npttest.util.SPUtils;
 import com.google.zxing.BarcodeFormat;
@@ -124,7 +125,7 @@ public class SpalshActivity extends NoStatusbarActivity implements OnProgressBar
         bindAccount();
         ActivityManager.getInstance().addActivity(this);
         startSplashPb(1000);
-
+        startService(new Intent(SpalshActivity.this, Heartbeat.class));
     }
 
     private void startSplashPb(int delay) {
@@ -217,7 +218,7 @@ public class SpalshActivity extends NoStatusbarActivity implements OnProgressBar
                                                 .build().connTimeOut(5000).execute();
                                         if (loginResponse.isSuccessful()) {
                                             String loginres = loginResponse.body().string();
-                                            Log.e("TAG","获取登录用户返回的结果：" + loginres);
+                                            Log.e("TAG", "获取登录用户返回的结果：" + loginres);
                                             JSONObject loginreJsonObject = new JSONObject(loginres);
                                             int logincode = loginreJsonObject.getInt("code");
                                             if (logincode == 100) {
@@ -228,8 +229,8 @@ public class SpalshActivity extends NoStatusbarActivity implements OnProgressBar
                                         } else {
                                             return -3;
                                         }
-                                    }else {
-                                        Log.e("TAG","获取Oss 失败");
+                                    } else {
+                                        Log.e("TAG", "获取Oss 失败");
                                         return -4;
                                     }
                                 } else {
@@ -286,7 +287,7 @@ public class SpalshActivity extends NoStatusbarActivity implements OnProgressBar
                     // finish();
                     spalshTv.setText("服务器连接异常");
                     spalshRefresh.setVisibility(View.VISIBLE);
-                    Log.e("TAG","其他异常");
+                    Log.e("TAG", "其他异常");
                 } else if (succ.intValue() == 501) {
                     spalshQrLin.setVisibility(View.VISIBLE);
                     TelephonyManager TelephonyMgr = (TelephonyManager) getSystemService(TELEPHONY_SERVICE);
@@ -323,7 +324,7 @@ public class SpalshActivity extends NoStatusbarActivity implements OnProgressBar
                     spalshRefresh.setVisibility(View.VISIBLE);
                 } else if (succ.intValue() == -4) {
                     startActivity(new Intent(SpalshActivity.this, LoginActivity.class));
-                }else {
+                } else {
                     spalshTv.setText("服务器连接出错" + succ.intValue());
                     spalshRefresh.setVisibility(View.VISIBLE);
                 }
@@ -338,7 +339,7 @@ public class SpalshActivity extends NoStatusbarActivity implements OnProgressBar
                     //username=datajson.getString("nname");
                     App.wmon = logindatajson.getDouble("wmon");
                     Constant.wtime = logindatajson.getLong("wtime");
-                    Constant.enfree=logindatajson.getInt("enFree");
+                    Constant.enfree = logindatajson.getInt("enFree");
                     if (lrs == 1) {
                         username = logindatajson.getString("rname");
                         uname = logindatajson.getString("uname");
@@ -355,7 +356,7 @@ public class SpalshActivity extends NoStatusbarActivity implements OnProgressBar
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();
-                    Log.e("TAG",e+"");
+                    Log.e("TAG", e + "");
                 }
 
             } else {
@@ -382,7 +383,7 @@ public class SpalshActivity extends NoStatusbarActivity implements OnProgressBar
             try {
                 get();
             } catch (Exception e) {
-                Log.e("TAG", ""+e);
+                Log.e("TAG", "" + e);
             }
         }
     }
@@ -422,12 +423,12 @@ public class SpalshActivity extends NoStatusbarActivity implements OnProgressBar
             mPushService.bindAccount(account, new CommonCallback() {
                 @Override
                 public void onSuccess(String s) {
-                    Log.e("TAG", "绑定成功");
+                    Log.e("TAG", "推送账号绑定成功");
                 }
 
                 @Override
                 public void onFailed(String errorCode, String errorMsg) {
-                    Log.e("TAG", "绑定失败");
+                    Log.e("TAG", "推送账号绑定失败");
                 }
             });
         }

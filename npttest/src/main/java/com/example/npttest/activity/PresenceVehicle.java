@@ -12,6 +12,7 @@ import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageView;
@@ -85,12 +86,21 @@ public class PresenceVehicle extends NoStatusbarActivity implements SwipeRefresh
     private PresenceVehicleAdapter vehicleAdapter;
     private List<Prese> list = new ArrayList();
     private int mdposition,coutposition;
+    private View notDataView;
+    private boolean noData = false;
 
     protected void onCreate(@Nullable Bundle paramBundle) {
         super.onCreate(paramBundle);
         setContentView(R.layout.presence_vehicle);
         ButterKnife.bind(this);
         SpeechUtility.createUtility(this, "appid=59df2c0c");
+        notDataView = getLayoutInflater().inflate(R.layout.empty_view, (ViewGroup) preceRvList.getParent(), false);
+        notDataView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getData();
+            }
+        });
         initAdapter();
         preceSwipeLayout.setOnRefreshListener(this);
         preceSwipeLayout.setColorSchemeResources(R.color.colorPrimaryDark);
@@ -310,21 +320,26 @@ public class PresenceVehicle extends NoStatusbarActivity implements SwipeRefresh
                         try {
                             JSONObject JSONObject = new JSONObject(paramAnonymousString);
                             ArrayList arrayList = new ArrayList();
-                            JSONArray JSONArray = JSONObject.getJSONObject("result").getJSONObject("data").getJSONArray("inners");
-                            //获取的数据放在集合里
-                            for (int i=0;i<JSONArray.length();i++) {
-                                arrayList.add(gson.fromJson(JSONArray.get(i).toString(), Prese.class));
+                            if (!(JSONObject.getJSONObject("result").getJSONObject("data").getString("inners")).equals("null")){
+                                JSONArray JSONArray = JSONObject.getJSONObject("result").getJSONObject("data").getJSONArray("inners");
+                                //获取的数据放在集合里
+                                for (int i=0;i<JSONArray.length();i++) {
+                                    arrayList.add(gson.fromJson(JSONArray.get(i).toString(), Prese.class));
+                                }
                             }
                             if (arrayList.size() > 0) {
                                 vehicleAdapter.addData(arrayList);
                                 vehicleAdapter.loadMoreComplete();
                                 return;
+                            }else {
+                                vehicleAdapter.setEmptyView(notDataView);
                             }
                             vehicleAdapter.loadMoreEnd(false);
                             return;
                         } catch (JSONException localJSONException) {
                             localJSONException.printStackTrace();
                             vehicleAdapter.loadMoreEnd(false);
+                            Log.e("TAG","获取数据异常"+localJSONException);
                         }
                     }
                 });
