@@ -410,7 +410,7 @@ public class LoginActivity extends NoStatusbarActivity implements View.OnClickLi
     public boolean CheckId(){
         if (TextUtils.isEmpty(loginEdtId.getText().toString().trim())){
             loginEdtId.requestFocus();
-            loginEdtId.setError("请输入用户名");
+            loginEdtId.setError(getString(R.string.please_enter_user_name));
             return false;
         }else {
             id = loginEdtId.getText().toString().trim();
@@ -422,7 +422,7 @@ public class LoginActivity extends NoStatusbarActivity implements View.OnClickLi
     public boolean CheckPwd(){
         if (TextUtils.isEmpty(loginEdtPwd.getText().toString())){
             loginEdtPwd.requestFocus();
-            loginEdtPwd.setError("请输入密码");
+            loginEdtPwd.setError(getString(R.string.please_enter_the_password));
             return false;
         }else {
             pwd = loginEdtPwd.getText().toString();
@@ -519,7 +519,7 @@ public class LoginActivity extends NoStatusbarActivity implements View.OnClickLi
                 .build().execute(new StringCallback() {
             @Override
             public void onError(Call call, Exception e, int id) {
-                Toasty.error(LoginActivity.this, "请检查网络", Toast.LENGTH_SHORT, true).show();
+                Toasty.error(LoginActivity.this, getString(R.string.please_check_the_network), Toast.LENGTH_SHORT, true).show();
                 if (dialog!=null){
                     dialog.dismiss();
                 }
@@ -562,10 +562,10 @@ public class LoginActivity extends NoStatusbarActivity implements View.OnClickLi
                             Toasty.success(LoginActivity.this, "登录成功", Toast.LENGTH_SHORT, true).show();
                             finish();
                         }else {
-                            Toasty.error(LoginActivity.this, "请检查用户名和密码", Toast.LENGTH_SHORT, true).show();
+                            Toasty.error(LoginActivity.this, getString(R.string.check_user_name_and_password), Toast.LENGTH_SHORT, true).show();
                         }
                     }else {
-                        Toasty.error(LoginActivity.this, "请检查该设备是否登记", Toast.LENGTH_SHORT, true).show();
+                        Toasty.error(LoginActivity.this, getString(R.string.check_if_the_device_is_registered), Toast.LENGTH_SHORT, true).show();
                     }
 
                 } catch (JSONException e) {
@@ -597,7 +597,7 @@ public class LoginActivity extends NoStatusbarActivity implements View.OnClickLi
                 .build().execute(new StringCallback() {
             @Override
             public void onError(Call call, Exception e, int id) {
-                Toasty.error(LoginActivity.this,"连接服务器失败，请检查网络",Toast.LENGTH_SHORT,true);
+                Toasty.error(LoginActivity.this,getString(R.string.please_check_the_network),Toast.LENGTH_SHORT,true);
             }
 
             @Override
@@ -606,7 +606,8 @@ public class LoginActivity extends NoStatusbarActivity implements View.OnClickLi
                 try {
                     JSONObject osjson = new JSONObject(response);
                     String reasonjson = osjson.getString("reason");
-                    if (reasonjson.equals("操作成功")) {
+                    int code=osjson.getInt("code");
+                    if (code==100) {
                         JSONObject resultjson = osjson.getJSONObject("result");
                         String tourl = resultjson.getString("url");
                         String domeUrl = "http://" + tourl + "/jcont";
@@ -639,7 +640,7 @@ public class LoginActivity extends NoStatusbarActivity implements View.OnClickLi
 
                         }
                     } else {
-                        Toasty.error(LoginActivity.this, "请求服务器失败，您请求的服务器有误", Toast.LENGTH_SHORT, true).show();
+                        Toasty.error(LoginActivity.this, getString(R.string.the_server_requested_failed), Toast.LENGTH_SHORT, true).show();
                     }
 
                 } catch (JSONException e) {
@@ -655,7 +656,7 @@ public class LoginActivity extends NoStatusbarActivity implements View.OnClickLi
         if (keyCode==KeyEvent.KEYCODE_BACK&&event.getAction()==KeyEvent.ACTION_DOWN){
             long secondTime=System.currentTimeMillis();//第二次按下的时间
             if (secondTime-firsttime>2000){
-                Toasty.info(LoginActivity.this, "再按一次退出", Toast.LENGTH_SHORT, true).show();
+                Toasty.info(LoginActivity.this, getString(R.string.press_again_to_exit), Toast.LENGTH_SHORT, true).show();
                 firsttime=System.currentTimeMillis();//记录当前按下的时间
             }else {
                 //finish();

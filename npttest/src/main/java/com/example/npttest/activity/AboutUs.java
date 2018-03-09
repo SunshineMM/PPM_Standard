@@ -61,7 +61,7 @@ public class AboutUs extends NoStatusbarActivity {
                             .isForce(false) //是否强制更新，默认false 强制更新情况下用户不同意更新则不能使用app
                             .update();
                 } else {
-                    Toasty.info(AboutUs.this, "已经是最新版本", Toast.LENGTH_SHORT, true).show();
+                    Toasty.info(AboutUs.this, getString(R.string.latest_version), Toast.LENGTH_SHORT, true).show();
                 }
                 break;
         }

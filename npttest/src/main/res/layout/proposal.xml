@@ -22,7 +22,7 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:gravity="center"
-            android:text="建议反馈"
+            android:text="@string/feedback"
             android:layout_marginRight="40dp"
             android:textColor="#fff"
             android:textSize="20sp" />
@@ -39,7 +39,7 @@
             android:layout_height="35dp"
             android:textColor="@color/fontcolor"
             android:textSize="17sp"
-            android:text="问题和建议"
+            android:text="@string/questions_and_suggestions"
             android:gravity="center|left"
             android:layout_marginLeft="10dp"/>
         <EditText
@@ -48,7 +48,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@null"
-            android:hint="请简要描述你的问题和建议"
+            android:hint="@string/say_questions_and_suggestions"
             android:textSize="16sp"
             android:gravity="top"
             android:padding="10dp"
@@ -62,7 +62,7 @@
         android:textColor="@color/fontcolor"
         android:padding="10dp"
         android:lineSpacingExtra="3dp"
-        android:text="   我们竭诚邀请您加入我们的产品改进计划，您在使用此产品中，遇到的问题和您宝贵的意见都可以在此描述，您的问题和意见我们都会高度的重视，感谢您的参与。"/>
+        android:text="@string/say_statement"/>
 
     <View
         android:layout_width="match_parent"
@@ -77,7 +77,7 @@
         android:background="@drawable/ripple_button_style"
         android:layout_marginRight="15dp"
         android:layout_marginLeft="15dp"
-        android:text="提  交"
+        android:text="@string/confirm_btn"
         android:textSize="17sp"
         android:textColor="#FFFFFF"
         />

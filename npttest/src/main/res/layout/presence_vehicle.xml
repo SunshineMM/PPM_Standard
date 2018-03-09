@@ -23,7 +23,7 @@
             android:layout_weight="1"
             android:layout_height="50dp"
             android:gravity="center"
-            android:text="在场车辆"
+            android:text="@string/presence_of_vehicles"
             android:textColor="#fff"
             android:textSize="20sp" />
         <ImageView

@@ -22,7 +22,7 @@
             android:layout_height="50dp"
             android:layout_marginRight="40dp"
             android:gravity="center"
-            android:text="设备二维码"
+            android:text="@string/device_QR_code"
             android:textColor="#fff"
             android:textSize="20sp" />
     </LinearLayout>
@@ -34,7 +34,7 @@
         android:paddingLeft="5dp"
         android:textSize="17sp"
         android:textColor="@color/fontcolor"
-        android:text="此二维码用于设备登记"/>
+        android:text="@string/used_for_device_registration"/>
 
     <ImageView
         android:id="@+id/qr_img"

@@ -21,7 +21,7 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:gravity="center"
-            android:text="收费纪录详细信息"
+            android:text="@string/charge_record_details"
             android:layout_marginRight="40dp"
             android:textColor="#fff"
             android:textSize="20sp" />
@@ -53,7 +53,7 @@
                     android:layout_height="match_parent"
                     android:layout_marginLeft="10dp"
                     android:gravity="center"
-                    android:text="车牌号码"
+                    android:text="@string/license_plate_number"
                     android:textColor="@color/fontcolor"
                     android:textSize="17sp" />
 
@@ -91,7 +91,7 @@
                     android:layout_height="match_parent"
                     android:layout_marginLeft="10dp"
                     android:gravity="center"
-                    android:text="车主姓名"
+                    android:text="@string/Owners_name"
                     android:textColor="@color/fontcolor"
                     android:textSize="17sp" />
 
@@ -122,7 +122,7 @@
                     android:layout_height="match_parent"
                     android:layout_marginLeft="10dp"
                     android:gravity="center"
-                    android:text="车辆类型"
+                    android:text="@string/vehicle_type"
                     android:textColor="@color/fontcolor"
                     android:textSize="17sp" />
 
@@ -152,7 +152,7 @@
                     android:layout_height="match_parent"
                     android:layout_marginLeft="10dp"
                     android:gravity="center"
-                    android:text="计费类型"
+                    android:text="@string/billing_type"
                     android:textColor="@color/fontcolor"
                     android:textSize="17sp" />
 
@@ -188,7 +188,7 @@
                     android:layout_height="match_parent"
                     android:layout_marginLeft="10dp"
                     android:gravity="center"
-                    android:text="应收金额"
+                    android:text="@string/amount_receivable_info"
                     android:textColor="@color/fontcolor"
                     android:textSize="17sp" />
 
@@ -219,7 +219,7 @@
                     android:layout_height="match_parent"
                     android:layout_marginLeft="10dp"
                     android:gravity="center"
-                    android:text="优惠金额"
+                    android:text="@string/discounted_price_info"
                     android:textColor="@color/fontcolor"
                     android:textSize="17sp" />
 
@@ -250,7 +250,7 @@
                     android:layout_height="match_parent"
                     android:layout_marginLeft="10dp"
                     android:gravity="center"
-                    android:text="实收金额"
+                    android:text="@string/amount_received_info"
                     android:textColor="@color/fontcolor"
                     android:textSize="17sp" />
 
@@ -281,7 +281,7 @@
                     android:layout_height="match_parent"
                     android:layout_marginLeft="10dp"
                     android:gravity="center"
-                    android:text="支付方式"
+                    android:text="@string/payment_method"
                     android:textColor="@color/fontcolor"
                     android:textSize="17sp" />
 
@@ -316,7 +316,7 @@
                     android:layout_height="match_parent"
                     android:layout_marginLeft="10dp"
                     android:gravity="center"
-                    android:text="入场时间"
+                    android:text="@string/admission_time"
                     android:textColor="@color/fontcolor"
                     android:textSize="17sp" />
 
@@ -346,7 +346,7 @@
                     android:layout_height="match_parent"
                     android:layout_marginLeft="10dp"
                     android:gravity="center"
-                    android:text="出场时间"
+                    android:text="@string/playing_time"
                     android:textColor="@color/fontcolor"
                     android:textSize="17sp" />
 
@@ -376,7 +376,7 @@
                     android:layout_height="match_parent"
                     android:layout_marginLeft="10dp"
                     android:gravity="center"
-                    android:text="停车时间"
+                    android:text="@string/parking_time"
                     android:textColor="@color/fontcolor"
                     android:textSize="17sp" />
 

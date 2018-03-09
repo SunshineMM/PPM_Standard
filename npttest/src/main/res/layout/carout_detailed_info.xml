@@ -22,7 +22,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:gravity="center"
-                    android:text="出场纪录详细信息"
+                    android:text="@string/appearance_record_details"
                     android:layout_marginRight="40dp"
                     android:textColor="#fff"
                     android:textSize="20sp" />
@@ -44,7 +44,7 @@
                     android:layout_height="match_parent"
                     android:layout_marginLeft="10dp"
                     android:gravity="center"
-                    android:text="车牌号码"
+                    android:text="@string/license_plate_number"
                     android:textColor="@color/fontcolor"
                     android:textSize="17sp" />
 
@@ -82,7 +82,7 @@
                     android:layout_height="match_parent"
                     android:layout_marginLeft="10dp"
                     android:gravity="center"
-                    android:text="车主姓名"
+                    android:text="@string/Owners_name"
                     android:textColor="@color/fontcolor"
                     android:textSize="17sp" />
 
@@ -112,7 +112,7 @@
                     android:layout_height="match_parent"
                     android:layout_marginLeft="10dp"
                     android:gravity="center"
-                    android:text="车辆类型"
+                    android:text="@string/vehicle_type"
                     android:textColor="@color/fontcolor"
                     android:textSize="17sp" />
 
@@ -142,7 +142,7 @@
                     android:layout_height="match_parent"
                     android:layout_marginLeft="10dp"
                     android:gravity="center"
-                    android:text="计费类型"
+                    android:text="@string/billing_type"
                     android:textColor="@color/fontcolor"
                     android:textSize="17sp" />
 
@@ -208,7 +208,7 @@
                     android:layout_height="match_parent"
                     android:layout_marginLeft="10dp"
                     android:gravity="center"
-                    android:text="出场时间"
+                    android:text="@string/playing_time"
                     android:textColor="@color/fontcolor"
                     android:textSize="17sp" />
 

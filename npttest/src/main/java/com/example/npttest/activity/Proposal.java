@@ -72,10 +72,10 @@ public class Proposal extends NoStatusbarActivity {
             case R.id.propo_btn:
                 if (TextUtils.isEmpty(propoEt.getText().toString())){
                     //Toast.makeText(this, "请输入建议", Toast.LENGTH_SHORT).show();
-                    Toasty.error(this, "请输入建议", Toast.LENGTH_SHORT,true).show();
+                    Toasty.error(this, getString(R.string.enter_a_suggestion), Toast.LENGTH_SHORT,true).show();
                 }else {
                     //Toast.makeText(this, "提交成功", Toast.LENGTH_SHORT).show();
-                    Toasty.success(this, "提交成功", Toast.LENGTH_SHORT,true).show();
+                    Toasty.success(this, getString(R.string.submitted_successfully), Toast.LENGTH_SHORT,true).show();
                 }
                 break;
         }

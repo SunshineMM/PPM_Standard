@@ -146,10 +146,10 @@ public class VerificationLogin extends NoStatusbarActivity {
     public boolean CheckPhone() {
         if (TextUtils.isEmpty(verloginPhoneEt.getText().toString())) {
             verloginPhoneEt.requestFocus();
-            verloginPhoneEt.setError("请输入手机号");
+            verloginPhoneEt.setError(getString(R.string.please_enter_phone_number));
             return false;
         } else if (isMobileNO(verloginPhoneEt.getText().toString()) == false) {
-            Toasty.error(VerificationLogin.this, "您输入的手机号有误", Toast.LENGTH_SHORT, true).show();
+            Toasty.error(VerificationLogin.this, getString(R.string.the_phone_number_you_entered_is_incorrect), Toast.LENGTH_SHORT, true).show();
             return false;
         } else {
             phone = verloginPhoneEt.getText().toString();
@@ -169,7 +169,7 @@ public class VerificationLogin extends NoStatusbarActivity {
     public boolean CheckVer() {
         if (TextUtils.isEmpty(verloginVerEt.getText().toString())) {
             verloginVerEt.requestFocus();
-            verloginVerEt.setError("请输入验证码");
+            verloginVerEt.setError(getString(R.string.please_enter_verification_code));
             return false;
         } else {
             ver = verloginVerEt.getText().toString();
@@ -185,7 +185,7 @@ public class VerificationLogin extends NoStatusbarActivity {
                 .build().execute(new StringCallback() {
             @Override
             public void onError(Call call, Exception e, int id) {
-                Toasty.error(VerificationLogin.this, "请检查网络", Toast.LENGTH_SHORT, true).show();
+                Toasty.error(VerificationLogin.this, getString(R.string.please_check_the_network), Toast.LENGTH_SHORT, true).show();
             }
 
             @Override
@@ -195,10 +195,11 @@ public class VerificationLogin extends NoStatusbarActivity {
                 try {
                     rpjson = new JSONObject(response);
                     String reasonjson = rpjson.getString("reason");
-                    if (reasonjson.equals("操作成功")) {
-                        Toasty.info(VerificationLogin.this, "短信验证码正在发送请注意查收", Toast.LENGTH_SHORT, true).show();
+                    int code=rpjson.getInt("code");
+                    if (code==100) {
+                        Toasty.info(VerificationLogin.this, getString(R.string.please_note_that_check), Toast.LENGTH_SHORT, true).show();
                     } else {
-                        Toasty.error(VerificationLogin.this, "请检查号码是否过期", Toast.LENGTH_SHORT, true).show();
+                        Toasty.error(VerificationLogin.this, getString(R.string.check_whether_the_number_is_expired), Toast.LENGTH_SHORT, true).show();
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -223,7 +224,7 @@ public class VerificationLogin extends NoStatusbarActivity {
                 .build().execute(new StringCallback() {
             @Override
             public void onError(Call call, Exception e, int id) {
-                Toasty.error(VerificationLogin.this, "请检查网络", Toast.LENGTH_SHORT, true).show();
+                Toasty.error(VerificationLogin.this, getString(R.string.please_check_the_network), Toast.LENGTH_SHORT, true).show();
             }
 
             @Override
@@ -245,11 +246,11 @@ public class VerificationLogin extends NoStatusbarActivity {
                         Constant.logintype = 1;
                         SPUtils.put(VerificationLogin.this, Constant.LOGINTYPE, 1);
                         SPUtils.put(VerificationLogin.this, Constant.ID, verloginPhoneEt.getText().toString().trim());
-                        Toasty.success(VerificationLogin.this, "登录成功", Toast.LENGTH_SHORT, true).show();
+                        Toasty.success(VerificationLogin.this, getString(R.string.login_successful), Toast.LENGTH_SHORT, true).show();
                         startActivity(new Intent(VerificationLogin.this, IndexActivity.class));
                         finish();
                     } else {
-                        Toasty.error(VerificationLogin.this, "验证码无效或已过期", Toast.LENGTH_SHORT, true).show();
+                        Toasty.error(VerificationLogin.this, getString(R.string.verification_code_is_invalid), Toast.LENGTH_SHORT, true).show();
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -279,7 +280,7 @@ public class VerificationLogin extends NoStatusbarActivity {
                 mCountHandler.sendEmptyMessageDelayed(0, 1000);
             } else {
                 countSeconds = 120;
-                verloginGetverTv.setText("获取验证码");
+                verloginGetverTv.setText(getString(R.string.get_verification_code));
             }
 
         }
@@ -291,7 +292,7 @@ public class VerificationLogin extends NoStatusbarActivity {
         if (keyCode == KeyEvent.KEYCODE_BACK && event.getAction() == KeyEvent.ACTION_DOWN) {
             long secondTime = System.currentTimeMillis();//第二次按下的时间
             if (secondTime - firsttime > 2000) {
-                Toasty.info(VerificationLogin.this, "再按一次退出", Toast.LENGTH_SHORT, true).show();
+                Toasty.info(VerificationLogin.this, getString(R.string.press_again_to_exit), Toast.LENGTH_SHORT, true).show();
                 firsttime = System.currentTimeMillis();//记录当前按下的时间
             } else {
                 //finish();

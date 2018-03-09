@@ -316,9 +316,9 @@ public class IndexActivity extends BaseActivity {
                 break;
             case R.id.index_logout_lin:
                 AlertDialog.Builder normalDialog = new AlertDialog.Builder(IndexActivity.this);
-                normalDialog.setTitle("温馨提示");
-                normalDialog.setMessage("您确定要退出吗?");
-                normalDialog.setPositiveButton("确定",
+                normalDialog.setTitle(getString(R.string.reminder));
+                normalDialog.setMessage(getString(R.string.are_you_sure_to_quit));
+                normalDialog.setPositiveButton(getString(R.string.submit),
                         new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
@@ -328,7 +328,7 @@ public class IndexActivity extends BaseActivity {
                                 SPUtils.remove(IndexActivity.this, Constant.PASS);
                             }
                         });
-                normalDialog.setNegativeButton("关闭", null);
+                normalDialog.setNegativeButton(getString(R.string.cancel), null);
                 // 显示
                 normalDialog.show();
                 break;
@@ -336,9 +336,9 @@ public class IndexActivity extends BaseActivity {
                 String wmon = String.format("%.2f", App.wmon / 100);
                 if (Constant.domeLoginBoo){
                     AlertDialog.Builder offDialog = new AlertDialog.Builder(IndexActivity.this);
-                    offDialog.setTitle("温馨提示");
-                    offDialog.setMessage("下班前请核对好收费总额，共收费"+wmon+"元，是否确定下班？");
-                    offDialog.setPositiveButton("确定",
+                    offDialog.setTitle(getString(R.string.reminder));
+                    offDialog.setMessage(getString(R.string.check_the_total_fee_before_work)+wmon+getString(R.string.to_get_off_work));
+                    offDialog.setPositiveButton(getString(R.string.submit),
                             new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialog, int which) {
@@ -349,7 +349,7 @@ public class IndexActivity extends BaseActivity {
                                     offWork(Constant.DOMEURL,jsons);
                                 }
                             });
-                    offDialog.setNegativeButton("关闭", null);
+                    offDialog.setNegativeButton(getString(R.string.cancel), null);
                     // 显示
                     offDialog.show();
                 }else {
@@ -379,7 +379,7 @@ public class IndexActivity extends BaseActivity {
                 DataCleanManager.cleanCustomCache(Constant.nocompressPath);
                 Log.e("TAG",Constant.compressPath);
                 Log.e("TAG",Constant.nocompressPath);
-                Toasty.info(IndexActivity.this,"清理成功,本次一共清理了"+nocompressPathfileSize+"缓存",Toast.LENGTH_SHORT,true).show();
+                Toasty.info(IndexActivity.this,getString(R.string.clean_up_successfully)+nocompressPathfileSize+getString(R.string.cache),Toast.LENGTH_SHORT,true).show();
                 break;
             case R.id.index_update:
                 //Toast.makeText(this, "已是最新版本", Toast.LENGTH_SHORT).show();
@@ -422,7 +422,7 @@ public class IndexActivity extends BaseActivity {
                 .build().execute(new StringCallback() {
             @Override
             public void onError(Call call, Exception e, int id) {
-                Toast.makeText(IndexActivity.this, "请检查网络", Toast.LENGTH_SHORT).show();
+                Toast.makeText(IndexActivity.this,getString(R.string.please_check_the_network), Toast.LENGTH_SHORT).show();
             }
 
             @Override
@@ -440,7 +440,7 @@ public class IndexActivity extends BaseActivity {
                         SPUtils.put(IndexActivity.this, "domeloginboo",false);
                         Constant.domeLoginBoo=false;
                         //dialog.dismiss();
-                        Toasty.success(IndexActivity.this, "下班成功", Toast.LENGTH_SHORT, true).show();
+                        Toasty.success(IndexActivity.this, getString(R.string.get_off_work_success), Toast.LENGTH_SHORT, true).show();
                         startActivity(new Intent(IndexActivity.this, LoginActivity.class));
                         finish();
                     }

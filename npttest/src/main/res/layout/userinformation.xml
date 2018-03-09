@@ -45,7 +45,7 @@
             android:layout_height="match_parent"
             android:layout_marginLeft="10dp"
             android:gravity="center"
-            android:text="头像"
+            android:text="@string/avatar"
             android:textColor="@color/fontcolor"
             android:textSize="17sp" />
         <View
@@ -86,7 +86,7 @@
             android:layout_height="match_parent"
             android:layout_marginLeft="10dp"
             android:gravity="center"
-            android:text="姓名"
+            android:text="@string/names"
             android:textColor="@color/fontcolor"
             android:textSize="17sp" />
 
@@ -117,7 +117,7 @@
             android:layout_height="match_parent"
             android:layout_marginLeft="10dp"
             android:gravity="center"
-            android:text="昵称"
+            android:text="@string/nickname"
             android:textColor="@color/fontcolor"
             android:textSize="17sp" />
 
@@ -147,7 +147,7 @@
             android:layout_height="match_parent"
             android:layout_marginLeft="10dp"
             android:gravity="center"
-            android:text="性别"
+            android:text="@string/sex"
             android:textColor="@color/fontcolor"
             android:textSize="17sp" />
 
@@ -183,7 +183,7 @@
             android:layout_height="match_parent"
             android:layout_marginLeft="10dp"
             android:gravity="center"
-            android:text="电话"
+            android:text="@string/phone"
             android:textColor="@color/fontcolor"
             android:textSize="17sp" />
 
@@ -214,7 +214,7 @@
             android:layout_height="match_parent"
             android:layout_marginLeft="10dp"
             android:gravity="center"
-            android:text="邮箱"
+            android:text="@string/mailbox"
             android:textColor="@color/fontcolor"
             android:textSize="17sp" />
 
@@ -251,7 +251,7 @@
             android:layout_height="match_parent"
             android:layout_marginLeft="10dp"
             android:gravity="center"
-            android:text="上班时长"
+            android:text="@string/long_hours_at_work"
             android:textColor="@color/fontcolor"
             android:textSize="17sp" />
 

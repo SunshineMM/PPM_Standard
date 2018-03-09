@@ -293,7 +293,7 @@ public class QueryChargeRecord extends NoStatusbarActivity implements SwipeRefre
                         TextUtils.isEmpty(queryChargeInputbox5.getText().toString()) ||
                         TextUtils.isEmpty(queryChargeInputbox6.getText().toString()) ||
                         TextUtils.isEmpty(queryChargeInputbox7.getText().toString())) {
-                    Toasty.error(this, "请输入正确的车牌号", Toast.LENGTH_SHORT, true).show();
+                    Toasty.error(this, getString(R.string.enter_correct_license_plate_number), Toast.LENGTH_SHORT, true).show();
                 } else {
                     list.clear();
                     if (App.serverurl != null) {
@@ -326,7 +326,7 @@ public class QueryChargeRecord extends NoStatusbarActivity implements SwipeRefre
                 .build().execute(new StringCallback() {
             @Override
             public void onError(Call call, Exception e, int id) {
-                Toast.makeText(QueryChargeRecord.this, "无网络", Toast.LENGTH_SHORT).show();
+                Toast.makeText(QueryChargeRecord.this, getString(R.string.please_check_the_network), Toast.LENGTH_SHORT).show();
             }
 
             @Override

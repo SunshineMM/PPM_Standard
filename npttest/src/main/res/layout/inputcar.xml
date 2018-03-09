@@ -28,7 +28,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:gravity="center"
-                android:text="手动出入场"
+                android:text="@string/manually_enter_the_field"
                 android:layout_marginRight="40dp"
                 android:textColor="#fff"
                 android:textSize="20sp" />
@@ -53,7 +53,7 @@
                     android:layout_weight="1"
                     android:textColor="@color/fontcolor"
                     android:gravity="center|left"
-                    android:text="请输入车牌号:"
+                    android:text="@string/enter_the_license_plate_number"
                     android:textSize="16sp" />
 
                 <ImageView
@@ -169,7 +169,7 @@
                 android:layout_height="match_parent"
                 android:layout_marginLeft="10dp"
                 android:gravity="center"
-                android:text="是否开启输入新能源车牌"
+                android:text="@string/is_input_new_energy_license_plate"
                 android:textColor="@color/fontcolor"
                 android:textSize="16sp" />
 
@@ -233,7 +233,7 @@
                         android:id="@+id/inputcar_mototext"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="摩托车"
+                        android:text="@string/motorcycle"
                         android:textColor="@color/fontcolor"
                         android:textSize="12sp" />
                 </LinearLayout>
@@ -263,7 +263,7 @@
                         android:id="@+id/inputcar_smallcartext"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="小型车"
+                        android:text="@string/compacts"
                         android:textColor="@color/fontcolor"
                         android:textSize="12sp" />
                 </LinearLayout>
@@ -293,7 +293,7 @@
                         android:id="@+id/inputcar_middletext"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="中型车"
+                        android:text="@string/Intermediate"
                         android:layout_marginTop="5dp"
                         android:textColor="@color/fontcolor"
                         android:textSize="12sp" />
@@ -324,7 +324,7 @@
                         android:id="@+id/inputcar_bigcartextt"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="大型车"
+                        android:text="@string/large_vehicle"
                         android:textColor="@color/fontcolor"
                         android:textSize="12sp" />
                 </LinearLayout>
@@ -354,7 +354,7 @@
             android:layout_marginRight="5dp"
             android:layout_weight="1"
             android:background="@drawable/ripple_button_style"
-            android:text="入  场"
+            android:text="@string/admission"
             android:textColor="#fff"
             android:textSize="20sp" />
 
@@ -366,7 +366,7 @@
             android:layout_weight="1"
             android:layout_marginLeft="5dp"
             android:background="@drawable/ripple_button_style"
-            android:text="出  场"
+            android:text="@string/appearances"
             android:textColor="#fff"
             android:textSize="20sp" />
     </LinearLayout>

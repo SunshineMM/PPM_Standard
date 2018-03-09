@@ -23,7 +23,7 @@
             android:layout_height="50dp"
             android:layout_marginRight="40dp"
             android:gravity="center"
-            android:text="关于用户登录"
+            android:text="@string/about_user_login"
             android:textColor="#FFFFFF"
             android:textSize="20sp" />
     </LinearLayout>
@@ -38,7 +38,7 @@
         android:textColor="@color/fontcolor"
         android:textSize="14sp"
         android:padding="10dp"
-        android:text="用户登录用户是无法自身创建账号和密码的，账号密码需要平台提供。登录提供了两种登录方式，输入用户名密码登录和手机获取验证码登录，登录成功进入主页。\n\n【注意】如输入用户名和密码登录时登录失败，请检查该设备是否登记绑定，是否添加所属的停车场，如验证码登录无法获取到验证码，请检查输入的手机号码是否正确，手机号码是否能正常使用，如手机号码正常，可能是获取手机验证码操作频繁，请稍后再试。如验证码登录失败，请检查该手机号码是否添加到服务器当中。"/>
+        android:text="@string/about_user_login_info"/>
     </ScrollView>
 
     <LinearLayout

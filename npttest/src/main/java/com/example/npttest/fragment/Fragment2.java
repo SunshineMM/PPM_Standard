@@ -33,7 +33,7 @@ public class Fragment2 extends Fragment {
     My_Viewpager fg2Vp;
     private FragmentManager fragmentManager;
     private List<Fragment> list = new ArrayList<Fragment>();
-    private String tabTitles[] = new String[]{"入场记录", "出场记录", "收费记录"};
+    private String tabTitles[] = new String[]{getString(R.string.admission_records), getString(R.string.appearance_record), getString(R.string.charge_records)};
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {

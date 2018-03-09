@@ -123,9 +123,9 @@ public class ReleaseRemarks extends NoStatusbarActivity implements OnItemDragLis
                     break;
                 case OVERHEAT:
                     android.app.AlertDialog.Builder overHeatDialog = new android.app.AlertDialog.Builder(ReleaseRemarks.this);
-                    overHeatDialog.setTitle("温馨提示");
-                    overHeatDialog.setMessage("打印过热");
-                    overHeatDialog.setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                    overHeatDialog.setTitle(getString(R.string.reminder));
+                    overHeatDialog.setMessage(R.string.print_too_hot);
+                    overHeatDialog.setPositiveButton(getString(R.string.submit), new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {
                             free_start_voice();
@@ -169,7 +169,7 @@ public class ReleaseRemarks extends NoStatusbarActivity implements OnItemDragLis
                     }
                     break;
                 default:
-                    Toast.makeText(ReleaseRemarks.this, "打印机异常！", Toast.LENGTH_LONG).show();
+                    Toast.makeText(ReleaseRemarks.this, getString(R.string.printer_is_abnormal), Toast.LENGTH_LONG).show();
                     free_start_voice();
                     Intent zintent = new Intent(ReleaseRemarks.this, CaroutSuccessful.class);
                     zintent.putExtra("carnum", carnum);
@@ -253,7 +253,7 @@ public class ReleaseRemarks extends NoStatusbarActivity implements OnItemDragLis
                 switch (view.getId()) {
                     case R.id.releaseItem_iv:
                         AlertDialog.Builder builder = new AlertDialog.Builder(ReleaseRemarks.this);
-                        builder.setTitle("用户信息修改");//设置标题
+                        builder.setTitle(R.string.release_comment_modification);//设置标题
                         //实例化两个控件
                         final EditText updatetv = new EditText(ReleaseRemarks.this);
                         //将值添加到控件
@@ -263,12 +263,12 @@ public class ReleaseRemarks extends NoStatusbarActivity implements OnItemDragLis
                         linearLayout.setOrientation(LinearLayout.VERTICAL);//设置线性布局的排列方式
                         linearLayout.addView(updatetv);
                         builder.setView(linearLayout);//将线性布局添加到build
-                        builder.setNegativeButton("取消", null);
-                        builder.setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                        builder.setNegativeButton(getString(R.string.cancel), null);
+                        builder.setPositiveButton(getString(R.string.submit), new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
                                 if (TextUtils.isEmpty(updatetv.getText())) {
-                                    Toasty.error(ReleaseRemarks.this, "输入信息不能为空", Toast.LENGTH_SHORT, true).show();
+                                    Toasty.error(ReleaseRemarks.this, getString(R.string.input_information_cannot_be_empty), Toast.LENGTH_SHORT, true).show();
                                 } else {
                                     String sql_update = "update " + Constant.TABLE_USER + " set " + Constant.RRSTRING + "='"
                                             + updatetv.getText().toString() + "'" + " where " + Constant.RRSTRING + "=" + "'" + list.get(position) + "'";
@@ -276,7 +276,7 @@ public class ReleaseRemarks extends NoStatusbarActivity implements OnItemDragLis
                                     SQLiteDatabase db = App.dbHelper.getWritableDatabase();
                                     db.execSQL(sql_update);
                                     db.close();
-                                    Toasty.success(ReleaseRemarks.this, "修改成功", Toast.LENGTH_SHORT, true).show();
+                                    Toasty.success(ReleaseRemarks.this, getString(R.string.successfully_modified), Toast.LENGTH_SHORT, true).show();
                                     query_DB();
                                 }
                             }
@@ -518,7 +518,7 @@ public class ReleaseRemarks extends NoStatusbarActivity implements OnItemDragLis
                 break;
             case R.id.release_add:
                 AlertDialog.Builder builder = new AlertDialog.Builder(ReleaseRemarks.this);
-                builder.setTitle("放行备注添加");//设置标题
+                builder.setTitle(R.string.release_notes_added);//设置标题
                 //实例化两个控件
                 final EditText remags = new EditText(ReleaseRemarks.this);
                 TextView eptv = new TextView(ReleaseRemarks.this);
@@ -528,13 +528,13 @@ public class ReleaseRemarks extends NoStatusbarActivity implements OnItemDragLis
                 linearLayout.addView(eptv);
                 linearLayout.addView(remags);
                 builder.setView(linearLayout);//将线性布局添加到build
-                builder.setNegativeButton("取消", null);
-                builder.setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                builder.setNegativeButton(getString(R.string.cancel), null);
+                builder.setPositiveButton(getString(R.string.submit), new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
 
                         if (TextUtils.isEmpty(remags.getText())) {
-                            Toasty.error(ReleaseRemarks.this, "输入信息不能为空", Toast.LENGTH_SHORT, true).show();
+                            Toasty.error(ReleaseRemarks.this, getString(R.string.input_information_cannot_be_empty), Toast.LENGTH_SHORT, true).show();
                         } else {
                             String sql = "insert into " + Constant.TABLE_USER + "(" + Constant.RRSTRING + ") values('" + remags.getText().toString() + "')";
                             //测试数据
@@ -543,7 +543,7 @@ public class ReleaseRemarks extends NoStatusbarActivity implements OnItemDragLis
                             //获取数据库操作对象
                             SQLiteDatabase db = App.dbHelper.getWritableDatabase();
                             db.execSQL(sql);//执行sql语句
-                            Toasty.success(ReleaseRemarks.this, "添加成功", Toast.LENGTH_SHORT, true).show();
+                            Toasty.success(ReleaseRemarks.this, getString(R.string.added_successfull), Toast.LENGTH_SHORT, true).show();
                             db.close();
                             query_DB();
                         }
@@ -620,7 +620,7 @@ public class ReleaseRemarks extends NoStatusbarActivity implements OnItemDragLis
         Log.e("TAG", sql);
         SQLiteDatabase db = App.dbHelper.getWritableDatabase();
         db.execSQL(sql);//执行sql语句
-        Toasty.success(ReleaseRemarks.this, "删除成功", Toast.LENGTH_SHORT, true).show();
+        Toasty.success(ReleaseRemarks.this, getString(R.string.successfully_deleted), Toast.LENGTH_SHORT, true).show();
         //将数据从list移除
         //list.remove(pos);
         //刷新适配器
@@ -631,7 +631,7 @@ public class ReleaseRemarks extends NoStatusbarActivity implements OnItemDragLis
     @Override
     public void onItemSwipeMoving(Canvas canvas, RecyclerView.ViewHolder viewHolder, float dX, float dY, boolean isCurrentlyActive) {
         canvas.drawColor(ContextCompat.getColor(ReleaseRemarks.this, R.color.colorPrimaryDark));
-        canvas.drawText("滑动删除", 50, 90, paint);
+        canvas.drawText(getString(R.string.swipe_to_delete), 50, 90, paint);
         //Log.e("TAG","未知3："+dX+"+"+dY+"+"+isCurrentlyActive);
     }
 
@@ -656,7 +656,6 @@ public class ReleaseRemarks extends NoStatusbarActivity implements OnItemDragLis
 
             @Override
             public void onResponse(String response, int id) {
-                Log.e("TAG", "成功");
                 Log.e("TAG", response);
                 dialog1.dismiss();
                 try {
@@ -667,7 +666,7 @@ public class ReleaseRemarks extends NoStatusbarActivity implements OnItemDragLis
                     int rstat = datajson.getInt("rstat");
                     //String sid=datajson.getString("sid");
                     if (rstat == 0) {
-                            Constant.srmon="0元（免费放行）";
+                            Constant.srmon=getString(R.string.free_0);
                             free_start_voice();
                             Intent zdintent = new Intent(ReleaseRemarks.this, CaroutSuccessful.class);
                             zdintent.putExtra("carnum", carnum);
@@ -682,7 +681,7 @@ public class ReleaseRemarks extends NoStatusbarActivity implements OnItemDragLis
                             finish();
                             caroutactivity.finish();
                     } else {
-                        Toasty.error(ReleaseRemarks.this, "订单无效需重新发起", Toast.LENGTH_SHORT, true).show();
+                        Toasty.error(ReleaseRemarks.this, getString(R.string.invalid_orders_need_to_be_reinitiated), Toast.LENGTH_SHORT, true).show();
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();

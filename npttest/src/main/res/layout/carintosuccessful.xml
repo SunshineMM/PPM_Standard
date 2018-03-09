@@ -8,7 +8,7 @@
         android:background="#FFF"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="入场详情"
+        android:text="@string/admission_details"
         android:textSize="17sp"
         android:padding="10dp"
         android:textColor="@color/fontcolor"
@@ -35,7 +35,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:text="入场成功"
+            android:text="@string/admission_success"
             android:textColor="@color/colorPrimaryDark"
             android:textSize="20sp" />
 
@@ -71,7 +71,7 @@
                 android:textSize="16sp"
                 android:textColor="@color/fontcolor"
                 android:layout_height="wrap_content"
-                android:text="车辆类型："/>
+                android:text="@string/vehicle_type_"/>
 
             <TextView
                 android:id="@+id/carin_suful_cartype"
@@ -95,7 +95,7 @@
                 android:textSize="16sp"
                 android:textColor="@color/fontcolor"
                 android:layout_height="wrap_content"
-                android:text="计费类型："/>
+                android:text="@string/billing_type_"/>
             <TextView
                 android:id="@+id/carin_suful_pztype"
                 android:layout_width="wrap_content"
@@ -118,7 +118,7 @@
                 android:textSize="16sp"
                 android:textColor="@color/fontcolor"
                 android:layout_height="wrap_content"
-                android:text="入场时间："/>
+                android:text="@string/admission_time_"/>
             <TextView
                 android:id="@+id/carin_suful_intime"
                 android:layout_width="wrap_content"
@@ -141,7 +141,7 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:background="@drawable/ripple_button_style"
-        android:text="完  成"
+        android:text="@string/end"
         android:textSize="20sp"
         android:layout_margin="15dp"
         android:textColor="#FFF" />

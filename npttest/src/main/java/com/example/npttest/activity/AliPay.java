@@ -63,7 +63,7 @@ public class AliPay extends NoStatusbarActivity {
         if (Constant.aliUrl!=null&&!Constant.aliUrl.equals("null")&&!Constant.aliUrl.equals("")){
             getqr();
         }
-        alipayRmon.setText("本次支付金额："+ Constant.srmon);
+        alipayRmon.setText(getString(R.string.this_payment_amount)+ Constant.srmon);
     }
 
     @OnClick(R.id.alipay_return)
@@ -100,7 +100,7 @@ public class AliPay extends NoStatusbarActivity {
                 .build().execute(new StringCallback() {
             @Override
             public void onError(Call call, Exception e, int id) {
-                Toast.makeText(AliPay.this, "获取支付二维码超时", Toast.LENGTH_SHORT).show();
+                Toast.makeText(AliPay.this, R.string.get_paid_QR_code_timeout, Toast.LENGTH_SHORT).show();
             }
 
             @Override

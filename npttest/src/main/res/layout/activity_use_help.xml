@@ -23,7 +23,7 @@
             android:layout_height="50dp"
             android:layout_marginRight="40dp"
             android:gravity="center"
-            android:text="使用帮助"
+            android:text="@string/using_help"
             android:textColor="#FFFFFF"
             android:textSize="20sp" />
     </LinearLayout>
@@ -42,7 +42,7 @@
             android:layout_marginLeft="15dp"
             android:layout_weight="1"
             android:gravity="center|left"
-            android:text="关于用户登录"
+            android:text="@string/about_user_login"
             android:textColor="@color/fontcolor"
             android:textSize="16dp" />
 
@@ -78,7 +78,7 @@
             android:layout_marginLeft="15dp"
             android:layout_weight="1"
             android:gravity="center|left"
-            android:text="关于车辆入场"
+            android:text="@string/about_vehicle_admission"
             android:textColor="@color/fontcolor"
             android:textSize="16dp" />
 
@@ -109,7 +109,7 @@
             android:layout_marginLeft="15dp"
             android:layout_weight="1"
             android:gravity="center|left"
-            android:text="关于车辆出场"
+            android:text="@string/about_vehicle_appearance"
             android:textColor="@color/fontcolor"
             android:textSize="16dp" />
 
@@ -140,7 +140,7 @@
             android:layout_marginLeft="15dp"
             android:layout_weight="1"
             android:gravity="center|left"
-            android:text="关于查询功能"
+            android:text="@string/about_query_function"
             android:textColor="@color/fontcolor"
             android:textSize="16dp" />
 
@@ -171,7 +171,7 @@
             android:layout_marginLeft="15dp"
             android:layout_weight="1"
             android:gravity="center|left"
-            android:text="关于免费放行"
+            android:text="@string/about_free_release"
             android:textColor="@color/fontcolor"
             android:textSize="16dp" />
 
@@ -206,7 +206,7 @@
             android:layout_marginLeft="15dp"
             android:layout_weight="1"
             android:gravity="center|left"
-            android:text="关于修改车位和车牌"
+            android:text="@string/modification_of_parking_spaces_and_license_plates"
             android:textColor="@color/fontcolor"
             android:textSize="16dp" />
 
@@ -237,7 +237,7 @@
             android:layout_marginLeft="15dp"
             android:layout_weight="1"
             android:gravity="center|left"
-            android:text="关于默认城市"
+            android:text="@string/about_the_default_city"
             android:textColor="@color/fontcolor"
             android:textSize="16dp" />
 
@@ -268,7 +268,7 @@
             android:layout_marginLeft="15dp"
             android:layout_weight="1"
             android:gravity="center|left"
-            android:text="关于用户下班"
+            android:text="@string/about_the_user_off_duty"
             android:textColor="@color/fontcolor"
             android:textSize="16dp" />
 

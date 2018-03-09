@@ -1,15 +1,24 @@
 package com.example.npttest.tool;
 
+import android.app.Activity;
+
+import com.example.npttest.R;
+
 /**
  * Created by liuji on 2017/9/27.
  */
 
 public class TimeDifferTools {
+    private Activity mcontext;
+
+    public TimeDifferTools(Activity mContext){
+        this.mcontext=mContext;
+    }
     /*
     *计算time2减去time1的差值 差值只设置 几天 几个小时 或 几分钟
     * 根据差值返回多长之间前或多长时间后
     * */
-    public static String getDistanceTime(long  time1,long time2 ) {
+    public String getDistanceTime(long time1, long time2) {
         long day = 0;
         long hour = 0;
         long min = 0;
@@ -31,21 +40,21 @@ public class TimeDifferTools {
             if (sec>0){
                 min=min+1;
             }
-            return day+"天"+hour+"小时"+min+"分钟";
+            return day+mcontext.getString(R.string.day_)+hour+mcontext.getString(R.string.hour_)+min+mcontext.getString(R.string.min_);
         }
         if(hour!=0){
             if (sec>0){
                 min=min+1;
             }
-            return hour+"小时"+min+"分钟";
+            return hour+mcontext.getString(R.string.hour_)+min+mcontext.getString(R.string.min_);
         }
         if(min!=0) {
             if (sec>0){
                 min=min+1;
             }
-            return min + "分钟";
+            return min + mcontext.getString(R.string.min_);
         }
         //if (sec!=0)return sec+"秒";
-        return "1分钟";
+        return mcontext.getString(R.string.one_min);
     }
 }

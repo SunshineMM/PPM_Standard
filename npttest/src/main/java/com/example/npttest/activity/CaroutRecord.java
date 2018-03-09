@@ -1,5 +1,6 @@
 package com.example.npttest.activity;
 
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.Intent;
 import android.graphics.Color;
@@ -216,7 +217,7 @@ public class CaroutRecord extends NoStatusbarActivity implements SwipeRefreshLay
                 .build().execute(new StringCallback() {
             @Override
             public void onError(Call call, Exception e, int id) {
-                Toast.makeText(CaroutRecord.this, "无网络", Toast.LENGTH_SHORT).show();
+                Toast.makeText(CaroutRecord.this, getString(R.string.please_check_the_network), Toast.LENGTH_SHORT).show();
             }
 
             @Override
@@ -243,7 +244,7 @@ public class CaroutRecord extends NoStatusbarActivity implements SwipeRefreshLay
                             handler.sendEmptyMessage(0x123);
                         }
                     } else {
-                        Toasty.error(CaroutRecord.this, "未查询到该记录", Toast.LENGTH_SHORT, true).show();
+                        Toasty.error(CaroutRecord.this, getString(R.string.did_not_find_out_the_record), Toast.LENGTH_SHORT, true).show();
                     }
 
                 } catch (JSONException e) {
@@ -253,6 +254,7 @@ public class CaroutRecord extends NoStatusbarActivity implements SwipeRefreshLay
         });
     }
 
+    @SuppressLint("HandlerLeak")
     private Handler handler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
@@ -354,7 +356,7 @@ public class CaroutRecord extends NoStatusbarActivity implements SwipeRefreshLay
                     }
                 })
                 .setType(new boolean[]{true, true, true, true, true, true})
-                .setLabel("年", "月", "日", "时", "分", "秒")
+                .setLabel(getString(R.string.year), getString(R.string.month), getString(R.string.day), getString(R.string.hour), getString(R.string.minute), getString(R.string.second))
                 .isCenterLabel(false) //是否只显示中间选中项的label文字，false则每项item全部都带有label。
                 .setDividerColor(0xFF24AD9D)
                 .build();
@@ -411,7 +413,7 @@ public class CaroutRecord extends NoStatusbarActivity implements SwipeRefreshLay
                     }
                 })
                 .setType(new boolean[]{true, true, true, true, true, true})
-                .setLabel("年", "月", "日", "时", "分", "秒")
+                .setLabel(getString(R.string.year), getString(R.string.month), getString(R.string.day), getString(R.string.hour), getString(R.string.minute), getString(R.string.second))
                 .isCenterLabel(false) //是否只显示中间选中项的label文字，false则每项item全部都带有label。
                 .setDividerColor(0xFF24AD9D)
                 .build();

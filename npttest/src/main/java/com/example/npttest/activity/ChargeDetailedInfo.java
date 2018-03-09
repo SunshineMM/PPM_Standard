@@ -75,12 +75,12 @@ public class ChargeDetailedInfo extends NoStatusbarActivity {
         chargeRecordCarnum.setText(carnum);
         chargeRecordCartype.setText(cartype);
         chargeRecordPztype.setText(pztype);
-        chargeRecordNmon.setText(snmon + "元");
-        chargeRecordSmon.setText(ssmon + "元");
-        chargeRecordRmon.setText(srmon + "元");
+        chargeRecordNmon.setText(snmon + getString(R.string.yuan));
+        chargeRecordSmon.setText(ssmon +  getString(R.string.yuan));
+        chargeRecordRmon.setText(srmon +  getString(R.string.yuan));
         chargeRecordItime.setText(DateTools.getDate(itime * 1000));
         chargeRecordCtime.setText(DateTools.getDate(ctime * 1000));
-        chargeRecordPtime.setText(TimeDifferTools.getDistanceTime(itime * 1000, ctime * 1000));
+        chargeRecordPtime.setText(new TimeDifferTools(this).getDistanceTime(itime * 1000, ctime * 1000));
     }
 
     @OnClick(R.id.charge_record_return)

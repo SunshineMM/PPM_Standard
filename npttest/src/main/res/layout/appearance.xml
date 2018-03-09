@@ -25,7 +25,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:gravity="center"
-                android:text="出场执行"
+                android:text="@string/executive_appearance"
                 android:layout_marginRight="40dp"
                 android:textColor="#fff"
                 android:textSize="20sp" />
@@ -178,7 +178,7 @@
                         android:id="@+id/appearance_mototext"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="摩托车"
+                        android:text="@string/motorcycle"
                         android:textColor="@color/fontcolor"
                         android:textSize="12sp" />
                 </LinearLayout>
@@ -208,7 +208,7 @@
                         android:id="@+id/appearance_smallcartext"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="小型车"
+                        android:text="@string/compacts"
                         android:textColor="@color/fontcolor"
                         android:textSize="12sp" />
                 </LinearLayout>
@@ -238,7 +238,7 @@
                         android:id="@+id/appearance_middletext"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="中型车"
+                        android:text="@string/Intermediate"
                         android:layout_marginTop="5dp"
                         android:textColor="@color/fontcolor"
                         android:textSize="12sp" />
@@ -269,7 +269,7 @@
                         android:id="@+id/appearance_bigcartext"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="大型车"
+                        android:text="@string/large_vehicle"
                         android:textColor="@color/fontcolor"
                         android:textSize="12sp" />
                 </LinearLayout>
@@ -315,7 +315,7 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="5dp"
                 android:background="@drawable/ripple_button_style"
-                android:text="取消出场"
+                android:text="@string/cancel_out"
                 android:textColor="#fff"
                 android:textSize="16sp" />
 
@@ -327,7 +327,7 @@
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="10dp"
                 android:background="@drawable/ripple_button_style"
-                android:text="确定出场"
+                android:text="@string/confirm_out"
                 android:textColor="#fff"
                 android:textSize="16sp" />
         </LinearLayout>

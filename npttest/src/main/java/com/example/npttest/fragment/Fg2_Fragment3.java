@@ -1,6 +1,7 @@
 package com.example.npttest.fragment;
 
 
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
@@ -163,6 +164,7 @@ public class Fg2_Fragment3 extends Fragment implements SwipeRefreshLayout.OnRefr
         });
     }
 
+    @SuppressLint("HandlerLeak")
     private Handler handler = new Handler() {
         @Override
         public void handleMessage(Message msg) {

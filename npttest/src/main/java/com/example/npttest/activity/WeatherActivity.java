@@ -1,5 +1,6 @@
 package com.example.npttest.activity;
 
+import android.annotation.SuppressLint;
 import android.content.DialogInterface;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -102,7 +103,7 @@ public class WeatherActivity extends NoStatusbarActivity {
                 break;
             case R.id.wth_city:
                 AlertDialog.Builder builder = new AlertDialog.Builder(WeatherActivity.this);
-                builder.setTitle("请输入城市");//设置标题
+                builder.setTitle(R.string.please_enter_the_city);//设置标题
                 //实例化两个控件
                 final EditText citytv = new EditText(WeatherActivity.this);
                 //将值添加到控件
@@ -112,8 +113,8 @@ public class WeatherActivity extends NoStatusbarActivity {
                 linearLayout.setOrientation(LinearLayout.VERTICAL);//设置线性布局的排列方式
                 linearLayout.addView(citytv);
                 builder.setView(linearLayout);//将线性布局添加到build
-                builder.setNegativeButton("取消", null);
-                builder.setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                builder.setNegativeButton(getString(R.string.cancel), null);
+                builder.setPositiveButton(getString(R.string.submit), new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         wthCity.setText(citytv.getText().toString().trim());
@@ -156,7 +157,7 @@ public class WeatherActivity extends NoStatusbarActivity {
                 .build().execute(new StringCallback() {
             @Override
             public void onError(Call call, Exception e, int id) {
-                Toasty.error(WeatherActivity.this, "无法查询到天气", Toast.LENGTH_SHORT, true).show();
+                Toasty.error(WeatherActivity.this, getString(R.string.unable_to_find_the_weather), Toast.LENGTH_SHORT, true).show();
                 dialog.dismiss();
             }
 
@@ -200,14 +201,14 @@ public class WeatherActivity extends NoStatusbarActivity {
                     wthWeather.setText(weather);
                     wthTemp.setText(temp + "°");
                     wthTemp2.setText(templow + "°/" + temphigh + "°");
-                    wthAqi.setText("空气" + quality);
+                    wthAqi.setText(getString(R.string.air) + quality);
                     wthWinddirect.setText(windpower + winddirect);
-                    wthHumidity.setText("湿度" + humidity);
-                    wthPressure.setText("气压" + pressure);
+                    wthHumidity.setText(getString(R.string.humidity) + humidity);
+                    wthPressure.setText(getString(R.string.pressure) + pressure);
                     wthPm.setText("Pm" + pm25);
                     getimg();
                     dialog.dismiss();
-                    Log.e("TAG", "天气：" + list.size());
+                    Log.e("TAG", getString(R.string.weather_) + list.size());
                     handler.sendEmptyMessage(0x123);
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -240,7 +241,7 @@ public class WeatherActivity extends NoStatusbarActivity {
                 .build().execute(new StringCallback() {
             @Override
             public void onError(Call call, Exception e, int id) {
-                Toasty.error(WeatherActivity.this, "未查询到该城市", Toast.LENGTH_SHORT, true).show();
+                Toasty.error(WeatherActivity.this, getString(R.string.not_inquired_about_the_city), Toast.LENGTH_SHORT, true).show();
                 dialog1.dismiss();
                 Log.e("TAG", "无返回天气数据");
             }
@@ -286,16 +287,16 @@ public class WeatherActivity extends NoStatusbarActivity {
                         wthWeather.setText(weather);
                         wthTemp.setText(temp + "°");
                         wthTemp2.setText(templow + "°/" + temphigh + "°");
-                        wthAqi.setText("空气" + quality);
+                        wthAqi.setText(getString(R.string.air)+ quality);
                         wthWinddirect.setText(windpower + winddirect);
-                        wthHumidity.setText("湿度 " + humidity);
-                        wthPressure.setText("气压 " + pressure);
+                        wthHumidity.setText(getString(R.string.humidity) + humidity);
+                        wthPressure.setText(getString(R.string.pressure) + pressure);
                         wthPm.setText("Pm2.5 " + pm25);
                         getimg();
                         Log.e("TAG", "天气：" + list.size());
                         handler.sendEmptyMessage(0x123);
                     } else {
-                        Toasty.error(WeatherActivity.this, "未查询到该城市", Toast.LENGTH_SHORT, true).show();
+                        Toasty.error(WeatherActivity.this, getString(R.string.not_inquired_about_the_city), Toast.LENGTH_SHORT, true).show();
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -305,6 +306,7 @@ public class WeatherActivity extends NoStatusbarActivity {
         });
     }
 
+    @SuppressLint("HandlerLeak")
     private Handler handler = new Handler() {
         @Override
         public void handleMessage(Message msg) {

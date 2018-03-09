@@ -1,5 +1,6 @@
 package com.example.npttest.server;
 
+import android.annotation.SuppressLint;
 import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.app.Service;
@@ -129,7 +130,8 @@ public class Heartbeat extends Service {
                         try {
                             jsonObject = new JSONObject(response);
                             String reasonjson = jsonObject.getString("reason");
-                            if (reasonjson.equals("操作成功")) {
+                            int code=jsonObject.getInt("code");
+                            if (code==100) {
                                 JSONObject resultjson = jsonObject.getJSONObject("result");
                                 JSONObject datajson = resultjson.getJSONObject("data");
                                 H_elot= datajson.getInt("elot");
@@ -157,6 +159,7 @@ public class Heartbeat extends Service {
     }
 
 
+    @SuppressLint("HandlerLeak")
     private Handler handler=new Handler(){
         @Override
         public void handleMessage(Message msg) {

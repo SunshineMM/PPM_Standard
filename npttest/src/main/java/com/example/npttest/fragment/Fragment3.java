@@ -97,7 +97,7 @@ public class Fragment3 extends Fragment {
                             .isForce(false) //是否强制更新，默认false 强制更新情况下用户不同意更新则不能使用app
                             .update();
                 } else {
-                    Toasty.info(getContext(), "已经是最新版本", Toast.LENGTH_SHORT, true).show();
+                    Toasty.info(getContext(), getString(R.string.latest_version), Toast.LENGTH_SHORT, true).show();
                 }
                 break;
             case R.id.fg3_setComCity:
@@ -115,13 +115,13 @@ public class Fragment3 extends Fragment {
                     Log.e("TAG", checkBluetooth() + "");
                     startActivity(new Intent(getActivity(), AddBlueTooth.class));
                 }*/
-                Toast.makeText(getActivity(), "稍后开放，请耐心等待更新", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), getString(R.string.open_later), Toast.LENGTH_SHORT).show();
                 break;
             case R.id.fg3_vehicle_inventory:
-                Toast.makeText(getActivity(), "稍后开放，请耐心等待更新", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), getString(R.string.open_later), Toast.LENGTH_SHORT).show();
                 break;
             case R.id.fg3_violation_record:
-                Toast.makeText(getActivity(), "稍后开放，请耐心等待更新", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(),getString(R.string.open_later), Toast.LENGTH_SHORT).show();
                 break;
             case R.id.fg3_query_record:
                 startActivity(new Intent(getActivity(), QueryRecord.class));

@@ -21,7 +21,7 @@
             android:layout_height="50dp"
             android:layout_marginRight="40dp"
             android:gravity="center"
-            android:text="设置常用城市"
+            android:text="@string/set_common_cities"
             android:textColor="#fff"
             android:textSize="20sp" />
     </LinearLayout>
@@ -43,7 +43,7 @@
             android:layout_height="match_parent"
             android:layout_marginLeft="10dp"
             android:gravity="center"
-            android:text="是否设置常用城市"
+            android:text="@string/whether_to_set_the_common_cit"
             android:textColor="@color/fontcolor"
             android:textSize="17sp" />
 
@@ -94,7 +94,7 @@
                 android:layout_height="match_parent"
                 android:layout_marginLeft="10dp"
                 android:gravity="center"
-                android:text="选择城市"
+                android:text="@string/select_city"
                 android:textColor="@color/fontcolor"
                 android:textSize="17sp" />
 

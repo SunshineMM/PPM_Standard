@@ -48,22 +48,22 @@ public class ProhibitPass extends NoStatusbarActivity {
     private void judge() {
         switch (ctype) {
             case 1:
-                cartype = "摩托车";
+                cartype = getString(R.string.motorcycle);
                 break;
             case 2:
-                cartype = "小型车";
+                cartype = getString(R.string.compacts);
                 break;
             case 3:
-                cartype = "中型车";
+                cartype = getString(R.string.Intermediate);
                 break;
             case 4:
-                cartype = "大型车";
+                cartype = getString(R.string.large_vehicle);
                 break;
             case 5:
-                cartype = "运输车";
+                cartype = getString(R.string.transporter);
                 break;
             case 6:
-                cartype = "备用车";
+                cartype = getString(R.string.spare_car);
                 break;
         }
     }

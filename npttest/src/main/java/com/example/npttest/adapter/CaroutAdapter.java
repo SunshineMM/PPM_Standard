@@ -25,9 +25,9 @@ public class CaroutAdapter extends BaseQuickAdapter<Carout,BaseViewHolder> {
         protected void convert(BaseViewHolder helper, Carout item) {
             long etime=item.getEtime();
             helper.setText(R.id.item_car_num,item.getPnum());
-            helper.setText(R.id.item_car_type,"车辆类型："+item.getCtype());
-            helper.setText(R.id.item_card_type,"计费类型："+item.getCdtp());
-            helper.setText(R.id.item_carin_time, "出场时间："+DateTools.getDate(etime*1000));
+            helper.setText(R.id.item_car_type,mContext.getString(R.string.vehicle_type_)+item.getCtype());
+            helper.setText(R.id.item_card_type,mContext.getString(R.string.billing_type_)+item.getCdtp());
+            helper.setText(R.id.item_carin_time, mContext.getString(R.string.admission_time_)+DateTools.getDate(etime*1000));
             // 加载网络图片
             Glide.with(mContext).load(item.getEurl())
                     .centerCrop()

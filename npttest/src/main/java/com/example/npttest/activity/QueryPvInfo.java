@@ -49,7 +49,7 @@ public class QueryPvInfo extends NoStatusbarActivity {
         intcartype = intent.getIntExtra("cartype", 0);
         intpztype = intent.getIntExtra("pztype", 0);
         itime = intent.getLongExtra("itime", 0);
-        ptime = TimeDifferTools.getDistanceTime(itime * 1000, gettime());
+        ptime = new TimeDifferTools(this).getDistanceTime(itime * 1000, gettime());
         jfjudge();
         queryPvInfoCarnum.setText(carnum);
         queryPvInfoCartype.setText(cartype);
@@ -66,46 +66,46 @@ public class QueryPvInfo extends NoStatusbarActivity {
     private void jfjudge() {
         switch (intcartype) {
             case 1:
-                cartype = "摩托车";
+                cartype = getString(R.string.motorcycle);
                 break;
             case 2:
-                cartype = "小型车";
+                cartype = getString(R.string.compacts);
                 break;
             case 3:
-                cartype = "中型车";
+                cartype = getString(R.string.Intermediate);
                 break;
             case 4:
-                cartype = "大型车";
+                cartype = getString(R.string.large_vehicle);
                 break;
             case 5:
-                cartype = "运输车";
+                cartype = getString(R.string.transporter);
                 break;
             case 6:
-                cartype = "备用车";
+                cartype = getString(R.string.spare_car);
                 break;
         }
 
         switch (intpztype) {
             case 1:
-                pztype = "贵宾车";
+                pztype = getString(R.string.VIP_car);
                 break;
             case 2:
-                pztype = "月票车";
+                pztype = getString(R.string.monthly_ticket_car);
                 break;
             case 3:
-                pztype = "储值车";
+                pztype = getString(R.string.reserve_car);
                 break;
             case 4:
-                pztype = "临时车";
+                pztype = getString(R.string.temporary_car);
                 break;
             case 5:
-                pztype = "免费车";
+                pztype = getString(R.string.free_car);
                 break;
             case 6:
-                pztype = "车位池车";
+                pztype = getString(R.string.parking_pool_car);
                 break;
             case 7:
-                pztype = "时租车";
+                pztype = getString(R.string.car_rental);
                 break;
         }
     }

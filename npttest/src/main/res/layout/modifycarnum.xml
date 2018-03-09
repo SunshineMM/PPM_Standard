@@ -48,7 +48,7 @@
             android:layout_height="match_parent"
             android:layout_marginLeft="10dp"
             android:gravity="center"
-            android:text="车牌号码"
+            android:text="@string/license_plate_number"
             android:textColor="@color/fontcolor"
             android:textSize="17sp" />
 
@@ -159,7 +159,7 @@
             android:layout_height="match_parent"
             android:layout_marginLeft="10dp"
             android:gravity="center"
-            android:text="车主姓名"
+            android:text="@string/Owners_name"
             android:textColor="@color/fontcolor"
             android:textSize="17sp" />
 
@@ -191,7 +191,7 @@
             android:layout_height="match_parent"
             android:layout_marginLeft="10dp"
             android:gravity="center"
-            android:text="车辆类型"
+            android:text="@string/vehicle_type"
             android:textColor="@color/fontcolor"
             android:textSize="17sp" />
 
@@ -222,7 +222,7 @@
             android:layout_height="match_parent"
             android:layout_marginLeft="10dp"
             android:gravity="center"
-            android:text="计费类型"
+            android:text="@string/billing_type"
             android:textColor="@color/fontcolor"
             android:textSize="17sp" />
 
@@ -258,7 +258,7 @@
             android:layout_height="match_parent"
             android:layout_marginLeft="10dp"
             android:gravity="center"
-            android:text="卡号"
+            android:text="@string/card_number"
             android:textColor="@color/fontcolor"
             android:textSize="17sp" />
 

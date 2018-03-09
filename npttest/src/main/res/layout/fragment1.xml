@@ -41,7 +41,7 @@
                     android:layout_height="0dp"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:text="在场车辆(辆)"
+                    android:text="@string/presence_of_vehicles_"
                     android:textColor="#48495f"
                     android:textSize="16sp"
                     android:textStyle="bold" />
@@ -74,7 +74,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="0dp"
                     android:layout_weight="1"
-                    android:text="收费总额(元)"
+                    android:text="@string/total_fees"
                     android:gravity="center"
                     android:textColor="#48495f"
                     android:textSize="16sp"
@@ -109,7 +109,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="0dp"
                     android:layout_weight="1"
-                    android:text="剩余车位(个)"
+                    android:text="@string/remaining_parking_spaces"
                     android:gravity="center"
                     android:textColor="#48495f"
                     android:textSize="16sp"
@@ -217,7 +217,7 @@
         android:gravity="top|center"
         android:background="@drawable/ripple_button_inputnum_style"
         android:paddingTop="10dp"
-        android:text="手动输入"
+        android:text="@string/enter_manually"
         android:textColor="#FFF"
         android:textSize="16sp" />
 

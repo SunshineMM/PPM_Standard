@@ -1,5 +1,6 @@
 package com.example.npttest.activity;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -89,14 +90,14 @@ public class OffworkActivity extends NoStatusbarActivity {
         Log.e("TAG", user);
         offworkName.setText(username);
         String wmon = String.format("%.2f", App.wmon / 100);
-        offworkMoney.setText(wmon+"元");
-        wtime = TimeDifferTools.getDistanceTime(Constant.wtime * 1000, gettime() * 1000);
+        offworkMoney.setText(wmon+getString(R.string.yuan));
+        wtime = new TimeDifferTools(this).getDistanceTime(Constant.wtime * 1000, gettime() * 1000);
         offworkWorktime.setText(wtime);
         if (loginType==1){
             //offworkPassword.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
             offworkPassword.setInputType(InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD);
             offworkGetverTv.setVisibility(View.VISIBLE);
-            offworkPassword.setHint("验证码");
+            offworkPassword.setHint(R.string.verification_code);
         }
 
         offworkPassword.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
@@ -141,7 +142,7 @@ public class OffworkActivity extends NoStatusbarActivity {
                 break;
             case R.id.offwork_submit:
                 if (TextUtils.isEmpty(offworkPassword.getText())) {
-                    offworkPassword.setError("请输入密码");
+                    offworkPassword.setError(getString(R.string.please_enter_the_password));
                 } else {
                     if (loginType==0){
                         int wmon= (int) App.wmon;
@@ -183,7 +184,7 @@ public class OffworkActivity extends NoStatusbarActivity {
                 .build().execute(new StringCallback() {
             @Override
             public void onError(Call call, Exception e, int id) {
-                Toasty.error(OffworkActivity.this, "请检查网络", Toast.LENGTH_SHORT, true).show();
+                Toasty.error(OffworkActivity.this, getString(R.string.please_check_the_network), Toast.LENGTH_SHORT, true).show();
             }
 
             @Override
@@ -193,10 +194,11 @@ public class OffworkActivity extends NoStatusbarActivity {
                 try {
                     rpjson = new JSONObject(response);
                     String reasonjson = rpjson.getString("reason");
-                    if (reasonjson.equals("操作成功")) {
-                        Toasty.info(OffworkActivity.this, "短信验证码正在发送请注意查收", Toast.LENGTH_SHORT, true).show();
+                    int code=rpjson.getInt("code");
+                    if (code==100) {
+                        Toasty.info(OffworkActivity.this, getString(R.string.please_note_that_check), Toast.LENGTH_SHORT, true).show();
                     } else {
-                        Toasty.error(OffworkActivity.this, "请检查号码是否过期", Toast.LENGTH_SHORT, true).show();
+                        Toasty.error(OffworkActivity.this, getString(R.string.check_whether_the_number_is_expired), Toast.LENGTH_SHORT, true).show();
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -216,6 +218,7 @@ public class OffworkActivity extends NoStatusbarActivity {
         });
     }
 
+    @SuppressLint("HandlerLeak")
     private Handler mCountHandler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
@@ -227,7 +230,7 @@ public class OffworkActivity extends NoStatusbarActivity {
                 mCountHandler.sendEmptyMessageDelayed(0, 1000);
             } else {
                 countSeconds = 120;
-                offworkGetverTv.setText("获取验证码");
+                offworkGetverTv.setText(R.string.get_verification_code);
             }
 
         }
@@ -251,7 +254,7 @@ public class OffworkActivity extends NoStatusbarActivity {
                 .build().execute(new StringCallback() {
             @Override
             public void onError(Call call, Exception e, int id) {
-                Toast.makeText(OffworkActivity.this, "请检查网络", Toast.LENGTH_SHORT).show();
+                Toast.makeText(OffworkActivity.this,getString(R.string.please_check_the_network), Toast.LENGTH_SHORT).show();
             }
 
             @Override
@@ -269,12 +272,12 @@ public class OffworkActivity extends NoStatusbarActivity {
                         SPUtils.remove(OffworkActivity.this, Constant.ID);
                         SPUtils.remove(OffworkActivity.this, Constant.PASS);
                         //dialog.dismiss();
-                        Toasty.success(OffworkActivity.this, "下班成功", Toast.LENGTH_SHORT, true).show();
+                        Toasty.success(OffworkActivity.this, getString(R.string.get_off_work_success), Toast.LENGTH_SHORT, true).show();
                         startActivity(new Intent(OffworkActivity.this, LoginActivity.class));
                         IndexActivity.indexActivity.finish();
                         finish();
                     } else {
-                        Toasty.error(OffworkActivity.this, "您输入的密码有误", Toast.LENGTH_SHORT, true).show();
+                        Toasty.error(OffworkActivity.this, getString(R.string.password_is_incorrect), Toast.LENGTH_SHORT, true).show();
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();

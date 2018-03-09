@@ -329,7 +329,7 @@ public class QueryCarnum extends NoStatusbarActivity implements CompoundButton.O
                         queryInputbox8.getText().toString().trim();
                 char[] carnumber = stringarray.toCharArray();
                 if (carnumber.length < 3) {
-                    Toasty.error(this, "请输入正确的车牌号", Toast.LENGTH_SHORT).show();
+                    Toasty.error(this, getString(R.string.enter_correct_license_plate_number), Toast.LENGTH_SHORT).show();
                 } else {
                     stringEdit = (queryInputbox1.getText().toString() == null || "".equals(queryInputbox1.getText().toString().trim()) ? "*" : queryInputbox1.getText().toString()) +
                             (queryInputbox2.getText().toString() == null || "".equals(queryInputbox2.getText().toString().trim()) ? "*" : queryInputbox2.getText().toString()) +
@@ -404,7 +404,7 @@ public class QueryCarnum extends NoStatusbarActivity implements CompoundButton.O
                             list.add(querynum);
                         }
                     } else {
-                        Toasty.error(QueryCarnum.this, "未查询到该车辆", Toast.LENGTH_SHORT, true).show();
+                        Toasty.error(QueryCarnum.this, getString(R.string.no_vehicle_was_queried), Toast.LENGTH_SHORT, true).show();
                     }
                     Log.e("TAG", "查询在场车辆：" + list.size());
                     handler.sendEmptyMessage(0x123);
@@ -452,25 +452,25 @@ public class QueryCarnum extends NoStatusbarActivity implements CompoundButton.O
 
         switch (cdtp) {
             case 1:
-                jfType = "贵宾车";
+                jfType = getString(R.string.VIP_car);
                 break;
             case 2:
-                jfType = "月票车";
+                jfType = getString(R.string.monthly_ticket_car);
                 break;
             case 3:
-                jfType = "储值车";
+                jfType = getString(R.string.reserve_car);
                 break;
             case 4:
-                jfType = "临时车";
+                jfType = getString(R.string.temporary_car);
                 break;
             case 5:
-                jfType = "免费车";
+                jfType = getString(R.string.free_car);
                 break;
             case 6:
-                jfType = "车位池车";
+                jfType = getString(R.string.parking_pool_car);
                 break;
             case 7:
-                jfType = "时租车";
+                jfType = getString(R.string.car_rental);
                 break;
         }
     }
@@ -484,7 +484,6 @@ public class QueryCarnum extends NoStatusbarActivity implements CompoundButton.O
 
     //车辆出场
     private void carout(String url) {
-        Log.e("TAG", "多少次");
         dialog1 = new ZLoadingDialog(QueryCarnum.this);
         dialog1.setLoadingBuilder(Z_TYPE.LEAF_ROTATE)//设置类型STAR_LOADING 五角星
                 .setLoadingColor(Color.parseColor("#55BEB7"))//颜色
@@ -664,37 +663,37 @@ public class QueryCarnum extends NoStatusbarActivity implements CompoundButton.O
     private void prohibitjudge() {
         switch (preson) {
             case 0:
-                comfirmYy = "黑名单";
+                comfirmYy = getString(R.string.blacklist);
                 break;
             case 1:
-                comfirmYy = "有效期未开始";
+                comfirmYy = getString(R.string.validity_is_not_started);
                 break;
             case 2:
-                comfirmYy = "已过期";
+                comfirmYy = getString(R.string.Expired);
                 break;
             case 3:
-                comfirmYy = "重复进出";
+                comfirmYy = getString(R.string.repeat_io);
                 break;
             case 4:
-                comfirmYy = "值班员信息有误";
+                comfirmYy = getString(R.string.information_error);
                 break;
             case 5:
-                comfirmYy = "未授权";
+                comfirmYy = getString(R.string.unauthorized);
                 break;
             case 6:
-                comfirmYy = "需要收费，未找到在场车辆信息";
+                comfirmYy = getString(R.string.no_information_on_the_present_vehicle);
                 break;
             case 7:
-                comfirmYy = "通道禁止通行";
+                comfirmYy = getString(R.string.passageway_prohibition_of_passage);
                 break;
             case 8:
-                comfirmYy = "车位池满禁止通行";
+                comfirmYy = getString(R.string.parking_lots_are_not_allowed_to_pass);
                 break;
             case 9:
-                comfirmYy = "车位满禁止通行";
+                comfirmYy = getString(R.string.full_seat_no_entry);
                 break;
             case 10:
-                comfirmYy = "无效请求";
+                comfirmYy = getString(R.string.invalid_request);
                 break;
         }
     }
@@ -702,37 +701,37 @@ public class QueryCarnum extends NoStatusbarActivity implements CompoundButton.O
     private void chargejudge() {
         switch (preson) {
             case 0:
-                comfirmYy = "临时车";
+                comfirmYy = getString(R.string.temporary_car);
                 break;
             case 1:
-                comfirmYy = "储值票车";
+                comfirmYy = getString(R.string.storage_car);
                 break;
             case 2:
-                comfirmYy = "时租车";
+                comfirmYy = getString(R.string.time_car);
                 break;
             case 3:
-                comfirmYy = "有效期未开始";
+                comfirmYy = getString(R.string.no_term_of_validity);
                 break;
             case 4:
-                comfirmYy = "已过期";
+                comfirmYy = getString(R.string.expired);
                 break;
             case 5:
-                comfirmYy = "余额不足";
+                comfirmYy = getString(R.string.insufficient_balance);
                 break;
             case 6:
-                comfirmYy = "车位池满";
+                comfirmYy = getString(R.string.parking_lot_full);
                 break;
             case 7:
-                comfirmYy = "车库未授权";
+                comfirmYy = getString(R.string.garage_not_authorized);
                 break;
             case 8:
-                comfirmYy = "子库未授权";
+                comfirmYy = getString(R.string.sublibrary_unauthorized);
                 break;
             case 9:
-                comfirmYy = "报停车辆";
+                comfirmYy = getString(R.string.stop_vehicle);
                 break;
             case 10:
-                comfirmYy = "已禁用车辆";
+                comfirmYy = getString(R.string.disable_vehicles);
                 break;
         }
     }
@@ -740,19 +739,19 @@ public class QueryCarnum extends NoStatusbarActivity implements CompoundButton.O
     private void confirmjudge() {
         switch (preson) {
             case 0:
-                comfirmYy = "通道确认通行";
+                comfirmYy = getString(R.string.channel_confirmation);
                 break;
             case 1:
-                comfirmYy = "车位满确认放行";
+                comfirmYy = getString(R.string.seat_full_confirmation_release);
                 break;
             case 2:
-                comfirmYy = "车位池满确认放行";
+                comfirmYy = getString(R.string.the_seat_pool_is_full_of_confirmation);
                 break;
             case 3:
-                comfirmYy = "有效期未开始";
+                comfirmYy = getString(R.string.the_period_of_validity_is_not_started);
                 break;
             case 4:
-                comfirmYy = "已过期";
+                comfirmYy = getString(R.string.expired);
                 break;
 
         }

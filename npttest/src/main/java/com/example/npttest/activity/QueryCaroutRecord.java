@@ -1,5 +1,6 @@
 package com.example.npttest.activity;
 
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.Intent;
 import android.graphics.Color;
@@ -288,7 +289,7 @@ public class QueryCaroutRecord extends NoStatusbarActivity implements SwipeRefre
                         TextUtils.isEmpty(queryCaroutInputbox5.getText().toString()) ||
                         TextUtils.isEmpty(queryCaroutInputbox6.getText().toString()) ||
                         TextUtils.isEmpty(queryCaroutInputbox7.getText().toString())) {
-                    Toasty.error(this, "请输入正确的车牌号", Toast.LENGTH_SHORT, true).show();
+                    Toasty.error(this, getString(R.string.enter_correct_license_plate_number), Toast.LENGTH_SHORT, true).show();
                 } else {
                     list.clear();
                     if (App.serverurl != null) {
@@ -321,7 +322,7 @@ public class QueryCaroutRecord extends NoStatusbarActivity implements SwipeRefre
                 .build().execute(new StringCallback() {
             @Override
             public void onError(Call call, Exception e, int id) {
-                Toast.makeText(QueryCaroutRecord.this, "无网络", Toast.LENGTH_SHORT).show();
+                Toast.makeText(QueryCaroutRecord.this,getString(R.string.please_check_the_network), Toast.LENGTH_SHORT).show();
             }
 
             @Override
@@ -348,7 +349,7 @@ public class QueryCaroutRecord extends NoStatusbarActivity implements SwipeRefre
                             handler.sendEmptyMessage(0x123);
                         }
                     } else {
-                        Toasty.error(QueryCaroutRecord.this, "未查询到该记录", Toast.LENGTH_SHORT, true).show();
+                        Toasty.error(QueryCaroutRecord.this, getString(R.string.not_find_out_the_vehicle_information), Toast.LENGTH_SHORT, true).show();
                     }
 
                 } catch (JSONException e) {
@@ -358,6 +359,7 @@ public class QueryCaroutRecord extends NoStatusbarActivity implements SwipeRefre
         });
     }
 
+    @SuppressLint("HandlerLeak")
     private Handler handler = new Handler() {
         @Override
         public void handleMessage(Message msg) {

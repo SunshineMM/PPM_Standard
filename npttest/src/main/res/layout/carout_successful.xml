@@ -15,7 +15,7 @@
                 android:background="#FFF"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="出场详情"
+                android:text="@string/details_of_appearance"
                 android:textSize="17sp"
                 android:padding="10dp"
                 android:textColor="@color/fontcolor"
@@ -42,7 +42,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:text="出场成功"
+                    android:text="@string/successful_appearance"
                     android:textColor="@color/colorPrimaryDark"
                     android:textSize="20sp" />
 
@@ -71,7 +71,7 @@
                     android:layout_height="match_parent"
                     android:layout_marginLeft="10dp"
                     android:gravity="center"
-                    android:text="是否打印票据"
+                    android:text="@string/whether_to_print_the_ticket"
                     android:textColor="@color/fontcolor"
                     android:textSize="16sp" />
 
@@ -105,7 +105,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="车辆类型："
+                        android:text="@string/vehicle_type_"
                         android:textColor="@color/fontcolor"
                         android:textSize="16sp" />
 
@@ -132,7 +132,7 @@
                         android:textSize="16sp"
                         android:textColor="@color/fontcolor"
                         android:layout_height="wrap_content"
-                        android:text="计费类型："/>
+                        android:text="@string/billing_type_"/>
 
                     <TextView
                         android:id="@+id/carout_suful_pztype"
@@ -156,7 +156,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="停车时间："
+                        android:text="@string/parking_time_"
                         android:textColor="@color/fontcolor"
                         android:textSize="16sp" />
 
@@ -182,7 +182,7 @@
                         android:textSize="16sp"
                         android:textColor="@color/fontcolor"
                         android:layout_height="wrap_content"
-                        android:text="入场时间："/>
+                        android:text="@string/admission_time_"/>
                     <TextView
                         android:id="@+id/carout_suful_itime"
                         android:layout_width="wrap_content"
@@ -205,7 +205,7 @@
                         android:textSize="16sp"
                         android:textColor="@color/fontcolor"
                         android:layout_height="wrap_content"
-                        android:text="出场时间："/>
+                        android:text="@string/playing_time_"/>
                     <TextView
                         android:id="@+id/carout_suful_outtime"
                         android:layout_width="wrap_content"
@@ -233,7 +233,7 @@
         android:layout_height="50dp"
         android:layout_margin="15dp"
         android:background="@drawable/ripple_button_style"
-        android:text="完  成"
+        android:text="@string/end"
         android:layout_alignParentBottom="true"
         android:textColor="#FFF"
         android:textSize="20sp" />

@@ -257,7 +257,7 @@ public class InputCarnum extends NoStatusbarActivity implements CompoundButton.O
 
             @Override
             public void onError(Call call, Exception e, int id) {
-                Toast.makeText(InputCarnum.this, "请检查网络", Toast.LENGTH_SHORT).show();
+                Toast.makeText(InputCarnum.this, getString(R.string.please_check_the_network), Toast.LENGTH_SHORT).show();
             }
 
             @Override
@@ -540,16 +540,16 @@ public class InputCarnum extends NoStatusbarActivity implements CompoundButton.O
                 Log.e("TAG", carintotime + "");
                 switch (carType) {
                     case 1:
-                        car_type = "摩托车";
+                        car_type = getString(R.string.motorcycle);
                         break;
                     case 2:
-                        car_type = "小型车";
+                        car_type = getString(R.string.compacts);
                         break;
                     case 3:
-                        car_type = "中型车";
+                        car_type = getString(R.string.Intermediate);
                         break;
                     case 4:
-                        car_type = "大型车";
+                        car_type = getString(R.string.large_vehicle);
                         break;
                 }
                 editS = inputcarInputbox1.getText().toString() +
@@ -568,7 +568,7 @@ public class InputCarnum extends NoStatusbarActivity implements CompoundButton.O
                         TextUtils.isEmpty(inputcarInputbox5.getText().toString()) ||
                         TextUtils.isEmpty(inputcarInputbox6.getText().toString()) ||
                         TextUtils.isEmpty(inputcarInputbox7.getText().toString())) {
-                    Toasty.error(this, "请输入正确的车牌号", Toast.LENGTH_SHORT, true).show();
+                    Toasty.error(this, getString(R.string.enter_correct_license_plate_number), Toast.LENGTH_SHORT, true).show();
                 } else {
                     carinto(App.serverurl);
                 }
@@ -577,16 +577,16 @@ public class InputCarnum extends NoStatusbarActivity implements CompoundButton.O
             case R.id.inputcarout_btn:
                 switch (carType) {
                     case 1:
-                        car_type = "摩托车";
+                        car_type = getString(R.string.motorcycle);
                         break;
                     case 2:
-                        car_type = "小型车";
+                        car_type = getString(R.string.compacts);
                         break;
                     case 3:
-                        car_type = "中型车";
+                        car_type = getString(R.string.Intermediate);
                         break;
                     case 4:
-                        car_type = "大型车";
+                        car_type = getString(R.string.large_vehicle);
                         break;
                 }
                 editS = inputcarInputbox1.getText().toString() +
@@ -605,7 +605,7 @@ public class InputCarnum extends NoStatusbarActivity implements CompoundButton.O
                         TextUtils.isEmpty(inputcarInputbox5.getText().toString()) ||
                         TextUtils.isEmpty(inputcarInputbox6.getText().toString()) ||
                         TextUtils.isEmpty(inputcarInputbox7.getText().toString())) {
-                    Toasty.error(this, "请输入正确的车牌号", Toast.LENGTH_SHORT, true).show();
+                    Toasty.error(this, getString(R.string.enter_correct_license_plate_number), Toast.LENGTH_SHORT, true).show();
                 } else {
                     carout(App.serverurl);
 
@@ -845,7 +845,6 @@ public class InputCarnum extends NoStatusbarActivity implements CompoundButton.O
 
             @Override
             public void onResponse(String response, int id) {
-                Log.e("TAG", "成功");
                 Log.e("TAG", response);
                 dialog1.dismiss();
                 try {
@@ -965,7 +964,6 @@ public class InputCarnum extends NoStatusbarActivity implements CompoundButton.O
 
             @Override
             public void onResponse(String response, int id) {
-                Log.e("TAG", "成功");
                 Log.e("TAG", response);
                 dialog.dismiss();
                 try {
@@ -1058,37 +1056,37 @@ public class InputCarnum extends NoStatusbarActivity implements CompoundButton.O
     private void prohibitjudge() {
         switch (preson) {
             case 0:
-                comfirmYy = "黑名单";
+                comfirmYy = getString(R.string.blacklist);
                 break;
             case 1:
-                comfirmYy = "有效期未开始";
+                comfirmYy = getString(R.string.validity_is_not_started);
                 break;
             case 2:
-                comfirmYy = "已过期";
+                comfirmYy = getString(R.string.Expired);
                 break;
             case 3:
-                comfirmYy = "重复进出";
+                comfirmYy = getString(R.string.repeat_io);
                 break;
             case 4:
-                comfirmYy = "值班员信息有误";
+                comfirmYy = getString(R.string.information_error);
                 break;
             case 5:
-                comfirmYy = "未授权";
+                comfirmYy = getString(R.string.unauthorized);
                 break;
             case 6:
-                comfirmYy = "需要收费，未找到在场车辆信息";
+                comfirmYy = getString(R.string.no_information_on_the_present_vehicle);
                 break;
             case 7:
-                comfirmYy = "通道禁止通行";
+                comfirmYy = getString(R.string.passageway_prohibition_of_passage);
                 break;
             case 8:
-                comfirmYy = "车位池满禁止通行";
+                comfirmYy = getString(R.string.parking_lots_are_not_allowed_to_pass);
                 break;
             case 9:
-                comfirmYy = "车位满禁止通行";
+                comfirmYy = getString(R.string.full_seat_no_entry);
                 break;
             case 10:
-                comfirmYy = "无效请求";
+                comfirmYy = getString(R.string.invalid_request);
                 break;
         }
     }
@@ -1096,37 +1094,37 @@ public class InputCarnum extends NoStatusbarActivity implements CompoundButton.O
     private void chargejudge() {
         switch (preson) {
             case 0:
-                comfirmYy = "临时车";
+                comfirmYy = getString(R.string.temporary_car);
                 break;
             case 1:
-                comfirmYy = "储值票车";
+                comfirmYy = getString(R.string.storage_car);
                 break;
             case 2:
-                comfirmYy = "时租车";
+                comfirmYy = getString(R.string.time_car);
                 break;
             case 3:
-                comfirmYy = "有效期未开始";
+                comfirmYy = getString(R.string.no_term_of_validity);
                 break;
             case 4:
-                comfirmYy = "已过期";
+                comfirmYy = getString(R.string.expired);
                 break;
             case 5:
-                comfirmYy = "余额不足";
+                comfirmYy = getString(R.string.insufficient_balance);
                 break;
             case 6:
-                comfirmYy = "车位池满";
+                comfirmYy = getString(R.string.parking_lot_full);
                 break;
             case 7:
-                comfirmYy = "车库未授权";
+                comfirmYy = getString(R.string.garage_not_authorized);
                 break;
             case 8:
-                comfirmYy = "子库未授权";
+                comfirmYy = getString(R.string.sublibrary_unauthorized);
                 break;
             case 9:
-                comfirmYy = "报停车辆";
+                comfirmYy = getString(R.string.stop_vehicle);
                 break;
             case 10:
-                comfirmYy = "已禁用车辆";
+                comfirmYy = getString(R.string.disable_vehicles);
                 break;
         }
     }
@@ -1134,19 +1132,19 @@ public class InputCarnum extends NoStatusbarActivity implements CompoundButton.O
     private void confirmjudge() {
         switch (preson) {
             case 0:
-                comfirmYy = "通道确认通行";
+                comfirmYy = getString(R.string.channel_confirmation);
                 break;
             case 1:
-                comfirmYy = "车位满确认放行";
+                comfirmYy = getString(R.string.seat_full_confirmation_release);
                 break;
             case 2:
-                comfirmYy = "车位池满确认放行";
+                comfirmYy = getString(R.string.the_seat_pool_is_full_of_confirmation);
                 break;
             case 3:
-                comfirmYy = "有效期未开始";
+                comfirmYy = getString(R.string.the_period_of_validity_is_not_started);
                 break;
             case 4:
-                comfirmYy = "已过期";
+                comfirmYy = getString(R.string.expired);
                 break;
 
         }
@@ -1156,25 +1154,25 @@ public class InputCarnum extends NoStatusbarActivity implements CompoundButton.O
     private void jfjudge() {
         switch (cdtp) {
             case 1:
-                jfType = "贵宾车";
+                jfType = getString(R.string.VIP_car);
                 break;
             case 2:
-                jfType = "月票车";
+                jfType = getString(R.string.monthly_ticket_car);
                 break;
             case 3:
-                jfType = "储值车";
+                jfType = getString(R.string.reserve_car);
                 break;
             case 4:
-                jfType = "临时车";
+                jfType = getString(R.string.temporary_car);
                 break;
             case 5:
-                jfType = "免费车";
+                jfType = getString(R.string.free_car);
                 break;
             case 6:
-                jfType = "车位池车";
+                jfType = getString(R.string.parking_pool_car);
                 break;
             case 7:
-                jfType = "时租车";
+                jfType = getString(R.string.car_rental);
                 break;
         }
     }

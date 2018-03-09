@@ -26,7 +26,7 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:gravity="center"
-            android:text="在场车辆查询"
+            android:text="@string/the_presence_of_vehicles_inquiries"
             android:layout_marginRight="40dp"
             android:textColor="#fff"
             android:textSize="20sp" />
@@ -48,7 +48,7 @@
                 android:layout_marginLeft="10dp"
                 android:layout_weight="1"
                 android:gravity="center|left"
-                android:text="请输入车牌号:"
+                android:text="@string/enter_the_license_plate_number"
                 android:textSize="16sp" />
 
             <ImageView
@@ -147,7 +147,7 @@
             android:layout_height="30dp"
             android:gravity="center|right"
             android:layout_marginRight="5dp"
-            android:text="请输入至少连续三位查询车辆"/>
+            android:text="@string/three_consecutive_inquiries_vehicles"/>
     </LinearLayout>
 
     <View
@@ -167,7 +167,7 @@
             android:layout_height="match_parent"
             android:layout_marginLeft="10dp"
             android:gravity="center"
-            android:text="是否开启输入新能源车牌"
+            android:text="@string/is_input_new_energy_license_plate"
             android:textColor="@color/fontcolor"
             android:textSize="16sp" />
 
@@ -218,7 +218,7 @@
             android:layout_marginLeft="15dp"
             android:layout_marginRight="15dp"
             android:background="@drawable/ripple_button_style"
-            android:text="查  询"
+            android:text="@string/inquire_btn"
             android:textColor="#fff"
             android:textSize="20sp" />
     </LinearLayout>

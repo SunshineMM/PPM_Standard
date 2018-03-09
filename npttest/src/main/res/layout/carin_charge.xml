@@ -67,7 +67,7 @@
                         android:layout_height="0dp"
                         android:layout_weight="1"
                         android:gravity="center"
-                        android:text="应收金额(元)"
+                        android:text="@string/amount_receivable_yuan"
                         android:textColor="@color/fontcolor"
                         android:textSize="17sp" />
 
@@ -90,7 +90,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="0dp"
-                        android:text="实收金额(元)"
+                        android:text="@string/the_amount_received_yuan"
                         android:textSize="17sp"
                         android:textColor="@color/fontcolor"
                         android:gravity="center"
@@ -118,7 +118,7 @@
                         android:layout_height="0dp"
                         android:layout_weight="1"
                         android:gravity="center"
-                        android:text="优惠金额(元)"
+                        android:text="@string/discount_amount_yuan"
                         android:textColor="@color/fontcolor"
                         android:textSize="17sp" />
 
@@ -153,7 +153,7 @@
                     android:layout_height="match_parent"
                     android:layout_marginLeft="10dp"
                     android:gravity="center"
-                    android:text="车牌号码"
+                    android:text="@string/license_plate_number"
                     android:textColor="@color/fontcolor"
                     android:textSize="17sp" />
 
@@ -191,7 +191,7 @@
                     android:layout_height="match_parent"
                     android:layout_marginLeft="10dp"
                     android:gravity="center"
-                    android:text="车辆类型"
+                    android:text="@string/vehicle_type"
                     android:textColor="@color/fontcolor"
                     android:textSize="17sp" />
 
@@ -223,7 +223,7 @@
                     android:layout_height="match_parent"
                     android:layout_marginLeft="10dp"
                     android:gravity="center"
-                    android:text="凭证类型"
+                    android:text="@string/billing_type"
                     android:textColor="@color/fontcolor"
                     android:textSize="17sp" />
 
@@ -254,7 +254,7 @@
                     android:layout_height="match_parent"
                     android:layout_marginLeft="10dp"
                     android:gravity="center"
-                    android:text="收费原由"
+                    android:text="@string/charges_reason"
                     android:textColor="@color/fontcolor"
                     android:textSize="17sp" />
 
@@ -300,7 +300,7 @@
                         android:layout_height="match_parent"
                         android:layout_marginLeft="10dp"
                         android:gravity="center"
-                        android:text="入场时间"
+                        android:text="@string/admission_time"
                         android:textColor="@color/fontcolor"
                         android:textSize="17sp" />
 
@@ -340,7 +340,7 @@
             android:layout_width="80dp"
             android:layout_height="80dp"
             android:background="@drawable/ripple_button_error_style"
-            android:text="取消入场"
+            android:text="@string/cancel_in"
             android:textColor="#fff"
             android:textSize="16sp" />
 
@@ -351,7 +351,7 @@
             android:layout_marginLeft="15dp"
             android:layout_marginRight="15dp"
             android:background="@drawable/ripple_button_charge_style"
-            android:text="确定收费"
+            android:text="@string/determine_charges"
             android:textColor="#fff"
             android:textSize="16sp" />
 
@@ -360,7 +360,7 @@
             android:layout_width="80dp"
             android:layout_height="80dp"
             android:background="@drawable/ripple_button_free_style"
-            android:text="免费入场"
+            android:text="@string/free_admission"
             android:textColor="#fff"
             android:textSize="16sp" />
     </LinearLayout>

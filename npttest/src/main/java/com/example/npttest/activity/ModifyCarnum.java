@@ -123,17 +123,18 @@ public class ModifyCarnum extends NoStatusbarActivity {
                 modifyInputbox4, modifyInputbox5, modifyInputbox6,
                 modifyInputbox7, modifyInputbox8};
         keyboardUtil = new LicenseKeyboardUtil_cario(ModifyCarnum.this, edits);
-        cartypes.add("摩托车");
-        cartypes.add("小型车");
-        cartypes.add("中型车");
-        cartypes.add("大型车");
+        cartypes.add(getString(R.string.motorcycle));
+        cartypes.add(getString(R.string.compacts));
+        cartypes.add(getString(R.string.Intermediate));
+        cartypes.add(getString(R.string.large_vehicle));
 
-        cardtypes.add("贵宾");
-        cardtypes.add("临时");
-        cardtypes.add("月票");
-        cardtypes.add("储值");
-        cardtypes.add("免费");
-        cardtypes.add("时租");
+        cardtypes.add(getString(R.string.VIP_car));
+        cardtypes.add(getString(R.string.temporary_car));
+        cardtypes.add(getString(R.string.monthly_ticket_car));
+        cardtypes.add(getString(R.string.reserve_car));
+        cardtypes.add(getString(R.string.free_car));
+        cardtypes.add(getString(R.string.parking_pool_car));
+        cardtypes.add(getString(R.string.car_rental));
         initCardpickview();
         initpickview();
         jfjudge();
@@ -145,46 +146,46 @@ public class ModifyCarnum extends NoStatusbarActivity {
     private void jfjudge() {
         switch (intcartype) {
             case 1:
-                cartype = "摩托车";
-                break;
+                 cartype = getString(R.string.motorcycle);
+                 break;
             case 2:
-                cartype = "小型车";
+                cartype = getString(R.string.compacts);
                 break;
             case 3:
-                cartype = "中型车";
+                cartype = getString(R.string.Intermediate);
                 break;
             case 4:
-                cartype = "大型车";
+                cartype = getString(R.string.large_vehicle);
                 break;
             case 5:
-                cartype = "运输车";
+                cartype = getString(R.string.transporter);
                 break;
             case 6:
-                cartype = "备用车";
+                cartype = getString(R.string.spare_car);
                 break;
         }
 
         switch (intpztype) {
             case 1:
-                pztype = "贵宾车";
+                pztype = getString(R.string.VIP_car);
                 break;
             case 2:
-                pztype = "月票车";
+                pztype = getString(R.string.monthly_ticket_car);
                 break;
             case 3:
-                pztype = "储值车";
+                pztype = getString(R.string.reserve_car);
                 break;
             case 4:
-                pztype = "临时车";
+                pztype = getString(R.string.temporary_car);
                 break;
             case 5:
-                pztype = "免费车";
+                pztype = getString(R.string.free_car);
                 break;
             case 6:
-                pztype = "车位池车";
+                pztype = getString(R.string.parking_pool_car);
                 break;
             case 7:
-                pztype = "时租车";
+                pztype = getString(R.string.car_rental);
                 break;
         }
     }
@@ -227,7 +228,7 @@ public class ModifyCarnum extends NoStatusbarActivity {
                         TextUtils.isEmpty(modifyInputbox5.getText().toString()) ||
                         TextUtils.isEmpty(modifyInputbox6.getText().toString()) ||
                         TextUtils.isEmpty(modifyInputbox7.getText().toString())) {
-                    Toasty.error(this, "请输入正确的车牌号", Toast.LENGTH_SHORT, true).show();
+                    Toasty.error(this,getString(R.string.enter_correct_license_plate_number), Toast.LENGTH_SHORT, true).show();
                 } else {
                     updatecarnum(App.serverurl);
                 }
@@ -302,7 +303,7 @@ public class ModifyCarnum extends NoStatusbarActivity {
                 .build().execute(new StringCallback() {
             @Override
             public void onError(Call call, Exception e, int id) {
-                Toast.makeText(ModifyCarnum.this, "修改失败，请检查网络", Toast.LENGTH_SHORT).show();
+                Toast.makeText(ModifyCarnum.this,getString(R.string.please_check_the_network), Toast.LENGTH_SHORT).show();
                 finish();
             }
 
@@ -316,13 +317,13 @@ public class ModifyCarnum extends NoStatusbarActivity {
                     int mrs=datajsonobject.getInt("mrs");
                     if (mrs==1){
                         mdcarnum=carnumedit;
-                        Toasty.success(ModifyCarnum.this,"修改成功",Toast.LENGTH_SHORT,true).show();
+                        Toasty.success(ModifyCarnum.this,getString(R.string.successfully_modified),Toast.LENGTH_SHORT,true).show();
                         App.pvRefresh=false;
                         App.mdRefresh=true;
                         App.zcRefresh=true;
                         finish();
                     }else {
-                        Toasty.error(ModifyCarnum.this,"修改失败",Toast.LENGTH_SHORT,true).show();
+                        Toasty.error(ModifyCarnum.this,getString(R.string.fail_to_edit),Toast.LENGTH_SHORT,true).show();
                         App.pvRefresh=false;
                         finish();
                     }

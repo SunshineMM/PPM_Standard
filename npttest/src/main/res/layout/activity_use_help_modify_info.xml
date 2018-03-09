@@ -23,7 +23,7 @@
             android:layout_height="50dp"
             android:layout_marginRight="40dp"
             android:gravity="center"
-            android:text="关于修改信息"
+            android:text="@string/modification_of_parking_spaces_and_license_plates"
             android:textColor="#FFFFFF"
             android:textSize="20sp" />
     </LinearLayout>
@@ -38,7 +38,7 @@
             android:textColor="@color/fontcolor"
             android:textSize="14sp"
             android:padding="10dp"
-            android:text="如有发现空车位信息不正确的时候，需要修改空车位信息，点击主页剩余车位进入修改空车位，如入场时车牌号码输入不正确需要修改车牌号码，进入在场车辆页面点击修改进入修改车牌号页面。输入修改后的车牌号码，直接返回就可以自动修改完成了。"/>
+            android:text="@string/modification_of_parking_spaces_and_license_plates_info"/>
     </ScrollView>
 
     <LinearLayout

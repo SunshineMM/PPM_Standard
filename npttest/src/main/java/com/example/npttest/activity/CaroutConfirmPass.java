@@ -86,7 +86,7 @@ public class CaroutConfirmPass extends NoStatusbarActivity {
         sid = intent.getStringExtra("sid");
         cdtp = intent.getIntExtra("cdtp", 0);
         pvrefresh = intent.getBooleanExtra("pvrefresh", false);
-        pktime = TimeDifferTools.getDistanceTime(itime * 1000, ctime * 1000);
+        pktime =new TimeDifferTools(this).getDistanceTime(itime * 1000, ctime * 1000);
         judge();
         //coConfPassPtime.setText(pktime);
         coConfPassCarnum.setText(carnum);
@@ -115,22 +115,22 @@ public class CaroutConfirmPass extends NoStatusbarActivity {
     private void judge() {
         switch (ctype) {
             case 1:
-                cartype = "摩托车";
+                cartype = getString(R.string.motorcycle);
                 break;
             case 2:
-                cartype = "小型车";
+                cartype = getString(R.string.compacts);
                 break;
             case 3:
-                cartype = "中型车";
+                cartype = getString(R.string.Intermediate);
                 break;
             case 4:
-                cartype = "大型车";
+                cartype = getString(R.string.large_vehicle);
                 break;
             case 5:
-                cartype = "运输车";
+                cartype = getString(R.string.transporter);
                 break;
             case 6:
-                cartype = "备用车";
+                cartype = getString(R.string.spare_car);
                 break;
         }
     }
@@ -161,7 +161,6 @@ public class CaroutConfirmPass extends NoStatusbarActivity {
 
             @Override
             public void onResponse(String response, int id) {
-                Log.e("TAG", "成功");
                 Log.e("TAG", response);
                 dialog1.dismiss();
                 try {
@@ -282,7 +281,6 @@ public class CaroutConfirmPass extends NoStatusbarActivity {
 
             @Override
             public void onResponse(String response, int id) {
-                Log.e("TAG", "成功");
                 Log.e("TAG", response);
                 dialog.dismiss();
                 try {

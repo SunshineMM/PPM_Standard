@@ -23,7 +23,7 @@
             android:layout_height="50dp"
             android:layout_marginRight="40dp"
             android:gravity="center"
-            android:text="关于车辆入场"
+            android:text="@string/about_vehicle_admission"
             android:textColor="#FFFFFF"
             android:textSize="20sp" />
     </LinearLayout>
@@ -38,7 +38,7 @@
             android:textColor="@color/fontcolor"
             android:textSize="14sp"
             android:padding="10dp"
-            android:text="软件主页有三个按钮，入场、出场和手动输入。车辆入场有两种方式，第一种是识别车牌进行入场操作，点击圆形入场按钮进入相机进行识别车牌执行入场进入入场界面，此时需要选择车辆类型（摩托车，小型车，中型车，大型车），默认选择是小型车，点击确定入场成功。第二种是手动输入车牌号码入场，同样选择车辆类型，点击入场入场成功。如还需添加图片，可点击上方相机圆形按钮，进行拍照，或者不想输入车牌时也可进行车牌识别。\n\n【注意】如出现入场失败（禁止通行），可能操作太过频繁重复入场，请稍后再试。入场有图片时需要上传图片，非WiFi网络的时候会提示是否上传照片，点击取消则不上传图片，确定继续上传图片。"/>
+            android:text="@string/use_help_carin_info"/>
     </ScrollView>
 
     <LinearLayout

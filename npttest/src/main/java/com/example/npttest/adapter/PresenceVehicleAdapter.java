@@ -28,52 +28,52 @@ public class PresenceVehicleAdapter extends BaseQuickAdapter<Prese,BaseViewHolde
         long itime=item.getItime();
             switch (item.getCdtp()){
                 case 1:
-                    pztype="贵宾车";
+                    pztype =  mContext.getString(R.string.VIP_car);
                     break;
                 case 2:
-                    pztype="月票车";
+                    pztype =  mContext.getString(R.string.monthly_ticket_car);
                     break;
                 case 3:
-                    pztype="储值车";
+                    pztype =  mContext.getString(R.string.reserve_car);
                     break;
                 case 4:
-                    pztype="临时车";
+                    pztype =  mContext.getString(R.string.temporary_car);
                     break;
                 case 5:
-                    pztype="免费车";
+                    pztype =  mContext.getString(R.string.free_car);
                     break;
                 case 6:
-                    pztype="车位池车";
+                    pztype =  mContext.getString(R.string.parking_pool_car);
                     break;
                 case 7:
-                    pztype="时租车";
+                    pztype =  mContext.getString(R.string.car_rental);
                     break;
             }
 
         switch (item.getCtype()){
             case 1:
-                cartype="摩托车";
+                cartype = mContext.getString(R.string.motorcycle);
                 break;
             case 2:
-                cartype="小型车";
+                cartype = mContext.getString(R.string.compacts);
                 break;
             case 3:
-                cartype="中型车";
+                cartype = mContext.getString(R.string.Intermediate);
                 break;
             case 4:
-                cartype="大型车";
+                cartype = mContext.getString(R.string.large_vehicle);
                 break;
             case 5:
-                cartype="运输车";
+                cartype = mContext.getString(R.string.transporter);
                 break;
             case 6:
-                cartype="备用车";
+                cartype = mContext.getString(R.string.spare_car);
                 break;
         }
         helper.setText(R.id.prece_car_num,item.getPnum());
-        helper.setText(R.id.prece_carin_time,"入场时间："+ DateTools.getDate(itime*1000));
-        helper.setText(R.id.prece_car_type,"车辆类型："+cartype);
-        helper.setText(R.id.prece_card_type,"计费类型："+pztype);
+        helper.setText(R.id.prece_carin_time,mContext.getString(R.string.admission_time_)+ DateTools.getDate(itime*1000));
+        helper.setText(R.id.prece_car_type,mContext.getString(R.string.vehicle_type_)+cartype);
+        helper.setText(R.id.prece_card_type,mContext.getString(R.string.billing_type_)+pztype);
         // 加载网络图片
         Glide.with(mContext).load(item.getIurl())
                 .centerCrop()

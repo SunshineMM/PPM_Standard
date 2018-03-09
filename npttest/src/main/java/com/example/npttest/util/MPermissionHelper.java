@@ -12,6 +12,8 @@ import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 
+import com.example.npttest.R;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -146,17 +148,20 @@ public class MPermissionHelper {
     }
 
     public void showGoSettingPermissionsDialog(String showPermissionName) {
-        goSettingsDialog = new AlertDialog.Builder(mContext).setMessage("检测您已关闭" + showPermissionName + "权限。\n" +
-                "部分功能将无法正常使用！\n" +
-                "为了保证功能的正常使用，请点击设置->权限管理->打开所需权限！")
-                .setTitle("提示")
-                .setPositiveButton("设置", new DialogInterface.OnClickListener() {
+        goSettingsDialog = new AlertDialog.Builder(mContext).setMessage(mContext.getString(R.string.detect_that_you_are_closed) + showPermissionName + mContext.getString(R.string.permissions_) +
+                "\n" +
+                mContext.getString(R.string.some_features_will_not_work_properly) +
+                "\n" +
+                mContext.getString(R.string.click_on_settings)+"->"
+                +mContext.getString(R.string.authority_management)+"->"+mContext.getString(R.string.open_required_permissions))
+                .setTitle(mContext.getString(R.string.prompt))
+                .setPositiveButton(mContext.getString(R.string.set), new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         goPermissionSetting();
                     }
                 })
-                .setNegativeButton("取消", null)
+                .setNegativeButton(mContext.getString(R.string.cancel), null)
                 .create();
         goSettingsDialog.show();
     }
@@ -171,9 +176,9 @@ public class MPermissionHelper {
 
     private void showMessageOKCancel(DialogInterface.OnClickListener okListener) {
         setPermissionDialog = new AlertDialog.Builder(mContext)
-                .setMessage("检测到您有权限未设置，是否确认设置权限？")
-                .setPositiveButton("确定", okListener)
-                .setNegativeButton("取消", null)
+                .setMessage(mContext.getString(R.string.whether_to_confirm_setting_authority))
+                .setPositiveButton(mContext.getString(R.string.submit), okListener)
+                .setNegativeButton(mContext.getString(R.string.cancel), null)
                 .create()
         ;
         setPermissionDialog.show();

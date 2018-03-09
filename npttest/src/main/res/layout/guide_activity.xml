@@ -10,7 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:gravity="center"
-        android:text="设备登记"
+        android:text="@string/equipment_registration"
         android:textColor="#FFFFFF"
         android:textSize="20sp" />
 
@@ -19,7 +19,7 @@
         android:layout_height="30dp"
         android:gravity="center|left"
         android:paddingLeft="10dp"
-        android:text="此二维码用于设备登记"
+        android:text="@string/QR_code_is_used_for_device_registration"
         android:textColor="#FFFFFF"
         android:textSize="16sp" />
 
@@ -44,7 +44,7 @@
         android:layout_height="30dp"
         android:gravity="center|left"
         android:paddingLeft="10dp"
-        android:text="请输入授权码对相机授权"
+        android:text="@string/please_enter_the_authorization_code"
         android:textColor="#FFFFFF"
         android:textSize="16sp" />
 
@@ -63,7 +63,7 @@
             android:layout_marginRight="20dp"
             android:layout_weight="1"
             android:background="#20FFFFFF"
-            android:hint="请输入授权码"
+            android:hint="@string/enter_the_authorization_code"
             android:inputType="textVisiblePassword"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
@@ -86,7 +86,7 @@
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:background="@drawable/ripple_button_style"
-        android:text="完  成"
+        android:text="@string/end"
         android:textColor="#fff"
         android:textSize="20sp" />
 </LinearLayout>

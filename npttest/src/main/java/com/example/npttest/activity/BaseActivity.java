@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.Toast;
 
+import com.example.npttest.R;
 import com.example.npttest.manager.ActivityManager;
 
 import es.dmoral.toasty.Toasty;
@@ -107,7 +108,7 @@ public class BaseActivity extends FragmentActivity {
         if (keyCode==KeyEvent.KEYCODE_BACK&&event.getAction()==KeyEvent.ACTION_DOWN){
             long secondTime=System.currentTimeMillis();//第二次按下的时间
             if (secondTime-firsttime>2000){
-                Toasty.info(BaseActivity.this, "再按一次退出", Toast.LENGTH_SHORT, true).show();
+                Toasty.info(BaseActivity.this, getString(R.string.press_again_to_exit), Toast.LENGTH_SHORT, true).show();
                 firsttime=System.currentTimeMillis();//记录当前按下的时间
             }else {
                 //finish();

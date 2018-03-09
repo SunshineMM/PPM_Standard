@@ -110,7 +110,7 @@ public class CaroutSuccessful extends NoStatusbarActivity implements CompoundBut
         caroutprint=intent.getBooleanExtra("caroutprint",false);
         getpaytype();
         Log.e("TAG", pvrefresh + "");
-        String pktime = TimeDifferTools.getDistanceTime(itime * 1000, ctime * 1000);
+        String pktime =new TimeDifferTools(this).getDistanceTime(itime * 1000, ctime * 1000);
         judge();
         caroutSufulCarnum.setText(carnum);
         caroutSufulCartype.setText(cartype);
@@ -162,16 +162,16 @@ public class CaroutSuccessful extends NoStatusbarActivity implements CompoundBut
     private void getpaytype(){
         switch (paytype){
             case 1:
-                spaytype="现金";
+                spaytype=getString(R.string.cash);
                 break;
             case 2:
-                spaytype="微信";
+                spaytype=getString(R.string.WeChat);
                 break;
             case 3:
-                spaytype="支付宝";
+                spaytype=getString(R.string.Alipay);
                 break;
             case 4:
-                spaytype="无";
+                spaytype=getString(R.string.no);
                 break;
         }
     }
@@ -185,9 +185,9 @@ public class CaroutSuccessful extends NoStatusbarActivity implements CompoundBut
                     break;
                 case OVERHEAT:
                     AlertDialog.Builder overHeatDialog = new AlertDialog.Builder(CaroutSuccessful.this);
-                    overHeatDialog.setTitle("温馨提示");
-                    overHeatDialog.setMessage("打印过热");
-                    overHeatDialog.setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                    overHeatDialog.setTitle(getString(R.string.reminder));
+                    overHeatDialog.setMessage(R.string.print_too_hot);
+                    overHeatDialog.setPositiveButton(getString(R.string.submit), new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {
                             finish();
@@ -221,7 +221,7 @@ public class CaroutSuccessful extends NoStatusbarActivity implements CompoundBut
                     finish();
                     break;
                 default:
-                    Toast.makeText(CaroutSuccessful.this, "打印机异常！", Toast.LENGTH_LONG).show();
+                    Toast.makeText(CaroutSuccessful.this, getString(R.string.printer_is_abnormal) , Toast.LENGTH_LONG).show();
                     finish();
                     break;
             }
@@ -231,10 +231,10 @@ public class CaroutSuccessful extends NoStatusbarActivity implements CompoundBut
     //缺纸
     private void noPaperDlg() {
         AlertDialog.Builder dlg = new AlertDialog.Builder(CaroutSuccessful.this);
-        dlg.setTitle("打印缺纸");
-        dlg.setMessage("打印缺纸，请放入纸后入场打印");
+        dlg.setTitle(R.string.print_out_of_paper);
+        dlg.setMessage(R.string.enter_the_paper_admission_printing);
         dlg.setCancelable(false);
-        dlg.setPositiveButton("确定", new DialogInterface.OnClickListener() {
+        dlg.setPositiveButton(getString(R.string.submit), new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 ThermalPrinter.stop(CaroutSuccessful.this);
@@ -275,24 +275,39 @@ public class CaroutSuccessful extends NoStatusbarActivity implements CompoundBut
                 } else if (wordFont == 1) {
                     ThermalPrinter.setFontSize(1);
                 }*/
-                String str="\n          收费票据"
+                String str="\n          " +
+                        getString(R.string.billing_bills)
                         + "\n----------------------------"
-                        + "\n车牌号："+carnum
-                        + "\n订单号："+ Constant.sid
-                        + "\n日期："+ TimeUtils.getStrTime(String.valueOf(gettime()))
+                        + "\n" +
+                        getString(R.string.number_plate)+carnum
+                        + "\n" +
+                        getString(R.string.order_number)+ Constant.sid
+                        + "\n" +
+                        getString(R.string.date)+ TimeUtils.getStrTime(String.valueOf(gettime()))
                         + "\n----------------------------"
-                        + "\n凭证类型："+jfType
-                        + "\n入场时间："+DateTools.getDate(itime * 1000) + ""
-                        + "\n出场时间："+DateTools.getDate(ctime * 1000) + ""
-                        + "\n停车时间："+ Constant.pktime
-                        + "\n应收金额："+ Constant.snmon+"元"
-                        + "\n优惠金额："+ Constant.ssmon+"元"
-                        + "\n实收金额："+ Constant.srmon
-                        + "\n支付类型："+spaytype
-                        + "\n值班员："+ Constant.username
-                        + "\n地址："+ Constant.adds
+                        + "\n" +
+                        getString(R.string.billing_type_)+jfType
+                        + "\n" +
+                        getString(R.string.admission_time_)+DateTools.getDate(itime * 1000) + ""
+                        + "\n" +
+                        getString(R.string.playing_time_)+DateTools.getDate(ctime * 1000) + ""
+                        + "\n" +
+                        getString(R.string.parking_time_)+ Constant.pktime
+                        + "\n" +
+                        getString(R.string.amount_receivable_)+ Constant.snmon+"元"
+                        + "\n" +
+                        getString(R.string.discounted_price)+ Constant.ssmon+"元"
+                        + "\n" +
+                        getString(R.string.amount_received)+ Constant.srmon
+                        + "\n" +
+                        getString(R.string.payment_types)+spaytype
+                        + "\n" +
+                        getString(R.string.watchman)+ Constant.username
+                        + "\n" +
+                        getString(R.string.address) + Constant.adds
                         + "\n----------------------------"
-                        + "\n          欢迎您下次光临"
+                        + "\n          " +
+                        getString(R.string.welcome_to_the_next_visit)
                         ;
                 Bitmap bitmap = CreateCode(Constant.sid, BarcodeFormat.QR_CODE, 256, 256);
                 if(bitmap != null){
@@ -332,11 +347,11 @@ public class CaroutSuccessful extends NoStatusbarActivity implements CompoundBut
     public void onViewClicked() {
         if (booprint){
             if (printVersion==null){
-                Toasty.info(CaroutSuccessful.this,"打印失败，请检查打印机",Toast.LENGTH_SHORT,true).show();
+                Toasty.info(CaroutSuccessful.this,getString(R.string.check_the_printer),Toast.LENGTH_SHORT,true).show();
             }else if (!caroutprint){
-                Toasty.info(CaroutSuccessful.this,"打印失败，找不到该订单的收费纪录",Toast.LENGTH_SHORT,true).show();
+                Toasty.info(CaroutSuccessful.this,getString(R.string.not_find_the_order_charge_record),Toast.LENGTH_SHORT,true).show();
             }else {
-                progressDialog = ProgressDialog.show(CaroutSuccessful.this, "打印", "打印中，请稍后");
+                progressDialog = ProgressDialog.show(CaroutSuccessful.this, getString(R.string.print), getString(R.string.printing));
                 new contentPrintThread().start();
             }
         }else {
@@ -357,22 +372,22 @@ public class CaroutSuccessful extends NoStatusbarActivity implements CompoundBut
     private void judge() {
         switch (ctype) {
             case 1:
-                cartype = "摩托车";
+                cartype = getString(R.string.motorcycle);
                 break;
             case 2:
-                cartype = "小型车";
+                cartype = getString(R.string.compacts);
                 break;
             case 3:
-                cartype = "中型车";
+                cartype = getString(R.string.Intermediate);
                 break;
             case 4:
-                cartype = "大型车";
+                cartype = getString(R.string.large_vehicle);
                 break;
             case 5:
-                cartype = "运输车";
+                cartype = getString(R.string.transporter);
                 break;
             case 6:
-                cartype = "备用车";
+                cartype = getString(R.string.spare_car);
                 break;
         }
     }

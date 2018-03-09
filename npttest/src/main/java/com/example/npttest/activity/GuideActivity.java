@@ -154,7 +154,7 @@ public class GuideActivity extends BaseActivity implements MPermissionHelper.Per
     @OnClick(R.id.guide_btn)
     public void onViewClicked() {
         if (TextUtils.isEmpty(guideEt.getText().toString().trim())) {
-            Toast.makeText(this, "授权码不能为空", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, R.string.authorization_code_cannot_be_empty, Toast.LENGTH_SHORT).show();
         } else {
             activateSN();
         }
@@ -174,7 +174,7 @@ public class GuideActivity extends BaseActivity implements MPermissionHelper.Per
 
     @Override
     public void permissionRegisterError(String... permissions) {
-        permissionHelper.showGoSettingPermissionsDialog("定位");
+        permissionHelper.showGoSettingPermissionsDialog(getString(R.string.positioning));
     }
 
     protected void onDestroy() {
@@ -191,24 +191,24 @@ public class GuideActivity extends BaseActivity implements MPermissionHelper.Per
             SPUtils.put(GuideActivity.this, "frist", false);
             SPUtils.put(GuideActivity.this, "sn", false);
             //new AlertDialog.Builder(SpalshActivity.this).setMessage("授权成功!").show();
-            Toasty.success(this, "相机授权成功!", Toast.LENGTH_SHORT, true).show();
+            Toasty.success(this, getString(R.string.camera_authorized_successfully), Toast.LENGTH_SHORT, true).show();
             //Toast.makeText(this, "授权成功!", Toast.LENGTH_SHORT).show();
 
         } else if (code == 1795) {
             //new AlertDialog.Builder(SpalshActivity.this).setMessage("程序激活失败，激活的机器数量已达上限，授权码不能再更多的机器上使用").show();
-            Toast.makeText(this, "激活的机器数量已达上限，授权码不能再更多的机器上使用", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, R.string.the_number_of_activated_machines_has_reached_the_limit, Toast.LENGTH_SHORT).show();
         } else if (code == 1793) {
             //new AlertDialog.Builder(SpalshActivity.this).setMessage("授权码已过期").show();
-            Toast.makeText(this, "授权码已过期", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, R.string.authorization_code_has_expired, Toast.LENGTH_SHORT).show();
         } else if (code == 276) {
-            //new AlertDialog.Builder(SpalshActivity.this).setMessage("没有找到相应的本地授权许可数据文件").show();
-            Toast.makeText(this, "没有找到相应的本地授权许可数据文件", Toast.LENGTH_SHORT).show();
+           //Toast.makeText(this, "没有找到相应的本地授权许可数据文件", Toast.LENGTH_SHORT).show();
+            Log.e("TAG","请求授权码返回的code："+code);
         } else if (code == 284) {
             //new AlertDialog.Builder(SpalshActivity.this).setMessage("授权码输入错误").show();
             //Toast.makeText(this, "授权码输入错误", Toast.LENGTH_SHORT).show();
         } else {
             //new AlertDialog.Builder(SpalshActivity.this).setMessage("错误码：" + code).show();
-            Toast.makeText(this, "错误码：" + code, Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getString(R.string.error_code) + code, Toast.LENGTH_SHORT).show();
         }
         startActivity(new Intent(GuideActivity.this, SpalshActivity.class));
         finish();

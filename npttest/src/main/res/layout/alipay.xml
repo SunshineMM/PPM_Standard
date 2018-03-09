@@ -24,7 +24,7 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:gravity="center"
-            android:text="支付宝收钱"
+            android:text="@string/alipay_money"
             android:layout_marginRight="40dp"
             android:textColor="#fff"
             android:textSize="20sp" />
@@ -53,7 +53,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:gravity="center"
-                android:text="二维码收款"/>
+                android:text="@string/two_dimensional_code_receivables"/>
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
@@ -63,7 +63,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:text="支付宝扫一扫，向我付钱"
+                android:text="@string/alipay_sweep_pay_me"
                 android:textColor="@color/fontcolor"
                 android:gravity="center"/>
             <ImageView

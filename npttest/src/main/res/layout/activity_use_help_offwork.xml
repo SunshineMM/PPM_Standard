@@ -23,7 +23,7 @@
             android:layout_height="50dp"
             android:layout_marginRight="40dp"
             android:gravity="center"
-            android:text="关于用户下班"
+            android:text="@string/about_the_user_off_duty"
             android:textColor="#FFFFFF"
             android:textSize="20sp" />
     </LinearLayout>
@@ -38,7 +38,7 @@
             android:textColor="@color/fontcolor"
             android:textSize="14sp"
             android:padding="10dp"
-            android:text="之前我们提到用户登录上班，有两种方式账号密码登录，验证码登录，下班也是有两种方式，软件会自动记录登录方式，账号下班输入密码，验证码下班请求获取短信验证码下班。下班界面会显示上班时间，上班的收费总额。"/>
+            android:text="@string/about_the_user_off_duty_info"/>
     </ScrollView>
 
     <LinearLayout

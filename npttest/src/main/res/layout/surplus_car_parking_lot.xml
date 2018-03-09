@@ -23,7 +23,7 @@
             android:layout_height="50dp"
             android:layout_marginRight="40dp"
             android:gravity="center"
-            android:text="修改空车位"
+            android:text="@string/modify_empty_parking_spaces"
             android:textColor="#fff"
             android:textSize="20sp" />
     </LinearLayout>
@@ -46,7 +46,7 @@
             android:layout_marginLeft="10dp"
             android:gravity="center"
             android:inputType="number"
-            android:text="临时车空车位"
+            android:text="@string/temporary_empty_spaces"
             android:textColor="@color/fontcolor"
             android:textSize="17sp" />
 
@@ -86,7 +86,7 @@
             android:layout_height="match_parent"
             android:layout_marginLeft="10dp"
             android:gravity="center"
-            android:text="非临时车空车位"
+            android:text="@string/non_temporary_car_empty_spaces"
             android:textColor="@color/fontcolor"
             android:textSize="17sp" />
 
@@ -113,7 +113,7 @@
         android:layout_height="30dp"
         android:gravity="center|right"
         android:layout_marginRight="5dp"
-        android:text="请点击数量进行修改"/>
+        android:text="@string/click_the_number_to_modify"/>
 
     <View
         android:layout_width="match_parent"
@@ -127,7 +127,7 @@
         android:layout_marginRight="15dp"
         android:layout_marginBottom="15dp"
         android:background="@drawable/ripple_button_style"
-        android:text="完  成"
+        android:text="@string/complete"
         android:textColor="#fff"
         android:textSize="20sp" />
 </LinearLayout>

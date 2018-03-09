@@ -8,7 +8,7 @@
         android:background="#FFF"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="操作详情"
+        android:text="@string/operation_details"
         android:textSize="17sp"
         android:padding="10dp"
         android:textColor="@color/fontcolor"
@@ -35,7 +35,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:text="禁止通行"
+            android:text="@string/do_not_enter"
             android:textColor="#FC7066"
             android:textSize="20sp" />
 
@@ -75,7 +75,7 @@
                 android:textSize="16sp"
                 android:textColor="@color/fontcolor"
                 android:layout_height="wrap_content"
-                android:text="禁止原由："/>
+                android:text="@string/prohibited_reason_"/>
             <TextView
                 android:id="@+id/prohibit_yy"
                 android:layout_width="0dp"
@@ -100,7 +100,7 @@
         android:layout_height="50dp"
         android:layout_margin="15dp"
         android:background="@drawable/nptsubmit"
-        android:text="完  成"
+        android:text="@string/end"
         android:textColor="#FFF"
         android:textSize="20sp" />
 

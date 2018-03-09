@@ -22,7 +22,7 @@
             android:layout_weight="1"
             android:layout_height="50dp"
             android:gravity="center"
-            android:text="出场记录查询"
+            android:text="@string/appearance_record_query"
             android:textColor="#fff"
             android:textSize="20sp" />
         <ImageView

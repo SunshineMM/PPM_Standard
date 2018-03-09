@@ -97,7 +97,7 @@ public class SurplusCarParkingLot extends NoStatusbarActivity {
                 break;
             case R.id.scpl_btn:
                 if (TextUtils.isEmpty(scplTemporary.getText().toString().trim()) || TextUtils.isEmpty(scplNoTemporary.getText().toString().trim())) {
-                    Toasty.error(SurplusCarParkingLot.this, "请输入修改空车位数", Toast.LENGTH_SHORT, true).show();
+                    Toasty.error(SurplusCarParkingLot.this, getString(R.string.enter_the_number_of_empty_spaces_modified), Toast.LENGTH_SHORT, true).show();
                 } else {
                     if (App.serverurl != null) {
                         modifyEmpty(App.serverurl);
@@ -140,6 +140,7 @@ public class SurplusCarParkingLot extends NoStatusbarActivity {
                     JSONObject datajson = resultjson.getJSONObject("data");
                     int tlot = datajson.getInt("tlot");
                     int elot = datajson.getInt("elot");
+
                     if (reasonjson.equals("操作成功")) {
                         scplTemporary.setText(tlot + "");
                         scplNoTemporary.setText(elot + "");
@@ -196,7 +197,7 @@ public class SurplusCarParkingLot extends NoStatusbarActivity {
                         normalDialog.setNegativeButton("关闭", null);
                         // 显示
                         normalDialog.show();*/
-                        Toasty.success(SurplusCarParkingLot.this, "空车位修改成功", Toast.LENGTH_SHORT, true).show();
+                        Toasty.success(SurplusCarParkingLot.this, getString(R.string.empty_parking_spaces_modified_successfully), Toast.LENGTH_SHORT, true).show();
                         finish();
                     } else {
                         /*AlertDialog.Builder normalDialog = new AlertDialog.Builder(SurplusCarParkingLot.this);
@@ -206,7 +207,7 @@ public class SurplusCarParkingLot extends NoStatusbarActivity {
                         normalDialog.setNegativeButton("关闭", null);
                         // 显示
                         normalDialog.show();*/
-                        Toasty.error(SurplusCarParkingLot.this, "空车位修改失败", Toast.LENGTH_SHORT, true).show();
+                        Toasty.error(SurplusCarParkingLot.this, getString(R.string.empty_parking_space_modification_failed), Toast.LENGTH_SHORT, true).show();
                     }
 
                 } catch (JSONException e) {

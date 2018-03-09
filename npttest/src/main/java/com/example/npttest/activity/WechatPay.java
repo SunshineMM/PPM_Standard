@@ -62,7 +62,7 @@ public class WechatPay extends NoStatusbarActivity {
             getqr();
         }
         setwechatcontext(this);
-        wechatpayRmon.setText("本次支付金额："+ Constant.srmon);
+        wechatpayRmon.setText(getString(R.string.this_payment_amount)+ Constant.srmon);
     }
 
     public static void setwechatcontext(Context wechatcontext) {
@@ -103,7 +103,7 @@ public class WechatPay extends NoStatusbarActivity {
                 .build().execute(new StringCallback() {
             @Override
             public void onError(Call call, Exception e, int id) {
-                Toast.makeText(WechatPay.this, "获取支付二维码超时", Toast.LENGTH_SHORT).show();
+                Toast.makeText(WechatPay.this, getString(R.string.get_paid_QR_code_timeout), Toast.LENGTH_SHORT).show();
             }
 
             @Override

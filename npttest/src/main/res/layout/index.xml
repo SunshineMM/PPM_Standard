@@ -30,7 +30,7 @@
                 android:layout_weight="1"
                 android:layout_height="50dp"
                 android:gravity="center"
-                android:text="智慧停车管理系统"
+                android:text="@string/smart_parking_management_systefm"
                 android:textColor="#fff"
                 android:textSize="20sp" />
             <ImageView
@@ -91,7 +91,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="20dp"
                     android:textSize="12sp"
-                    android:text="首页"/>
+                    android:text="@string/home"/>
             </LinearLayout>
             <LinearLayout
                 android:id="@+id/index_record_lin"
@@ -111,7 +111,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="20dp"
                     android:textSize="12sp"
-                    android:text="记录"/>
+                    android:text="@string/recording"/>
             </LinearLayout>
             <LinearLayout
                 android:id="@+id/index_aboutme_lin"
@@ -131,7 +131,7 @@
                     android:id="@+id/aboutme_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="20dp"
-                    android:text="选项"
+                    android:text="@string/option"
                     android:textSize="12sp" />
             </LinearLayout>
         </LinearLayout>
@@ -175,7 +175,7 @@
                         android:gravity="center"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:text="智慧停车"
+                        android:text="@string/wisdom_parking"
                         android:textStyle="bold"
                         android:textSize="17sp"
                         android:textColor="#fff"/>
@@ -211,7 +211,7 @@
                     android:id="@+id/index_username"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="用户名"
+                    android:text="@string/username"
                     android:layout_marginLeft="10dp"
                     android:gravity="center|left"
                     android:textColor="#FFF"
@@ -225,7 +225,7 @@
                 android:textSize="14sp"
                 android:gravity="center|left"
                 android:layout_marginTop="12dp"
-                android:text="总车位：1000"/>
+                android:text="@string/total_parking"/>
             <TextView
                 android:id="@+id/index_pname"
                 android:layout_width="match_parent"
@@ -234,7 +234,7 @@
                 android:textSize="14sp"
                 android:gravity="center|left"
                 android:layout_marginTop="3dp"
-                android:text="车场：我的车场"/>
+                android:text="@string/parking_lot"/>
             <TextView
                 android:layout_marginBottom="10dp"
                 android:id="@+id/index_addr"
@@ -244,7 +244,7 @@
                 android:textSize="14sp"
                 android:gravity="center|left"
                 android:layout_marginTop="3dp"
-                android:text="地址信息：深圳市南山区高新技术开发区"/>
+                android:text="@string/address_information"/>
         </LinearLayout>
 
 
@@ -282,7 +282,7 @@
                 android:textColor="#48495f"
                 android:gravity="center|left"
                 android:layout_marginLeft="12dp"
-                android:text="清理缓存"/>
+                android:text="@string/clean_up_the_cache"/>
 
         </LinearLayout>
         <LinearLayout
@@ -304,7 +304,7 @@
                 android:gravity="center|left"
                 android:textColor="#48495f"
                 android:layout_marginLeft="12dp"
-                android:text="建议投诉"/>
+                android:text="@string/suggest_a_complaint"/>
 
         </LinearLayout>
         <LinearLayout
@@ -326,7 +326,7 @@
                 android:gravity="center|left"
                 android:textColor="#48495f"
                 android:layout_marginLeft="12dp"
-                android:text="检查更新"/>
+                android:text="@string/check_for_updates"/>
 
         </LinearLayout>
 
@@ -371,7 +371,7 @@
                 android:gravity="center|left"
                 android:textColor="#48495f"
                 android:layout_marginLeft="12dp"
-                android:text="使用帮助"/>
+                android:text="@string/using_help"/>
 
         </LinearLayout>
         <LinearLayout
@@ -393,7 +393,7 @@
                 android:gravity="center|left"
                 android:textColor="#48495f"
                 android:layout_marginLeft="12dp"
-                android:text="关于我们"/>
+                android:text="@string/about_us"/>
         </LinearLayout>
                 </LinearLayout>
             </ScrollView>
@@ -430,7 +430,7 @@
                     android:gravity="center"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:text="退出"
+                    android:text="@string/drop_out"
                     android:textColor="#48495f"
                     android:textSize="16sp" />
             </LinearLayout>
@@ -452,7 +452,7 @@
                     android:gravity="center"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:text="下班"
+                    android:text="@string/off_work"
                     android:textColor="#48495f"
                     android:textSize="16sp" />
             </LinearLayout>

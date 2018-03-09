@@ -199,9 +199,10 @@ public class Fragment1 extends Fragment implements OnBannerListener {
                     JSONObject rpjson = new JSONObject(response);
                     String reasonjson = rpjson.getString("reason");
                     JSONObject resultjson = rpjson.getJSONObject("result");
-                    JSONObject datajsonObject = resultjson.getJSONObject("data");
+                    int code=rpjson.getInt("code");
                     // Log.e("TAG", datajsonObject.toString());
-                    if (reasonjson.equals("操作成功")) {
+                    if (code==100) {
+                        JSONObject datajsonObject = resultjson.getJSONObject("data");
                         int elot=datajsonObject.getInt("elot");
                         int number=datajsonObject.getInt("number");
                         int tlot=datajsonObject.getInt("tlot");

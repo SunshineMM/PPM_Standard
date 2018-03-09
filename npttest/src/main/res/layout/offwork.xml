@@ -21,7 +21,7 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:gravity="center"
-            android:text="下班"
+            android:text="@string/off_work_big"
             android:layout_marginRight="40dp"
             android:textColor="#fff"
             android:textSize="20sp" />
@@ -62,7 +62,7 @@
                     android:id="@+id/textView3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="收费总额："
+                    android:text="@string/total_fees_"
                     android:textColor="@color/fontcolor"
                     android:textSize="17sp" />
 
@@ -95,7 +95,7 @@
                     android:layout_height="wrap_content"
                     android:textSize="17sp"
                     android:textColor="@color/fontcolor"
-                    android:text="上班时长："/>
+                    android:text="@string/long_hours_at_work_"/>
                 <TextView
                     android:id="@+id/offwork_worktime"
                     android:layout_width="wrap_content"
@@ -117,7 +117,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="10dp"
-        android:text="请输入密码："
+        android:text="@string/please_enter_the_password_"
         android:textColor="@color/fontcolor"
         android:textSize="17sp" />
 
@@ -145,7 +145,7 @@
             android:layout_weight="1"
             android:alpha="0.8"
             android:background="@null"
-            android:hint="密码"
+            android:hint="@string/password"
             android:layout_marginLeft="10dp"
             android:maxLength="16"
             android:password="true"
@@ -161,7 +161,7 @@
             android:layout_marginRight="20dp"
             android:background="@drawable/verificationshape2"
             android:gravity="center"
-            android:text="获取验证码"
+            android:text="@string/get_verification_code"
             android:visibility="gone"
             android:textSize="12sp" />
     </LinearLayout>
@@ -175,7 +175,7 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:layout_marginBottom="5dp"
-        android:text="确认下班前，请确认收费总额"/>
+        android:text="@string/confirm_the_total_amount_of_charges"/>
 
     <Button
         android:id="@+id/offwork_submit"
@@ -186,7 +186,7 @@
         android:layout_marginRight="20dp"
         android:alpha="0.9"
         android:background="@drawable/ripple_button_style"
-        android:text="确认下班"
+        android:text="@string/confirmed_off_duty"
         android:textColor="#fff"
         android:textSize="20sp" />
 </LinearLayout>

@@ -147,7 +147,7 @@ public class SpalshActivity extends NoStatusbarActivity implements OnProgressBar
     @OnClick(R.id.spalsh_refresh)
     public void onViewClicked() {
         spalshRefresh.setVisibility(View.INVISIBLE);
-        spalshTv.setText("正在连接服务器...");
+        spalshTv.setText(getString(R.string.connecting_to_server));
         startSplashPb(100);
     }
 
@@ -285,7 +285,7 @@ public class SpalshActivity extends NoStatusbarActivity implements OnProgressBar
                 Log.e("TAG", succ + "我是返回的值");
                 if (succ.intValue() == 0) {
                     // finish();
-                    spalshTv.setText("服务器连接异常");
+                    spalshTv.setText(R.string.server_connection_is_abnormal);
                     spalshRefresh.setVisibility(View.VISIBLE);
                     Log.e("TAG", "其他异常");
                 } else if (succ.intValue() == 501) {
@@ -311,21 +311,21 @@ public class SpalshActivity extends NoStatusbarActivity implements OnProgressBar
                     } catch (WriterException e) {
                         e.printStackTrace();
                     }//设备未注册，跳转到注册页面
-                    spalshTv.setText("设备未注册，请注册设备后重试");
+                    spalshTv.setText(R.string.device_is_not_registered);
                     spalshRefresh.setVisibility(View.VISIBLE);
                 } else if (succ.intValue() == -1) {
-                    spalshTv.setText("服务器连接失败");
+                    spalshTv.setText(R.string.server_connection_failed);
                     spalshRefresh.setVisibility(View.VISIBLE);
                 } else if (succ.intValue() == -2) {
-                    spalshTv.setText("获取配置失败");
+                    spalshTv.setText(R.string.failed_to_get_the_configuration);
                     spalshRefresh.setVisibility(View.VISIBLE);
                 } else if (succ.intValue() == -3) {
-                    spalshTv.setText("获取登录用户失败");
+                    spalshTv.setText(R.string.failed_to_get_login_user);
                     spalshRefresh.setVisibility(View.VISIBLE);
                 } else if (succ.intValue() == -4) {
                     startActivity(new Intent(SpalshActivity.this, LoginActivity.class));
                 } else {
-                    spalshTv.setText("服务器连接出错" + succ.intValue());
+                    spalshTv.setText(getString(R.string.server_connection_error) + succ.intValue());
                     spalshRefresh.setVisibility(View.VISIBLE);
                 }
             } else if (success instanceof String) {
@@ -348,7 +348,7 @@ public class SpalshActivity extends NoStatusbarActivity implements OnProgressBar
                         SPUtils.put(SpalshActivity.this, Constant.ID, uname);
                         SPUtils.put(SpalshActivity.this, Constant.PHONE, phone);
                         startActivity(new Intent(SpalshActivity.this, IndexActivity.class));
-                        Toasty.info(SpalshActivity.this, "欢迎回来", Toast.LENGTH_SHORT, true).show();
+                        Toasty.info(SpalshActivity.this, getString(R.string.welcome_back), Toast.LENGTH_SHORT, true).show();
                         finish();
                     } else {
                         // Toasty.error(SpalshActivity.this, "请检查用户名和密码", Toast.LENGTH_SHORT, true).show();
@@ -458,7 +458,8 @@ public class SpalshActivity extends NoStatusbarActivity implements OnProgressBar
                         try {
                             JSONObject osjson = new JSONObject(response);
                             String reasonjson = osjson.getString("reason");
-                            if (reasonjson.equals("操作成功")) {
+                            int code=osjson.getInt("code");
+                            if (code==100) {
                                 JSONObject resultjson = osjson.getJSONObject("result");
                                 String tourl = resultjson.getString("url");
                                 Log.e("TAG", tourl);
@@ -474,7 +475,7 @@ public class SpalshActivity extends NoStatusbarActivity implements OnProgressBar
                                 //spalsh_start();
                             } else {
                                 Log.e("TAG", "操作失败");
-                                Toasty.error(SpalshActivity.this, "请求服务器失败，您请求的服务器有误", Toast.LENGTH_SHORT, true).show();
+                                Toasty.error(SpalshActivity.this, getString(R.string.the_server_requested_failed), Toast.LENGTH_SHORT, true).show();
                             }
 
                         } catch (JSONException e) {
@@ -497,7 +498,8 @@ public class SpalshActivity extends NoStatusbarActivity implements OnProgressBar
 
             @Override
             public void onError(Call call, Exception e, int id) {
-                Toast.makeText(SpalshActivity.this, "请检查网络", Toast.LENGTH_SHORT).show();
+                Log.e("TAG", "获取oss网络错误");
+                //Toast.makeText(SpalshActivity.this,getString(R.string.please_check_the_network), Toast.LENGTH_SHORT).show();
             }
 
             @Override
@@ -564,7 +566,7 @@ public class SpalshActivity extends NoStatusbarActivity implements OnProgressBar
                 .build().execute(new StringCallback() {
             @Override
             public void onError(Call call, Exception e, int id) {
-                Toasty.error(SpalshActivity.this, "请检查网络", Toast.LENGTH_SHORT, true).show();
+                Toasty.error(SpalshActivity.this, getString(R.string.please_check_the_network), Toast.LENGTH_SHORT, true).show();
             }
 
             @Override
@@ -587,7 +589,7 @@ public class SpalshActivity extends NoStatusbarActivity implements OnProgressBar
                         SPUtils.put(SpalshActivity.this, Constant.ID, uname);
                         SPUtils.put(SpalshActivity.this, Constant.PHONE, phone);
                         startActivity(new Intent(SpalshActivity.this, IndexActivity.class));
-                        Toasty.info(SpalshActivity.this, "欢迎回来", Toast.LENGTH_SHORT, true).show();
+                        Toasty.info(SpalshActivity.this, getString(R.string.welcome_back), Toast.LENGTH_SHORT, true).show();
                         finish();
                     } else {
                         // Toasty.error(SpalshActivity.this, "请检查用户名和密码", Toast.LENGTH_SHORT, true).show();

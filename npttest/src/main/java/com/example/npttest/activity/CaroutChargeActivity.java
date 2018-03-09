@@ -155,7 +155,7 @@ public class CaroutChargeActivity extends NoStatusbarActivity {
         sid = intent.getStringExtra("sid");
         cdtp = intent.getIntExtra("cdtp", 0);
         pvrefresh = intent.getBooleanExtra("pvrefresh", false);
-        pktime = TimeDifferTools.getDistanceTime(itime * 1000, ctime * 1000);
+        pktime = new TimeDifferTools(this).getDistanceTime(itime * 1000, ctime * 1000);
         judge();
         caroutChargeCarnum.setText(carnum);
         caroutChargeCartype.setText(cartype);
@@ -179,7 +179,7 @@ public class CaroutChargeActivity extends NoStatusbarActivity {
         Constant.comfirmYy = comfirmYy;
         Constant.snmon = snmon;
         Constant.ssmon = ssmon;
-        Constant.srmon = srmon + "元";
+        Constant.srmon = srmon + getString(R.string.yuan);
         Constant.carnum = carnum;
         Constant.cdtp = cdtp;
         Constant.pvrefresh = pvrefresh;
@@ -226,9 +226,9 @@ public class CaroutChargeActivity extends NoStatusbarActivity {
                     break;
                 case OVERHEAT:
                     AlertDialog.Builder overHeatDialog = new AlertDialog.Builder(CaroutChargeActivity.this);
-                    overHeatDialog.setTitle("温馨提示");
-                    overHeatDialog.setMessage("打印过热");
-                    overHeatDialog.setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                    overHeatDialog.setTitle(getString(R.string.reminder));
+                    overHeatDialog.setMessage(R.string.print_too_hot);
+                    overHeatDialog.setPositiveButton(getString(R.string.submit), new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {
                             carout_start_voice();
@@ -272,7 +272,7 @@ public class CaroutChargeActivity extends NoStatusbarActivity {
                     }
                     break;
                 default:
-                    Toast.makeText(CaroutChargeActivity.this, "打印机异常！", Toast.LENGTH_LONG).show();
+                        Toast.makeText(CaroutChargeActivity.this, R.string.printer_is_abnormal, Toast.LENGTH_LONG).show();
                     carout_start_voice();
                     Intent zintent = new Intent(CaroutChargeActivity.this, CaroutSuccessful.class);
                     zintent.putExtra("carnum", carnum);
@@ -291,10 +291,10 @@ public class CaroutChargeActivity extends NoStatusbarActivity {
     //缺纸
     private void noPaperDlg() {
         AlertDialog.Builder dlg = new AlertDialog.Builder(CaroutChargeActivity.this);
-        dlg.setTitle("打印缺纸");
-        dlg.setMessage("打印缺纸，请放入纸后入场打印");
+        dlg.setTitle(R.string.print_out_of_paper);
+        dlg.setMessage(R.string.enter_the_paper_admission_printing);
         dlg.setCancelable(false);
-        dlg.setPositiveButton("确定", new DialogInterface.OnClickListener() {
+            dlg.setPositiveButton(getString(R.string.submit), new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 ThermalPrinter.stop(CaroutChargeActivity.this);
@@ -344,23 +344,37 @@ public class CaroutChargeActivity extends NoStatusbarActivity {
                 } else if (wordFont == 1) {
                     ThermalPrinter.setFontSize(1);
                 }*/
-                String str = "\n          收费票据"
+                String str = "\n          " +
+                        getString(R.string.billing_bills)
                         + "\n----------------------------"
-                        + "\n车牌号：" + carnum
-                        + "\n订单号：" + sid
-                        + "\n日期：" + TimeUtils.getStrTime(String.valueOf(gettime()))
+                        + "\n"
+                        +getString(R.string.number_plate) + carnum
+                        + "\n" +
+                        getString(R.string.order_number) + sid
+                        + "\n" +
+                        getString(R.string.date) + TimeUtils.getStrTime(String.valueOf(gettime()))
                         + "\n----------------------------"
-                        + "\n凭证类型：" + jfType
-                        + "\n入场时间：" + DateTools.getDate(itime * 1000) + ""
-                        + "\n出场时间：" + DateTools.getDate(ctime * 1000) + ""
-                        + "\n停车时间：" + pktime
-                        + "\n应收金额：" + snmon + "元"
-                        + "\n优惠金额：" + ssmon + "元"
-                        + "\n实收金额：" + srmon + "元"
-                        + "\n值班员：" + Constant.username
-                        + "\n地址：" + Constant.adds
+                        + "\n" +
+                        getString(R.string.billing_type_) + jfType
+                        + "\n" +
+                        getString(R.string.admission_time_) + DateTools.getDate(itime * 1000) + ""
+                        + "\n" +
+                        getString(R.string.playing_time_) + DateTools.getDate(ctime * 1000) + ""
+                        + "\n" +
+                        getString(R.string.parking_time_) + pktime
+                        + "\n" +
+                        getString(R.string.amount_receivable_) + snmon + "元"
+                        + "\n" +
+                        getString(R.string.discounted_price) + ssmon + "元"
+                        + "\n" +
+                        getString(R.string.amount_received) + srmon + "元"
+                        + "\n" +
+                        getString(R.string.watchman) + Constant.username
+                        + "\n" +
+                        getString(R.string.address) + Constant.adds
                         + "\n----------------------------"
-                        + "\n          欢迎您下次光临";
+                        + "\n          " +
+                        getString(R.string.welcome_to_the_next_visit);
                 Bitmap bitmap = CreateCode(sid, BarcodeFormat.QR_CODE, 256, 256);
                 if (bitmap != null) {
                     ThermalPrinter.printLogo(bitmap);
@@ -517,22 +531,22 @@ public class CaroutChargeActivity extends NoStatusbarActivity {
     private void judge() {
         switch (ctype) {
             case 1:
-                cartype = "摩托车";
+                cartype = getString(R.string.motorcycle);
                 break;
             case 2:
-                cartype = "小型车";
+                cartype = getString(R.string.compacts);
                 break;
             case 3:
-                cartype = "中型车";
+                cartype = getString(R.string.Intermediate);
                 break;
             case 4:
-                cartype = "大型车";
+                cartype = getString(R.string.large_vehicle);
                 break;
             case 5:
-                cartype = "运输车";
+                cartype = getString(R.string.transporter);
                 break;
             case 6:
-                cartype = "备用车";
+                cartype = getString(R.string.spare_car);
                 break;
         }
     }
@@ -570,7 +584,6 @@ public class CaroutChargeActivity extends NoStatusbarActivity {
 
             @Override
             public void onResponse(String response, int id) {
-                Log.e("TAG", "成功");
                 Log.e("TAG", response);
                 dialog1.dismiss();
                 try {
@@ -600,7 +613,7 @@ public class CaroutChargeActivity extends NoStatusbarActivity {
                         finish();
 
                     } else {
-                        Toasty.error(CaroutChargeActivity.this, "订单无效需重新发起", Toast.LENGTH_SHORT, true).show();
+                        Toasty.error(CaroutChargeActivity.this, getString(R.string.invalid_orders_need_to_be_reinitiated), Toast.LENGTH_SHORT, true).show();
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -701,7 +714,6 @@ public class CaroutChargeActivity extends NoStatusbarActivity {
 
             @Override
             public void onResponse(String response, int id) {
-                Log.e("TAG", "成功");
                 Log.e("TAG", response);
                 dialog.dismiss();
                 try {

@@ -55,7 +55,7 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
                 android:layout_height="50dp"
-                android:hint="账号/用户名/ID"
+                android:hint="@string/account_number"
                 android:textSize="17sp"
                 android:alpha="0.8"
                 android:textColorHint="#ffffff"
@@ -104,7 +104,7 @@
                 android:layout_weight="1"
                 android:alpha="0.8"
                 android:background="@null"
-                android:hint="密码"
+                android:hint="@string/password"
                 android:maxLength="16"
                 android:password="true"
                 android:singleLine="true"
@@ -145,13 +145,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="#ffffff"
-            android:text="使用"/>
+            android:text="@string/use"/>
         <TextView
             android:id="@+id/login_tv_verification"
             android:textColor="@color/colorPrimaryDark"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="验证码登录"/>
+            android:text="@string/verification_code_login"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -167,7 +167,7 @@
         android:layout_marginRight="20dp"
         android:layout_marginTop="20dp"
         android:background="@drawable/ripple_button_style"
-        android:text="登 录"
+        android:text="@string/log_in"
         android:textColor="#fff"
         android:textSize="20sp" />
     <LinearLayout
@@ -184,19 +184,19 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="#ffffff"
-            android:text="还没有账号？快试试"/>
+            android:text="@string/no_account_yet"/>
         <TextView
             android:id="@+id/login_tv_domelogin"
             android:textColor="@color/colorPrimaryDark"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="演示登录"/>
+            android:text="@string/demo_login"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="#ffffff"
             android:layout_marginRight="20dp"
-            android:text="吧"/>
+            android:text="@string/ba"/>
     </LinearLayout>
     <View
         android:layout_width="match_parent"

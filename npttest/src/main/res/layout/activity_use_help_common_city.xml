@@ -23,7 +23,7 @@
             android:layout_height="50dp"
             android:layout_marginRight="40dp"
             android:gravity="center"
-            android:text="关于默认城市"
+            android:text="@string/about_the_default_city"
             android:textColor="#FFFFFF"
             android:textSize="20sp" />
     </LinearLayout>
@@ -38,7 +38,7 @@
             android:textColor="@color/fontcolor"
             android:textSize="14sp"
             android:padding="10dp"
-            android:text="默认城市设置是为了方便用户输入车牌号码的时候方便一点，可选择常用的城市车牌号码，提高用户输入车牌号码的速度，更快捷，默认城市的设置在主页选项的页面，进入默认城市设置界面，可以开启和关闭默认城市的选择，开启后，默认选择的是“京A”点击弹出城市选择器，选择需要的城市。便可以在输出车牌的时候看见选择的默认城市了。"/>
+            android:text="@string/about_the_default_city_info"/>
     </ScrollView>
 
     <LinearLayout
