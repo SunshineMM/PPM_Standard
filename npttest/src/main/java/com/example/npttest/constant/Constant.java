@@ -67,6 +67,7 @@ public class Constant {
     public static String testusername="testuser";
     public static String testuserpwd="123456";
     public static String domeUrl;
+    public static String LANGUAGE="language";
     public static String nocompressPath= Environment.getExternalStorageDirectory().toString() + "/DCIM/PlatePic/";//没压缩图片路径
     public static String compressPath=Environment.getExternalStorageDirectory() + "/ppm/";//压缩后图片路径
 

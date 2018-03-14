@@ -125,7 +125,6 @@ public class SpalshActivity extends NoStatusbarActivity implements OnProgressBar
         bindAccount();
         ActivityManager.getInstance().addActivity(this);
         startSplashPb(1000);
-        startService(new Intent(SpalshActivity.this, Heartbeat.class));
     }
 
     private void startSplashPb(int delay) {
@@ -329,6 +328,7 @@ public class SpalshActivity extends NoStatusbarActivity implements OnProgressBar
                     spalshRefresh.setVisibility(View.VISIBLE);
                 }
             } else if (success instanceof String) {
+                startService(new Intent(SpalshActivity.this, Heartbeat.class));
                 String sussStr = (String) success;
                 JSONObject loginreJsonObject = null;
                 try {
